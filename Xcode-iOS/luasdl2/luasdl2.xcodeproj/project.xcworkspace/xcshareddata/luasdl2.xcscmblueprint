@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "447AD3CCC28208570155B0DD879E8294185E28ED",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "447AD3CCC28208570155B0DD879E8294185E28ED" : 0,
+    "7A9428317F5BEFFBDAE2F9C8327C5CA0BD2BE2D8" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "88ACB6DB-55B9-41C3-B369-34B544367102",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "447AD3CCC28208570155B0DD879E8294185E28ED" : "Wukong\/",
+    "7A9428317F5BEFFBDAE2F9C8327C5CA0BD2BE2D8" : "Wukong\/third_party\/luasdl2\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "luasdl2",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Xcode-iOS\/luasdl2\/luasdl2.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:onesmash\/Wukong.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "447AD3CCC28208570155B0DD879E8294185E28ED"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Tangent128\/luasdl2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7A9428317F5BEFFBDAE2F9C8327C5CA0BD2BE2D8"
+    }
+  ]
+}
