@@ -11,5 +11,5 @@ package.loaded[modName] = Component
 local _ENV = Component
 
 function init(self)
-	self = super.init(self)
+	super.init(self)
 end

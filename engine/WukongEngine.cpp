@@ -18,6 +18,7 @@ extern "C" {
 }
 
 extern "C" int luaopen_SDL(lua_State*);
+extern "C" int luaopen_SDL_image(lua_State*);
 
 namespace WukongEngine {
 WukongEngine::WukongEngine(const std::string& name)
@@ -50,6 +51,7 @@ void WukongEngine::startInternal()
     Runtime::luax_preload(L_, Runtime::luaopen_runtime, "runtime");
     Runtime::luax_preload(L_, luaopen_lfs, "lfs");
     Runtime::luax_preload(L_, luaopen_SDL, "SDL");
+    Runtime::luax_preload(L_, luaopen_SDL_image, "SDL.image");
     
     lua_getglobal(L_, "require");
     lua_pushstring(L_, "SDL");

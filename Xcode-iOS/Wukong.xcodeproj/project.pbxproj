@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030C22321C8485510031AA7E /* stroke.png in Resources */ = {isa = PBXBuildFile; fileRef = 030C22311C8485510031AA7E /* stroke.png */; };
 		03210B5A1C7F492800AC515D /* WukongEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0321064B1C7F492700AC515D /* WukongEngine.cpp */; };
 		03210B5B1C7F492800AC515D /* Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0321064F1C7F492700AC515D /* Module.cpp */; };
 		03210B5C1C7F492800AC515D /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032106511C7F492700AC515D /* Object.cpp */; };
@@ -30,7 +31,6 @@
 		03210B711C7F492800AC515D /* Renderer.lua in Resources */ = {isa = PBXBuildFile; fileRef = 0321067B1C7F492700AC515D /* Renderer.lua */; };
 		03210B721C7F492800AC515D /* Service.lua in Resources */ = {isa = PBXBuildFile; fileRef = 0321067C1C7F492700AC515D /* Service.lua */; };
 		03210B731C7F492800AC515D /* Sprite.lua in Resources */ = {isa = PBXBuildFile; fileRef = 0321067D1C7F492700AC515D /* Sprite.lua */; };
-		03210B741C7F492800AC515D /* SpriteRenderer.lua in Resources */ = {isa = PBXBuildFile; fileRef = 0321067E1C7F492700AC515D /* SpriteRenderer.lua */; };
 		03210B761C7F492800AC515D /* IOBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032106821C7F492700AC515D /* IOBuffer.cpp */; };
 		03210B771C7F492800AC515D /* ConcurrentTaskQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032106861C7F492700AC515D /* ConcurrentTaskQueue.cpp */; };
 		03210B781C7F492800AC515D /* MessageLoop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032106881C7F492700AC515D /* MessageLoop.cpp */; };
@@ -53,12 +53,22 @@
 		0321FEBC1C7F482000AC515D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321FEBB1C7F482000AC515D /* CoreGraphics.framework */; };
 		0321FEBE1C7F482B00AC515D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321FEBD1C7F482B00AC515D /* CoreMotion.framework */; };
 		0321FEC01C7F483400AC515D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321FEBF1C7F483400AC515D /* AudioToolbox.framework */; };
+		03AB8E5E1C8331510054C593 /* libSDL2_image.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03AB8E5D1C83311E0054C593 /* libSDL2_image.a */; };
+		03AB8E6C1C8336E60054C593 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03AB8E6B1C8336E60054C593 /* ImageIO.framework */; };
+		03AB8E6F1C83372F0054C593 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03AB8E6E1C83372F0054C593 /* MobileCoreServices.framework */; };
 		03C0DD2F1C818E840009D98F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DD2E1C818E840009D98F /* Foundation.framework */; };
 		03C0DD311C818EAF0009D98F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DD301C818EAF0009D98F /* UIKit.framework */; };
 		03C0DF771C8208B20009D98F /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DF701C8208690009D98F /* liblua.a */; };
 		03C0DF781C8208B20009D98F /* libluasdl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DF761C8208730009D98F /* libluasdl2.a */; };
 		03C0DF791C8208B20009D98F /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DF6A1C82085D0009D98F /* libuv.a */; };
 		03C0DF821C820CF70009D98F /* stroke.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 03C0DF811C820CF70009D98F /* stroke.bmp */; };
+		03DE56961C8DB35B00B2FF61 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE56941C8DB35B00B2FF61 /* main.lua */; };
+		03DE56971C8DB35B00B2FF61 /* ShipBehaviour.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE56951C8DB35B00B2FF61 /* ShipBehaviour.lua */; };
+		03DE569D1C8DB38A00B2FF61 /* Scene.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE56991C8DB38A00B2FF61 /* Scene.lua */; };
+		03DE569E1C8DB38A00B2FF61 /* WukongEngine.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */; };
+		03DE569F1C8DB38A00B2FF61 /* Texture.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569B1C8DB38A00B2FF61 /* Texture.lua */; };
+		03DE56A01C8DB38A00B2FF61 /* Transform.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569C1C8DB38A00B2FF61 /* Transform.lua */; };
+		03DE56A21C8DB48500B2FF61 /* shipAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = 03DE56A11C8DB48500B2FF61 /* shipAnimation.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +78,20 @@
 			proxyType = 2;
 			remoteGlobalIDString = FD6526630DE8FCCB002AD96B;
 			remoteInfo = libSDL;
+		};
+		03AB8E5C1C83311E0054C593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03AB8E571C83311E0054C593 /* SDL_image.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BE1FA74107AF4C45004B6283;
+			remoteInfo = libSDL_image;
+		};
+		03AB8E5F1C83315A0054C593 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03AB8E571C83311E0054C593 /* SDL_image.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BE1FA72F07AF4C45004B6283;
+			remoteInfo = libSDL_image;
 		};
 		03C0DDBF1C819A530009D98F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -121,6 +145,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		030C22311C8485510031AA7E /* stroke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stroke.png; path = ../../../../Desktop/stroke.png; sourceTree = "<group>"; };
 		0321064B1C7F492700AC515D /* WukongEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WukongEngine.cpp; sourceTree = "<group>"; };
 		0321064C1C7F492700AC515D /* WukongEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WukongEngine.h; sourceTree = "<group>"; };
 		0321064E1C7F492700AC515D /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -155,7 +180,6 @@
 		0321067B1C7F492700AC515D /* Renderer.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Renderer.lua; sourceTree = "<group>"; };
 		0321067C1C7F492700AC515D /* Service.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Service.lua; sourceTree = "<group>"; };
 		0321067D1C7F492700AC515D /* Sprite.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sprite.lua; sourceTree = "<group>"; };
-		0321067E1C7F492700AC515D /* SpriteRenderer.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SpriteRenderer.lua; sourceTree = "<group>"; };
 		032106821C7F492700AC515D /* IOBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IOBuffer.cpp; sourceTree = "<group>"; };
 		032106831C7F492700AC515D /* IOBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOBuffer.h; sourceTree = "<group>"; };
 		032106851C7F492700AC515D /* Closure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Closure.h; sourceTree = "<group>"; };
@@ -194,12 +218,22 @@
 		0321FEBB1C7F482000AC515D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0321FEBD1C7F482B00AC515D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		0321FEBF1C7F483400AC515D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		03AB8E571C83311E0054C593 /* SDL_image.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL_image.xcodeproj; path = "../third_party/SDL2_image-2.0.1/Xcode-iOS/SDL_image.xcodeproj"; sourceTree = "<group>"; };
+		03AB8E6B1C8336E60054C593 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		03AB8E6E1C83372F0054C593 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		03C0DD2E1C818E840009D98F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		03C0DD301C818EAF0009D98F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		03C0DF651C82085D0009D98F /* libuv.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libuv.xcodeproj; path = libuv/libuv.xcodeproj; sourceTree = "<group>"; };
 		03C0DF6B1C8208690009D98F /* lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = lua.xcodeproj; path = lua/lua.xcodeproj; sourceTree = "<group>"; };
 		03C0DF711C8208730009D98F /* luasdl2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = luasdl2.xcodeproj; path = luasdl2/luasdl2.xcodeproj; sourceTree = "<group>"; };
 		03C0DF811C820CF70009D98F /* stroke.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = stroke.bmp; path = ../../../../Desktop/stroke.bmp; sourceTree = "<group>"; };
+		03DE56941C8DB35B00B2FF61 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
+		03DE56951C8DB35B00B2FF61 /* ShipBehaviour.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ShipBehaviour.lua; sourceTree = "<group>"; };
+		03DE56991C8DB38A00B2FF61 /* Scene.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Scene.lua; sourceTree = "<group>"; };
+		03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WukongEngine.lua; sourceTree = "<group>"; };
+		03DE569B1C8DB38A00B2FF61 /* Texture.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Texture.lua; sourceTree = "<group>"; };
+		03DE569C1C8DB38A00B2FF61 /* Transform.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Transform.lua; sourceTree = "<group>"; };
+		03DE56A11C8DB48500B2FF61 /* shipAnimation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shipAnimation.png; path = ../../../Desktop/shipAnimation.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +241,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03AB8E6F1C83372F0054C593 /* MobileCoreServices.framework in Frameworks */,
+				03AB8E6C1C8336E60054C593 /* ImageIO.framework in Frameworks */,
+				03AB8E5E1C8331510054C593 /* libSDL2_image.a in Frameworks */,
 				03C0DF771C8208B20009D98F /* liblua.a in Frameworks */,
 				03C0DF781C8208B20009D98F /* libluasdl2.a in Frameworks */,
 				03C0DF791C8208B20009D98F /* libuv.a in Frameworks */,
@@ -334,6 +371,10 @@
 		032106741C7F492700AC515D /* WuKongEngine */ = {
 			isa = PBXGroup;
 			children = (
+				03DE56991C8DB38A00B2FF61 /* Scene.lua */,
+				03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */,
+				03DE569B1C8DB38A00B2FF61 /* Texture.lua */,
+				03DE569C1C8DB38A00B2FF61 /* Transform.lua */,
 				032106751C7F492700AC515D /* Behaviour.lua */,
 				032106761C7F492700AC515D /* Component.lua */,
 				032106771C7F492700AC515D /* Continuation.lua */,
@@ -343,7 +384,6 @@
 				0321067B1C7F492700AC515D /* Renderer.lua */,
 				0321067C1C7F492700AC515D /* Service.lua */,
 				0321067D1C7F492700AC515D /* Sprite.lua */,
-				0321067E1C7F492700AC515D /* SpriteRenderer.lua */,
 			);
 			path = WuKongEngine;
 			sourceTree = "<group>";
@@ -410,7 +450,8 @@
 		0321FE5D1C7F434D00AC515D = {
 			isa = PBXGroup;
 			children = (
-				03C0DD301C818EAF0009D98F /* UIKit.framework */,
+				03AB8E6E1C83372F0054C593 /* MobileCoreServices.framework */,
+				03AB8E6B1C8336E60054C593 /* ImageIO.framework */,
 				03C0DD2E1C818E840009D98F /* Foundation.framework */,
 				0321FEBF1C7F483400AC515D /* AudioToolbox.framework */,
 				0321FEBD1C7F482B00AC515D /* CoreMotion.framework */,
@@ -418,9 +459,11 @@
 				0321FEB91C7F481600AC515D /* GameController.framework */,
 				0321FEB71C7F480800AC515D /* OpenGLES.framework */,
 				0321FEB51C7F480000AC515D /* QuartzCore.framework */,
+				03C0DD301C818EAF0009D98F /* UIKit.framework */,
 				03C0DF711C8208730009D98F /* luasdl2.xcodeproj */,
 				03C0DF6B1C8208690009D98F /* lua.xcodeproj */,
 				03C0DF651C82085D0009D98F /* libuv.xcodeproj */,
+				03AB8E571C83311E0054C593 /* SDL_image.xcodeproj */,
 				0321FEAA1C7F47BD00AC515D /* SDL.xcodeproj */,
 				0321FE681C7F434D00AC515D /* Wukong */,
 				0321FE671C7F434D00AC515D /* Products */,
@@ -438,6 +481,7 @@
 		0321FE681C7F434D00AC515D /* Wukong */ = {
 			isa = PBXGroup;
 			children = (
+				03DE56931C8DB35B00B2FF61 /* top_gun */,
 				0321067F1C7F492700AC515D /* base */,
 				032106931C7F492700AC515D /* net */,
 				0321064A1C7F492700AC515D /* engine */,
@@ -451,6 +495,7 @@
 		0321FE691C7F434D00AC515D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				030C22311C8485510031AA7E /* stroke.png */,
 				03C0DF811C820CF70009D98F /* stroke.bmp */,
 				0321FEA81C7F479D00AC515D /* main.mm */,
 			);
@@ -461,6 +506,14 @@
 			isa = PBXGroup;
 			children = (
 				0321FEB01C7F47BD00AC515D /* libSDL2.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		03AB8E581C83311E0054C593 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03AB8E5D1C83311E0054C593 /* libSDL2_image.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -489,6 +542,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		03DE56931C8DB35B00B2FF61 /* top_gun */ = {
+			isa = PBXGroup;
+			children = (
+				03DE56A11C8DB48500B2FF61 /* shipAnimation.png */,
+				03DE56941C8DB35B00B2FF61 /* main.lua */,
+				03DE56951C8DB35B00B2FF61 /* ShipBehaviour.lua */,
+			);
+			name = top_gun;
+			path = ../../top_gun;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -503,6 +567,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				03AB8E601C83315A0054C593 /* PBXTargetDependency */,
 				03C0DF7B1C8208C10009D98F /* PBXTargetDependency */,
 				03C0DF7D1C8208C10009D98F /* PBXTargetDependency */,
 				03C0DF7F1C8208C10009D98F /* PBXTargetDependency */,
@@ -555,6 +620,10 @@
 					ProductGroup = 0321FEAB1C7F47BD00AC515D /* Products */;
 					ProjectRef = 0321FEAA1C7F47BD00AC515D /* SDL.xcodeproj */;
 				},
+				{
+					ProductGroup = 03AB8E581C83311E0054C593 /* Products */;
+					ProjectRef = 03AB8E571C83311E0054C593 /* SDL_image.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -569,6 +638,13 @@
 			fileType = archive.ar;
 			path = libSDL2.a;
 			remoteRef = 0321FEAF1C7F47BD00AC515D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		03AB8E5D1C83311E0054C593 /* libSDL2_image.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDL2_image.a;
+			remoteRef = 03AB8E5C1C83311E0054C593 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		03C0DF6A1C82085D0009D98F /* libuv.a */ = {
@@ -599,22 +675,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03DE569F1C8DB38A00B2FF61 /* Texture.lua in Resources */,
 				03210B6C1C7F492800AC515D /* Component.lua in Resources */,
 				03210B5D1C7F492800AC515D /* TestService.lua in Resources */,
 				03210B711C7F492800AC515D /* Renderer.lua in Resources */,
 				03210B721C7F492800AC515D /* Service.lua in Resources */,
+				03DE56A01C8DB38A00B2FF61 /* Transform.lua in Resources */,
+				03DE56971C8DB35B00B2FF61 /* ShipBehaviour.lua in Resources */,
 				03210B6D1C7F492800AC515D /* Continuation.lua in Resources */,
 				03210B6B1C7F492800AC515D /* Behaviour.lua in Resources */,
 				03210B6A1C7F492800AC515D /* Object.lua in Resources */,
 				03210B691C7F492800AC515D /* Class.lua in Resources */,
-				03210B741C7F492800AC515D /* SpriteRenderer.lua in Resources */,
 				0321FE761C7F434D00AC515D /* Assets.xcassets in Resources */,
 				03210B6E1C7F492800AC515D /* Coroutine.lua in Resources */,
 				03210B681C7F492800AC515D /* boot.lua in Resources */,
+				03DE569D1C8DB38A00B2FF61 /* Scene.lua in Resources */,
+				03DE569E1C8DB38A00B2FF61 /* WukongEngine.lua in Resources */,
+				030C22321C8485510031AA7E /* stroke.png in Resources */,
 				03210B6F1C7F492800AC515D /* Entity.lua in Resources */,
 				03210B731C7F492800AC515D /* Sprite.lua in Resources */,
 				03210B701C7F492800AC515D /* GameObject.lua in Resources */,
 				03C0DF821C820CF70009D98F /* stroke.bmp in Resources */,
+				03DE56A21C8DB48500B2FF61 /* shipAnimation.png in Resources */,
+				03DE56961C8DB35B00B2FF61 /* main.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +738,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		03AB8E601C83315A0054C593 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libSDL_image;
+			targetProxy = 03AB8E5F1C83315A0054C593 /* PBXContainerItemProxy */;
+		};
 		03C0DDC01C819A530009D98F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = libSDL;

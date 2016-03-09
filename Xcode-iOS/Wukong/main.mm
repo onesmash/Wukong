@@ -27,6 +27,9 @@ int main(int argc, char *argv[])
             exit(1);
         }
         
+        SDL_DisplayMode displayMode;
+        SDL_GetCurrentDisplayMode(0, &displayMode);
+        
         /* create main window and renderer */
         window = SDL_CreateWindow(NULL, 0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds),
                                   SDL_WINDOW_OPENGL |

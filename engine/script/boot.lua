@@ -13,6 +13,10 @@ package.path = package.path .. ';' .. runtime._scriptDirectory .. '/?.lua'
 local Coroutine = require('Coroutine')
 local Continuation = require('Continuation')
 local SDL = require('SDL')
+local Image = require('SDL.image')
+local WukongEngine = require('WukongEngine')
+
+Image.init({PNG = 1})
 
 local renderer = runtime._renderer
 --print(runtime['_scriptDirectory'])
@@ -21,6 +25,14 @@ local renderer = runtime._renderer
 for file in lfs.dir(runtime['_serviceDirectory']) do
 --file is the current file or directory name
 --print( "Found file: " .. file )
+end
+
+function runtime.printTable(t)
+	print('{')
+	for k, v in pairs(t) do
+		print(k .. ' ' .. v)
+	end
+	print('}')
 end
 
 function runtime.startCoroutine(f, ...)
@@ -46,7 +58,6 @@ end
 
 function runtime.waitForSeconds(seconds)
 	runtime.callCC(function(continuation)
-		print(seconds)
 		messageloop.postDelayTask(continuation, seconds)
 	end)
 end
@@ -87,6 +98,14 @@ local co1 = runtime.startCoroutine(function()
 	print('end co1')
 end)
 
+wukongEngine = WukongEngine()
+
+local main = loadfile(runtime._scriptDirectory .. '/main.lua')
+
+main()
+
+--[[
+
 function doPenddingWorks()
 	local penddingWorks = runtime.penddingWorks;
 	runtime.penddingWorks = {}
@@ -104,7 +123,7 @@ function render()
 end
 
 
-bmp = SDL.loadBMP('stroke.bmp')
+bmp = Image.load('stroke.bmp') --SDL.loadBMP('stroke.bmp')
 brush = renderer:createTextureFromSurface(bmp)
 brush:setBlendMode(SDL.blendMode.Add)
 brush:setColorMod({r = 255, g = 100, b = 100})
@@ -114,7 +133,7 @@ renderer:present()
 
 function drawLine(startx, starty, dx, dy)
 	local distance = math.sqrt(dx * dx + dy * dy)
-	print('distance: ', distance)
+	--print('distance: ', distance)
 	local iterations = distance / 5 + 1
 	local dxPrime = dx / iterations
 	local dyPrime = dy / iterations
@@ -122,14 +141,16 @@ function drawLine(startx, starty, dx, dy)
 	local x = startx - 32 / 2
 	local y = starty - 32 / 2
 	for i = 1, iterations, 1 do
-		dstRect.x = x
-		dstRect.y = y
+		dstRect.x = math.floor(x)
+		dstRect.y = math.floor(y)
 		x = x + dxPrime
 		y = y + dyPrime
-		--print('draw')
+		--print('draw: ', dstRect.x, ' ', dstRect.y)
 		renderer:copy(brush, nil, dstRect)
 	end
 end
+
+
 
 function update()
 	local now = time.now()
@@ -141,12 +162,6 @@ function update()
 			local state, x, y = SDL.getMouseState()
 			local _, dx, dy = SDL.getRelativeMouseState()
 			if state[SDL.mouseMask.Left] then
-				--dx = dx or 0
-				--dy = dy or 0
-				print(x)
-				print(y)
-				print(dx)
-				print(dy)
 				drawLine(x - dx, y - dy, dx, dy)
 				renderer:present()
 			end
@@ -167,6 +182,8 @@ function update()
 end
 
 update()
+
+]]--
 
 
 

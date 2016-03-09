@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03AB8E651C8331B10054C593 /* image.c in Sources */ = {isa = PBXBuildFile; fileRef = 03AB8E641C8331B10054C593 /* image.c */; };
 		03C0DF451C82065D0009D98F /* audio.c in Sources */ = {isa = PBXBuildFile; fileRef = 03C0DF031C82065D0009D98F /* audio.c */; };
 		03C0DF461C82065D0009D98F /* channel.c in Sources */ = {isa = PBXBuildFile; fileRef = 03C0DF051C82065D0009D98F /* channel.c */; };
 		03C0DF471C82065D0009D98F /* clipboard.c in Sources */ = {isa = PBXBuildFile; fileRef = 03C0DF071C82065D0009D98F /* clipboard.c */; };
@@ -52,6 +53,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		03AB8E621C8331B10054C593 /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		03AB8E641C8331B10054C593 /* image.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = image.c; sourceTree = "<group>"; };
 		03C0DEF61C82063B0009D98F /* libluasdl2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libluasdl2.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C0DF031C82065D0009D98F /* audio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = audio.c; sourceTree = "<group>"; };
 		03C0DF041C82065D0009D98F /* audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = audio.h; sourceTree = "<group>"; };
@@ -128,6 +131,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03AB8E611C8331B10054C593 /* sdl-image */ = {
+			isa = PBXGroup;
+			children = (
+				03AB8E621C8331B10054C593 /* CMakeLists.txt */,
+				03AB8E631C8331B10054C593 /* src */,
+			);
+			name = "sdl-image";
+			path = "../../../third_party/luasdl2/sdl-image";
+			sourceTree = "<group>";
+		};
+		03AB8E631C8331B10054C593 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				03AB8E641C8331B10054C593 /* image.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		03C0DEED1C82063B0009D98F = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +168,7 @@
 		03C0DEF81C82063B0009D98F /* luasdl2 */ = {
 			isa = PBXGroup;
 			children = (
+				03AB8E611C8331B10054C593 /* sdl-image */,
 				03C0DF021C82065D0009D98F /* src */,
 				03C0DF301C82065D0009D98F /* common */,
 				03C0DF401C82065D0009D98F /* config.h */,
@@ -312,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03AB8E651C8331B10054C593 /* image.c in Sources */,
 				03C0DF551C82065D0009D98F /* rectangle.c in Sources */,
 				03C0DF4A1C82065D0009D98F /* events.c in Sources */,
 				03C0DF571C82065D0009D98F /* SDL.c in Sources */,
@@ -388,6 +411,7 @@
 					../../third_party/luasdl2/,
 					../../third_party/lua/src/,
 					../../third_party/SDL/include/,
+					"../../third_party/SDL2_image-2.0.1/",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -430,6 +454,7 @@
 					../../third_party/luasdl2/,
 					../../third_party/lua/src/,
 					../../third_party/SDL/include/,
+					"../../third_party/SDL2_image-2.0.1/",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -475,6 +500,7 @@
 				03C0DF011C82063B0009D98F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

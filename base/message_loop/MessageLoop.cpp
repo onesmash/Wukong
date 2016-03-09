@@ -180,7 +180,7 @@ bool MessageLoop::doWork()
 bool MessageLoop::doDelayedWork()
 {
     if(delayedTaskQueue_.empty()) {
-        return false;
+        return doWork();
     } else {
         Task task = delayedTaskQueue_.top();
         if(task.delayedRunTime_ > recentNow_) {

@@ -13,7 +13,7 @@ local string = string
 local _ENV = GameObject
 
 function init(self)
-	self = super.init(self)
+	super.init(self)
 end
 
 function static.destroy(class, object)
