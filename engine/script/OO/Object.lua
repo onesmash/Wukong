@@ -21,6 +21,8 @@ isa = Class
 private = {}
 ___privates = {}
 ___privates[modName] = {}
+___staticCache = {}
+static = {}
 
 function init(self, ...)
 end

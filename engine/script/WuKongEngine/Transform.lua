@@ -10,10 +10,6 @@ package.loaded[modName] = Transform
 
 local _ENV = Transform
 
-local firstCharacterLowercase = function(str)
-	return string.gsub(str, '^%u', string.lower)
-end
-
 function init(self)
 	super.init(self)
 	self.position = {x = 0, y = 0}

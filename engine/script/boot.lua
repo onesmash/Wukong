@@ -1,20 +1,19 @@
-local runtime = require('runtime')
-runtime._services = {}
-runtime.penddingWorks = {}
+local Runtime = require('runtime')
+Runtime._services = {}
+Runtime.penddingWorks = {}
 
-function runtime.scheduleWork(work)
-	table.insert(runtime.penddingWorks, work)
+function Runtime.scheduleWork(work)
+	table.insert(Runtime.penddingWorks, work)
 end
 
 local lfs = require('lfs')
 local messageloop = require('runtime.messageloop')
 local time = require('runtime.time')
-package.path = package.path .. ';' .. runtime._scriptDirectory .. '/?.lua'
+package.path = package.path .. ';' .. Runtime._scriptDirectory .. '/?.lua'
 local Coroutine = require('Coroutine')
 local Continuation = require('Continuation')
 local SDL = require('SDL')
 local Image = require('SDL.image')
-local WukongEngine = require('WukongEngine')
 
 Image.init({PNG = 1})
 
@@ -23,11 +22,11 @@ local renderer = runtime._renderer
 --print(runtime.messageloop)
 
 for file in lfs.dir(runtime['_serviceDirectory']) do
---file is the current file or directory name
---print( "Found file: " .. file )
+ 	--file is the current file or directory name
+	--print( "Found file: " .. file )
 end
 
-function runtime.printTable(t)
+function Runtime.printTable(t)
 	print('{')
 	for k, v in pairs(t) do
 		print(k .. ' ' .. v)
@@ -35,19 +34,19 @@ function runtime.printTable(t)
 	print('}')
 end
 
-function runtime.startCoroutine(f, ...)
+function Runtime.startCoroutine(f, ...)
 	local co = Coroutine(f)
 	co:resume(...)
 	return co
 end
 
-function runtime.callCC(f)
+function Runtime.callCC(f)
 	local continuation = Continuation(f)
 	return coroutine.yield(continuation)
 end
 
-function runtime.waitForCoroutine(co)
-	runtime.callCC(function(continuation)
+function Runtime.waitForCoroutine(co)
+	Runtime.callCC(function(continuation)
 		if co:status() == 'dead' then
 			continuation()
 		else
@@ -56,23 +55,23 @@ function runtime.waitForCoroutine(co)
 	end)
 end
 
-function runtime.waitForSeconds(seconds)
-	runtime.callCC(function(continuation)
+function Runtime.waitForSeconds(seconds)
+	Runtime.callCC(function(continuation)
 		messageloop.postDelayTask(continuation, seconds)
 	end)
 end
 
-function runtime.loadServic(serviceName)
+function Runtime.loadServic(serviceName)
 	local Service = require(serviceName)
-	runtime._services[serviceName] = Service()
+	Runtime._services[serviceName] = Service()
 end
 
-function runtime.startAllServices()
-	for file in lfs.dir(runtime['_serviceDirectory']) do
+function Runtime.startAllServices()
+	for file in lfs.dir(Runtime['_serviceDirectory']) do
 		local  i, j = string.find(file, '%a+Service.lua')
 		if i then
 			local serviceName = string.sub(file, i, j - 4);
-			runtime.loadServic(serviceName)
+			Runtime.loadServic(serviceName)
 		end
 	end
 	for name, service in pairs(runtime._services) do
@@ -80,27 +79,35 @@ function runtime.startAllServices()
 	end
 end
 
-runtime.startAllServices()
+Runtime.startAllServices()
 
-local co0 = runtime.startCoroutine(function()
+local co0 = Runtime.startCoroutine(function()
 	print('start wait0 ' .. os.date())
-	runtime.waitForSeconds(5)
+	Runtime.waitForSeconds(5)
 	print('end wait0 ' .. os.date())
 	coroutine.yield(1)
 	print('end co0')
 end)
 
-local co1 = runtime.startCoroutine(function()
+local co1 = Runtime.startCoroutine(function()
 	print('start wait1 ' .. os.date())
-	runtime.waitForSeconds(2)
+	Runtime.waitForSeconds(2)
 	print('end wait1 ' .. os.date())
-	runtime.waitForCoroutine(co0)
+	Runtime.waitForCoroutine(co0)
 	print('end co1')
 end)
 
-wukongEngine = WukongEngine()
+Runtime.Device = {}
+Runtime.Device.displayInfo = {}
+local sdlDisplayMode = SDL.getCurrentDisplayMode(0)
+Runtime.Device.displayInfo.w = sdlDisplayMode.w
+Runtime.Device.displayInfo.h = sdlDisplayMode.h
+Runtime.Device.displayInfo.refreshRate = sdlDisplayMode.refreshRate or 60
 
-local main = loadfile(runtime._scriptDirectory .. '/main.lua')
+local WukongEngine = require('WukongEngine')
+_G.WukongEngine = WukongEngine()
+
+local main = loadfile(Runtime._scriptDirectory .. '/main.lua')
 
 main()
 

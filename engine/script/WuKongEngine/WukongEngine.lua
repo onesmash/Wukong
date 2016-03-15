@@ -2,9 +2,10 @@ local Class = require('Class')
 local Object = require('Object')
 local Runtime = require('runtime')
 local Time = require('runtime.time')
-local SDL = require('SDL')
 local messageloop = require('runtime.messageloop')
-local Renderer = require('Renderer')
+local SDL = require('SDL')
+local Camera = require('Camera')
+local Entity = require('Entity')
 
 local modName = ...
 
@@ -12,6 +13,7 @@ local WukongEngine = Class(modName, Object, false)
 
 local print = print
 local ipairs = ipairs
+local setmetatable = setmetatable
 
 _G[modName] = WukongEngine
 package.loaded[modName] = WukongEngine
@@ -32,25 +34,45 @@ end
 
 function init(self)
 	super.init(self)
+	self.Time = {}
+	self.Input = {mousePosition = {x = 0, y = 0}, mouseDelta = {x = 0, y = 0}}
+	self._cameraEntity = Entity()
+	self._cameraEntity:addComponent(Camera)
+	self._mainCamera = self._cameraEntity:getComponent(Camera)
+	self._mainCamera.transform.position.x = Runtime.Device.displayInfo.w / 2
+	self._mainCamera.transform.position.y = Runtime.Device.displayInfo.h / 2
 end
 
 function loadScene(self, scene, additive)
-	self._scene = scene;
+	if additive then
+		for _, entity in ipairs(scene._entities) do
+			self._scene:addEntity(entity)
+		end
+	else
+		self._scene = scene;
+		self._scene:setMainCamera(self._mainCamera)
+	end
 	scene:onLoad()
 end
 
-local tick = 1 / 60
+local tick = 1 / Runtime.Device.displayInfo.refreshRate
 
 function update(self)
 	local now = Time.now()
 	local deltaTime = now - lastUpdateTime
-	Time.deltaTime = deltaTime
+	self.Time.deltaTime = deltaTime
 	lastUpdateTime = now
+	self.Input.mouseDelta.x = 0
+	self.Input.mouseDelta.y = 0
 	for e in SDL.pollEvent() do
 		if e and e.type == SDL.event.MouseMotion then
 			local state, x, y = SDL.getMouseState()
 			local _, dx, dy = SDL.getRelativeMouseState()
+			self.Input.mousePosition.x = x;
+			self.Input.mousePosition.y = y
 			if state[SDL.mouseMask.Left] then
+				self.Input.mouseDelta.x = dx or 0
+				self.Input.mouseDelta.y = dy or 0
 				--drawLine(x - dx, y - dy, dx, dy)
 				--renderer:present()
 			end
@@ -74,7 +96,7 @@ function update(self)
 end
 
 function start(self)
-	Renderer.clear({r = 255, g = 255, b = 255, a = 255})
+	--Renderer.clear({r = 255, g = 255, b = 255, a = 255})
 	lastUpdateTime = Time.now()
 	self:update()
 end

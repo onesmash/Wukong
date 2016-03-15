@@ -31,6 +31,7 @@ public:
         void *context;
         int screenWidth;
         int screenHeight;
+        int refreshRate;
     };
     explicit WukongEngine(const std::string& name);
     virtual ~WukongEngine();

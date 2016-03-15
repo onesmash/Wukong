@@ -14,6 +14,7 @@ package.loaded[modName] = Entity
 local string = string
 local table = table
 local ipairs = ipairs
+local print = print
 
 local _ENV = Entity
 
@@ -37,6 +38,7 @@ function addComponent(self, componentClass)
 	self._components[componentName] = component
 	component.entity = self
 	component.transform = self._components.transform
+
 end
 
 function getComponent(self, componentClass)
@@ -49,10 +51,15 @@ function addChild(self, entity)
 	entity._parent = self
 	local transform = entity:getComponent(Transform)
 	transform:setParent(self.transform)
+	if self.scene then
+		self.scene:resetDelegates(entity)
+	end
 end
 
 function enumerate(self, f)
-	f(self)
+	if not f(self) then
+		return
+	end
 	for _, entity in ipairs(self._children) do
 		entity:enumerate(f)
 	end

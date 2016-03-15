@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		030C22321C8485510031AA7E /* stroke.png in Resources */ = {isa = PBXBuildFile; fileRef = 030C22311C8485510031AA7E /* stroke.png */; };
+		030E49941C91B80A007360B7 /* Camera.lua in Resources */ = {isa = PBXBuildFile; fileRef = 030E49931C91B80A007360B7 /* Camera.lua */; };
 		03210B5A1C7F492800AC515D /* WukongEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0321064B1C7F492700AC515D /* WukongEngine.cpp */; };
 		03210B5B1C7F492800AC515D /* Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0321064F1C7F492700AC515D /* Module.cpp */; };
 		03210B5C1C7F492800AC515D /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032106511C7F492700AC515D /* Object.cpp */; };
@@ -146,6 +147,7 @@
 
 /* Begin PBXFileReference section */
 		030C22311C8485510031AA7E /* stroke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stroke.png; path = ../../../../Desktop/stroke.png; sourceTree = "<group>"; };
+		030E49931C91B80A007360B7 /* Camera.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Camera.lua; sourceTree = "<group>"; };
 		0321064B1C7F492700AC515D /* WukongEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WukongEngine.cpp; sourceTree = "<group>"; };
 		0321064C1C7F492700AC515D /* WukongEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WukongEngine.h; sourceTree = "<group>"; };
 		0321064E1C7F492700AC515D /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 		032106741C7F492700AC515D /* WuKongEngine */ = {
 			isa = PBXGroup;
 			children = (
+				030E49931C91B80A007360B7 /* Camera.lua */,
 				03DE56991C8DB38A00B2FF61 /* Scene.lua */,
 				03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */,
 				03DE569B1C8DB38A00B2FF61 /* Texture.lua */,
@@ -678,6 +681,7 @@
 				03DE569F1C8DB38A00B2FF61 /* Texture.lua in Resources */,
 				03210B6C1C7F492800AC515D /* Component.lua in Resources */,
 				03210B5D1C7F492800AC515D /* TestService.lua in Resources */,
+				030E49941C91B80A007360B7 /* Camera.lua in Resources */,
 				03210B711C7F492800AC515D /* Renderer.lua in Resources */,
 				03210B721C7F492800AC515D /* Service.lua in Resources */,
 				03DE56A01C8DB38A00B2FF61 /* Transform.lua in Resources */,

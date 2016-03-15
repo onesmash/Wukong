@@ -1,9 +1,10 @@
 local Class = require('Class')
 local Component = require('Component')
+local runtime = require('runtime')
 
 local modName = ...
 
-local Behaviour = Class(modName, Component, true)
+local Behaviour = Class(modName, Component, false)
 
 _G[modName] = Behaviour
 package.loaded[modName] = Behaviour
@@ -15,14 +16,26 @@ local table = table
 
 local _ENV = Behaviour
 
-function init(self, f)
+function init(self)
 	super.init(self)
+	self._started = false
+	self.enabled = true
 	self._coroutines = {}
 	setmetatable(self._coroutines, {__mode = 'v'})
 end
 
 function start(self)
-	-- body
+	self._started = true
+end
+
+function setEnable(self, enable)
+	self.enabled = enable
+	if not self._started and self.entity.scene then
+		self.entity.scene:addStartDelegate(self)
+	end
+	if self.entity.scene then
+		self.entity.scene:addUpdateDelegate(self)
+	end
 end
 
 --function update(self)

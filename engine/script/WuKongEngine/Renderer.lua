@@ -10,6 +10,7 @@ _G[modName] = Renderer
 package.loaded[modName] = Renderer
 
 local print = print
+local math = math
 
 local renderer = runtime._renderer
 
@@ -35,12 +36,20 @@ function init(self, sprite, sortingLayer, sortingOrder)
 	self.isVisible = true
 end
 
+function setVisible(self, visible)
+	if self.entity.scene then
+		self.entity.scene:setNeedSortRenderOrder()
+	end
+end
+
 function render(self)
 	--print('render')
 	local width = self.sprite.width
 	local height = self.sprite.height
-	local originX = self.transform.position.x - width * self.sprite.center.x
-	local originY = self.transform.position.y - height * self.sprite.center.y
+	local originX = self.transform.position.x - math.floor(width * self.sprite.center.x)
+	local originY = self.transform.position.y - math.floor(height * self.sprite.center.y)
 	local dstRect = {x = originX, y = originY, w = width, h = height}
+	--print(originX)
+	--print(originY)
 	renderer:copy(self.sprite.texture._sdltexture, self.sprite.rect, dstRect)
 end

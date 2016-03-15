@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
         SDL_GetCurrentDisplayMode(0, &displayMode);
         
         /* create main window and renderer */
-        window = SDL_CreateWindow(NULL, 0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight([UIScreen mainScreen].bounds),
+        window = SDL_CreateWindow(NULL, 0, 0, displayMode.w, displayMode.h,
                                   SDL_WINDOW_OPENGL |
                                   SDL_WINDOW_BORDERLESS);
         renderer = SDL_CreateRenderer(window, 0, 0);
@@ -43,6 +43,9 @@ int main(int argc, char *argv[])
         env.scriptDirectory = [[[NSBundle mainBundle] resourcePath] UTF8String];
         env.window = window;
         env.renderer = renderer;
+        env.screenWidth = displayMode.w;
+        env.screenHeight = displayMode.h;
+        env.refreshRate = displayMode.refresh_rate > 0 ? displayMode.refresh_rate : 60;
         env.context = SDL_GL_GetCurrentContext();
         engine_->start(env);
     }

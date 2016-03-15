@@ -20,6 +20,7 @@ ship:addComponent(ShipBehaviour)
 
 scene:addEntity(ship)
 
-wukongEngine:loadScene(scene)
+WukongEngine:loadScene(scene, false)
 
-wukongEngine:start()
+
+WukongEngine:start()
