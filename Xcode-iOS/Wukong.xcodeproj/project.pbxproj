@@ -76,8 +76,6 @@
 		03DE569E1C8DB38A00B2FF61 /* WukongEngine.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */; };
 		03DE569F1C8DB38A00B2FF61 /* Texture.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569B1C8DB38A00B2FF61 /* Texture.lua */; };
 		03DE56A01C8DB38A00B2FF61 /* Transform.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569C1C8DB38A00B2FF61 /* Transform.lua */; };
-		03FDE8A81C98575E00A7AF6E /* complex.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03FDE8A61C98575E00A7AF6E /* complex.lua */; };
-		03FDE8A91C98575E00A7AF6E /* matrix.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03FDE8A71C98575E00A7AF6E /* matrix.lua */; };
 		03FDE8AC1C985B8600A7AF6E /* SpriteRenderer.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03FDE8AB1C985B8600A7AF6E /* SpriteRenderer.lua */; };
 /* End PBXBuildFile section */
 
@@ -251,8 +249,6 @@
 		03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WukongEngine.lua; sourceTree = "<group>"; };
 		03DE569B1C8DB38A00B2FF61 /* Texture.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Texture.lua; sourceTree = "<group>"; };
 		03DE569C1C8DB38A00B2FF61 /* Transform.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Transform.lua; sourceTree = "<group>"; };
-		03FDE8A61C98575E00A7AF6E /* complex.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = complex.lua; sourceTree = "<group>"; };
-		03FDE8A71C98575E00A7AF6E /* matrix.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = matrix.lua; sourceTree = "<group>"; };
 		03FDE8AB1C985B8600A7AF6E /* SpriteRenderer.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SpriteRenderer.lua; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,7 +315,6 @@
 		032106551C7F492700AC515D /* module */ = {
 			isa = PBXGroup;
 			children = (
-				03FDE8A51C98575E00A7AF6E /* lua_matrix */,
 				032106561C7F492700AC515D /* filesystem */,
 				032106591C7F492700AC515D /* message_loop */,
 				0321065E1C7F492700AC515D /* runtime */,
@@ -582,15 +577,6 @@
 			path = ../../top_gun;
 			sourceTree = "<group>";
 		};
-		03FDE8A51C98575E00A7AF6E /* lua_matrix */ = {
-			isa = PBXGroup;
-			children = (
-				03FDE8A61C98575E00A7AF6E /* complex.lua */,
-				03FDE8A71C98575E00A7AF6E /* matrix.lua */,
-			);
-			path = lua_matrix;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -727,7 +713,6 @@
 				03CB95F91CA2E5A000166ACA /* mainbackground.png in Resources */,
 				03210B6B1C7F492800AC515D /* Behaviour.lua in Resources */,
 				03CB95F81CA2E5A000166ACA /* bgLayer2.png in Resources */,
-				03FDE8A81C98575E00A7AF6E /* complex.lua in Resources */,
 				03210B6A1C7F492800AC515D /* Object.lua in Resources */,
 				03210B691C7F492800AC515D /* Class.lua in Resources */,
 				035DE3611C9AF0E60032BE07 /* Vector3.lua in Resources */,
@@ -744,7 +729,6 @@
 				03210B701C7F492800AC515D /* GameObject.lua in Resources */,
 				035DE3601C9AF0E60032BE07 /* Matrix3.lua in Resources */,
 				03C0DF821C820CF70009D98F /* stroke.bmp in Resources */,
-				03FDE8A91C98575E00A7AF6E /* matrix.lua in Resources */,
 				03DE56961C8DB35B00B2FF61 /* main.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
