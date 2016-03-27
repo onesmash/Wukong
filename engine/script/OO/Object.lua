@@ -11,6 +11,8 @@ package.loaded[modName] = Object
 
 local print = print
 local rawget = rawget
+local setmetatable = setmetatable
+local getmetatable = getmetatable
 
 local _ENV = Object
 
@@ -41,4 +43,10 @@ function isKindOf(self, class)
 		end
 	end
 	return false
+end
+
+function clone(self)
+	local c = setmetatable({}, getmetatable(self))
+	c.isa = self.isa
+	return c
 end

@@ -30,23 +30,28 @@ function init(self)
 	self._needSortRenderOrder = true
 end
 
+function getMainCamera(self)
+	return self._mainCamera
+end
+
 function setMainCamera(self, camera)
 	if self._mainCamera then
 		self:removeDelegates(self._mainCamera.entity)
-		self._mainCamera.entity.scene = nil
+		self._mainCamera.entity:setScene(nil)
 	end
 	self._mainCamera = camera
 	self:resetDelegates(camera.entity)
-	self._mainCamera.entity.scene = self
+	self._mainCamera.entity:setScene(self)
 end
 
 function addEntity(self, entity)
-	entity.scene = self
+	entity:setScene(self)
 	self._entities[entity] = 1
 	self:resetDelegates(entity)
 end
 
 function removeEntity(self, entity)
+	entity:setScene(nil)
 	self._entities[entity] = nil
 	self:removeDelegates(entity)
 end
@@ -142,13 +147,17 @@ function sortRenderOrder(self)
 	for entity, _ in pairs(self._entities) do
 		entity:enumerate(function(entity)
 			local renderer = entity:getComponent(Renderer)
-			if renderer.isVisible then
-				if self._mainCamera:isVisibleByMe(entity) then
+			if renderer then
+				if renderer.isVisible then
+					--if self._mainCamera:isVisibleByMe(entity) then
 					table.insert(renderers, renderer)
+					--end
+					return true
+				else
+					return false
 				end
-				return true
 			end
-			return false
+			return true
 		end)
 	end
 
@@ -170,7 +179,9 @@ function onRender(self)
 	end
 	self:sortRenderOrder()
 	for _, renderer in ipairs(self._orderedRenderDelegates) do
-		renderer:render()
+		if self._mainCamera:isVisibleByMe(renderer.entity) then
+			renderer:render()
+		end
 	end
 	Renderer.present()
 end

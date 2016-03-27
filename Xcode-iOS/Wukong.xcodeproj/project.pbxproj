@@ -54,6 +54,8 @@
 		0321FEBC1C7F482000AC515D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321FEBB1C7F482000AC515D /* CoreGraphics.framework */; };
 		0321FEBE1C7F482B00AC515D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321FEBD1C7F482B00AC515D /* CoreMotion.framework */; };
 		0321FEC01C7F483400AC515D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321FEBF1C7F483400AC515D /* AudioToolbox.framework */; };
+		035DE3601C9AF0E60032BE07 /* Matrix3.lua in Resources */ = {isa = PBXBuildFile; fileRef = 035DE35E1C9AF0E60032BE07 /* Matrix3.lua */; };
+		035DE3611C9AF0E60032BE07 /* Vector3.lua in Resources */ = {isa = PBXBuildFile; fileRef = 035DE35F1C9AF0E60032BE07 /* Vector3.lua */; };
 		03AB8E5E1C8331510054C593 /* libSDL2_image.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03AB8E5D1C83311E0054C593 /* libSDL2_image.a */; };
 		03AB8E6C1C8336E60054C593 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03AB8E6B1C8336E60054C593 /* ImageIO.framework */; };
 		03AB8E6F1C83372F0054C593 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03AB8E6E1C83372F0054C593 /* MobileCoreServices.framework */; };
@@ -63,13 +65,20 @@
 		03C0DF781C8208B20009D98F /* libluasdl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DF761C8208730009D98F /* libluasdl2.a */; };
 		03C0DF791C8208B20009D98F /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DF6A1C82085D0009D98F /* libuv.a */; };
 		03C0DF821C820CF70009D98F /* stroke.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 03C0DF811C820CF70009D98F /* stroke.bmp */; };
+		03CB95F11CA2E21D00166ACA /* BackgroundBehaviour.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F01CA2E21D00166ACA /* BackgroundBehaviour.lua */; };
+		03CB95F71CA2E5A000166ACA /* bgLayer1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F31CA2E5A000166ACA /* bgLayer1.png */; };
+		03CB95F81CA2E5A000166ACA /* bgLayer2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F41CA2E5A000166ACA /* bgLayer2.png */; };
+		03CB95F91CA2E5A000166ACA /* mainbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F51CA2E5A000166ACA /* mainbackground.png */; };
+		03CB95FA1CA2E5A000166ACA /* shipAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F61CA2E5A000166ACA /* shipAnimation.png */; };
 		03DE56961C8DB35B00B2FF61 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE56941C8DB35B00B2FF61 /* main.lua */; };
 		03DE56971C8DB35B00B2FF61 /* ShipBehaviour.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE56951C8DB35B00B2FF61 /* ShipBehaviour.lua */; };
 		03DE569D1C8DB38A00B2FF61 /* Scene.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE56991C8DB38A00B2FF61 /* Scene.lua */; };
 		03DE569E1C8DB38A00B2FF61 /* WukongEngine.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */; };
 		03DE569F1C8DB38A00B2FF61 /* Texture.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569B1C8DB38A00B2FF61 /* Texture.lua */; };
 		03DE56A01C8DB38A00B2FF61 /* Transform.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569C1C8DB38A00B2FF61 /* Transform.lua */; };
-		03DE56A21C8DB48500B2FF61 /* shipAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = 03DE56A11C8DB48500B2FF61 /* shipAnimation.png */; };
+		03FDE8A81C98575E00A7AF6E /* complex.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03FDE8A61C98575E00A7AF6E /* complex.lua */; };
+		03FDE8A91C98575E00A7AF6E /* matrix.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03FDE8A71C98575E00A7AF6E /* matrix.lua */; };
+		03FDE8AC1C985B8600A7AF6E /* SpriteRenderer.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03FDE8AB1C985B8600A7AF6E /* SpriteRenderer.lua */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -220,6 +229,8 @@
 		0321FEBB1C7F482000AC515D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0321FEBD1C7F482B00AC515D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		0321FEBF1C7F483400AC515D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		035DE35E1C9AF0E60032BE07 /* Matrix3.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Matrix3.lua; sourceTree = "<group>"; };
+		035DE35F1C9AF0E60032BE07 /* Vector3.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Vector3.lua; sourceTree = "<group>"; };
 		03AB8E571C83311E0054C593 /* SDL_image.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL_image.xcodeproj; path = "../third_party/SDL2_image-2.0.1/Xcode-iOS/SDL_image.xcodeproj"; sourceTree = "<group>"; };
 		03AB8E6B1C8336E60054C593 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		03AB8E6E1C83372F0054C593 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -229,13 +240,20 @@
 		03C0DF6B1C8208690009D98F /* lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = lua.xcodeproj; path = lua/lua.xcodeproj; sourceTree = "<group>"; };
 		03C0DF711C8208730009D98F /* luasdl2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = luasdl2.xcodeproj; path = luasdl2/luasdl2.xcodeproj; sourceTree = "<group>"; };
 		03C0DF811C820CF70009D98F /* stroke.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = stroke.bmp; path = ../../../../Desktop/stroke.bmp; sourceTree = "<group>"; };
+		03CB95F01CA2E21D00166ACA /* BackgroundBehaviour.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BackgroundBehaviour.lua; sourceTree = "<group>"; };
+		03CB95F31CA2E5A000166ACA /* bgLayer1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLayer1.png; sourceTree = "<group>"; };
+		03CB95F41CA2E5A000166ACA /* bgLayer2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLayer2.png; sourceTree = "<group>"; };
+		03CB95F51CA2E5A000166ACA /* mainbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainbackground.png; sourceTree = "<group>"; };
+		03CB95F61CA2E5A000166ACA /* shipAnimation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shipAnimation.png; sourceTree = "<group>"; };
 		03DE56941C8DB35B00B2FF61 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
 		03DE56951C8DB35B00B2FF61 /* ShipBehaviour.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ShipBehaviour.lua; sourceTree = "<group>"; };
 		03DE56991C8DB38A00B2FF61 /* Scene.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Scene.lua; sourceTree = "<group>"; };
 		03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WukongEngine.lua; sourceTree = "<group>"; };
 		03DE569B1C8DB38A00B2FF61 /* Texture.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Texture.lua; sourceTree = "<group>"; };
 		03DE569C1C8DB38A00B2FF61 /* Transform.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Transform.lua; sourceTree = "<group>"; };
-		03DE56A11C8DB48500B2FF61 /* shipAnimation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shipAnimation.png; path = ../../../Desktop/shipAnimation.png; sourceTree = "<group>"; };
+		03FDE8A61C98575E00A7AF6E /* complex.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = complex.lua; sourceTree = "<group>"; };
+		03FDE8A71C98575E00A7AF6E /* matrix.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = matrix.lua; sourceTree = "<group>"; };
+		03FDE8AB1C985B8600A7AF6E /* SpriteRenderer.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SpriteRenderer.lua; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +319,7 @@
 		032106551C7F492700AC515D /* module */ = {
 			isa = PBXGroup;
 			children = (
+				03FDE8A51C98575E00A7AF6E /* lua_matrix */,
 				032106561C7F492700AC515D /* filesystem */,
 				032106591C7F492700AC515D /* message_loop */,
 				0321065E1C7F492700AC515D /* runtime */,
@@ -373,6 +392,9 @@
 		032106741C7F492700AC515D /* WuKongEngine */ = {
 			isa = PBXGroup;
 			children = (
+				035DE35E1C9AF0E60032BE07 /* Matrix3.lua */,
+				035DE35F1C9AF0E60032BE07 /* Vector3.lua */,
+				03FDE8AB1C985B8600A7AF6E /* SpriteRenderer.lua */,
 				030E49931C91B80A007360B7 /* Camera.lua */,
 				03DE56991C8DB38A00B2FF61 /* Scene.lua */,
 				03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */,
@@ -548,12 +570,25 @@
 		03DE56931C8DB35B00B2FF61 /* top_gun */ = {
 			isa = PBXGroup;
 			children = (
-				03DE56A11C8DB48500B2FF61 /* shipAnimation.png */,
+				03CB95F31CA2E5A000166ACA /* bgLayer1.png */,
+				03CB95F41CA2E5A000166ACA /* bgLayer2.png */,
+				03CB95F51CA2E5A000166ACA /* mainbackground.png */,
+				03CB95F61CA2E5A000166ACA /* shipAnimation.png */,
+				03CB95F01CA2E21D00166ACA /* BackgroundBehaviour.lua */,
 				03DE56941C8DB35B00B2FF61 /* main.lua */,
 				03DE56951C8DB35B00B2FF61 /* ShipBehaviour.lua */,
 			);
 			name = top_gun;
 			path = ../../top_gun;
+			sourceTree = "<group>";
+		};
+		03FDE8A51C98575E00A7AF6E /* lua_matrix */ = {
+			isa = PBXGroup;
+			children = (
+				03FDE8A61C98575E00A7AF6E /* complex.lua */,
+				03FDE8A71C98575E00A7AF6E /* matrix.lua */,
+			);
+			path = lua_matrix;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -678,19 +713,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03CB95F11CA2E21D00166ACA /* BackgroundBehaviour.lua in Resources */,
 				03DE569F1C8DB38A00B2FF61 /* Texture.lua in Resources */,
 				03210B6C1C7F492800AC515D /* Component.lua in Resources */,
 				03210B5D1C7F492800AC515D /* TestService.lua in Resources */,
 				030E49941C91B80A007360B7 /* Camera.lua in Resources */,
 				03210B711C7F492800AC515D /* Renderer.lua in Resources */,
+				03CB95FA1CA2E5A000166ACA /* shipAnimation.png in Resources */,
 				03210B721C7F492800AC515D /* Service.lua in Resources */,
 				03DE56A01C8DB38A00B2FF61 /* Transform.lua in Resources */,
 				03DE56971C8DB35B00B2FF61 /* ShipBehaviour.lua in Resources */,
 				03210B6D1C7F492800AC515D /* Continuation.lua in Resources */,
+				03CB95F91CA2E5A000166ACA /* mainbackground.png in Resources */,
 				03210B6B1C7F492800AC515D /* Behaviour.lua in Resources */,
+				03CB95F81CA2E5A000166ACA /* bgLayer2.png in Resources */,
+				03FDE8A81C98575E00A7AF6E /* complex.lua in Resources */,
 				03210B6A1C7F492800AC515D /* Object.lua in Resources */,
 				03210B691C7F492800AC515D /* Class.lua in Resources */,
+				035DE3611C9AF0E60032BE07 /* Vector3.lua in Resources */,
 				0321FE761C7F434D00AC515D /* Assets.xcassets in Resources */,
+				03CB95F71CA2E5A000166ACA /* bgLayer1.png in Resources */,
+				03FDE8AC1C985B8600A7AF6E /* SpriteRenderer.lua in Resources */,
 				03210B6E1C7F492800AC515D /* Coroutine.lua in Resources */,
 				03210B681C7F492800AC515D /* boot.lua in Resources */,
 				03DE569D1C8DB38A00B2FF61 /* Scene.lua in Resources */,
@@ -699,8 +742,9 @@
 				03210B6F1C7F492800AC515D /* Entity.lua in Resources */,
 				03210B731C7F492800AC515D /* Sprite.lua in Resources */,
 				03210B701C7F492800AC515D /* GameObject.lua in Resources */,
+				035DE3601C9AF0E60032BE07 /* Matrix3.lua in Resources */,
 				03C0DF821C820CF70009D98F /* stroke.bmp in Resources */,
-				03DE56A21C8DB48500B2FF61 /* shipAnimation.png in Resources */,
+				03FDE8A91C98575E00A7AF6E /* matrix.lua in Resources */,
 				03DE56961C8DB35B00B2FF61 /* main.lua in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

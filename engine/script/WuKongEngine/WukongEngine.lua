@@ -39,8 +39,9 @@ function init(self)
 	self._cameraEntity = Entity()
 	self._cameraEntity:addComponent(Camera)
 	self._mainCamera = self._cameraEntity:getComponent(Camera)
-	self._mainCamera.transform.position.x = Runtime.Device.displayInfo.w / 2
-	self._mainCamera.transform.position.y = Runtime.Device.displayInfo.h / 2
+	self._mainCamera.transform:setPosition(Runtime.Device.displayInfo.w / 2, Runtime.Device.displayInfo.h / 2)
+	--self._mainCamera.transform.position.x = Runtime.Device.displayInfo.w / 2
+	--self._mainCamera.transform.position.y = Runtime.Device.displayInfo.h / 2
 end
 
 function loadScene(self, scene, additive)

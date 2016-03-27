@@ -15,6 +15,14 @@ function init(self)
 	super.init(self)
 end
 
+function setEntity(self, entity)
+	self.entity = entity
+end
+
+function setTransform(self, transform)
+	self.transform = transform
+end
+
 --[[
 function sendMessage(self, methodName, ...)
 	local behaviour = self.entity:getComponent(Behaviour)

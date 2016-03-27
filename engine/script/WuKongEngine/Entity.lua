@@ -3,6 +3,7 @@ local GameObject = require('GameObject')
 local Transform = require('Transform')
 local Component = require('Component')
 local Behaviour = require('Behaviour')
+local Renderer = require('Renderer')
 
 local modName = ...
 
@@ -29,30 +30,64 @@ function init(self)
 	self._children = {}
 end
 
+function setScene(self, scene)
+	self:enumerate(function(entity)
+		entity._scene = scene
+		return true
+	end)
+end
+
+function getScene(self)
+	return self._scene
+end
+
+function getTransform(self)
+	return self._components.transform
+end
+
 function addComponent(self, componentClass)
 	local component = componentClass()
 	if not component:isKindOf(Component) then
 		return
 	end
-	local componentName = (component:isKindOf(Behaviour) and 'behaviour') or firstCharacterLowercase(componentClass.className)
+	local componentName = (component:isKindOf(Behaviour) and 'behaviour') or (component:isKindOf(Renderer) and 'renderer') or firstCharacterLowercase(componentClass.className)
 	self._components[componentName] = component
-	component.entity = self
-	component.transform = self._components.transform
-
+	component:setEntity(self)
+	component:setTransform(self._components.transform)
 end
 
 function getComponent(self, componentClass)
+	--print(self.className, componentClass)
 	local componentName = firstCharacterLowercase(componentClass.className)
 	return self._components[componentName]
 end
 
 function addChild(self, entity)
+	if entity._parent then
+		entity._parent:removeChild(entity)
+	end
+	entity._parent = self;
+	local transform = entity:getTransform()
+	transform:setParent(self._components.transform)
 	table.insert(self._children, entity)
-	entity._parent = self
-	local transform = entity:getComponent(Transform)
-	transform:setParent(self.transform)
-	if self.scene then
-		self.scene:resetDelegates(entity)
+	if self:getScene() then
+		self:getScene():resetDelegates(entity)
+	end
+end
+
+function removeChild(self, entity)
+	local index = 0
+	for key, value in ipairs(self._children) do
+		if value == entity then
+			index = key
+			break
+		end
+	end
+	table.remove(self._children, index)
+	local transform = entity:getTransform()
+	transform:setParent(nil)
+	if self:getScene() then
+		self:getScene():removeDelegates(entity)
 	end
 end
 
