@@ -18,6 +18,7 @@ local _ENV = Transform
 function init(self)
 	super.init(self)
 	self._positionIsDirty = true
+	self._localPositionIsDirty = true
 	self._position = Vector3(0, 0, 0)
 	self._localPosition = Vector3(0, 0, 0)
 	self._localScale = Vector3(1, 1, 1)
@@ -59,19 +60,26 @@ function setPosition(self, x, y)
 	self._positionIsDirty = false
 	if not self._parent then
 		self._localPosition = self._position:clone()
+		self._localPositionIsDirty = false;
 	else
-		self._localPosition = self._parent:inverseTransformPoint(x, y)
+		self._localPositionIsDirty = true
+		--self._localPosition = self._parent:inverseTransformPoint(x, y)
 	end
 	self:setDirty()
 end
 
 function getLocalPosition(self)
+	if self._parent and self._localPositionIsDirty then
+		self._localPosition = self._parent:inverseTransformPoint(self._position.x, self._position.y)
+		self._localPositionIsDirty = false
+	end
 	return self._localPosition
 end
 
 function setLocalPosition(self, x, y)
 	self._localPosition = Vector3(x, y, 0)
 	self._positionIsDirty = true
+	self._localPositionIsDirty = false
 	self:setDirty()
 end
 
@@ -94,7 +102,10 @@ function  setLocalScale(self, x, y)
 end
 
 function calclateLocalToParentMatrix(self)
-	return Matrix3.translate(self._localPosition.x, self._localPosition.y) * Matrix3.rotate(self._localRotation) * Matrix3.scale(self._localScale.x, self._localScale.y)
+	local localPosition = self:getLocalPosition()
+	local localRotation = self:getLocalRotation()
+	local localScale = self:getLocalScale()
+	return Matrix3.translate(localPosition.x, localPosition.y) * Matrix3.rotate(localRotation) * Matrix3.scale(localScale.x, localScale.y)
 end
 
 function getLocalToWorldMatrix(self)
