@@ -23,9 +23,10 @@ function render(self)
 	local width = self.sprite.width
 	local height = self.sprite.height
 	local position = self.transform:getPosition()
-	local originX = math.ceil(position.x - width * self.sprite.center.x)
-	local originY = math.ceil(position.y - height * self.sprite.center.y)
+	local screenPosition = self.entity:getScene():getMainCamera():worldToScreenPoint(position.x, position.y)
+	local originX = math.ceil(screenPosition.x - width * self.sprite.center.x)
+	local originY = math.ceil(screenPosition.y - height * (1 - self.sprite.center.y))
 	local dstRect = {x = originX, y = originY, w = width, h = height}
-	self:draw(self.sprite.texture, self.sprite.rect, dstRect, self.transform:getLocalRotation() * 180 / math.pi, 
-		{x = math.ceil(width * self.sprite.center.x), y = math.ceil(height * self.sprite.center.y)})
+	self:draw(self.sprite.texture, self.sprite.rect, dstRect, math.deg(-self.transform:getLocalRotation()), 
+		{x = math.ceil(width * self.sprite.center.x), y = math.ceil(height * (1 - self.sprite.center.y))})
 end

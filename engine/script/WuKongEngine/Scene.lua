@@ -2,6 +2,9 @@ local Class = require('Class')
 local GameObject = require('GameObject')
 local Behaviour = require('Behaviour')
 local Renderer = require('Renderer')
+local BroadPhase = require('BroadPhase')
+local Collider = require('Collider')
+local AABB = require('AABB')
 
 local modName = ...
 
@@ -22,12 +25,15 @@ local _ENV = Scene
 function init(self)
 	super.init(self)
 	self._entities = {}
+	self._visibleEntities = {}
+	self._broadPhase = BroadPhase()
+	self._collisions = {}
 	local mt = {__mode = 'k'}
 	self._startDelegates = setmetatable({}, mt)
 	self._updateDelegates = setmetatable({}, mt)
 	--self._renderDelegates = setmetatable({}, mt)
-	self._orderedRenderDelegates = setmetatable({}, {__mode = 'v'})
-	self._needSortRenderOrder = true
+	--self._orderedRenderDelegates = setmetatable({}, {__mode = 'v'})
+	--self._needSortRenderOrder = true
 end
 
 function getMainCamera(self)
@@ -42,6 +48,10 @@ function setMainCamera(self, camera)
 	self._mainCamera = camera
 	self:resetDelegates(camera.entity)
 	self._mainCamera.entity:setScene(self)
+end
+
+function getBroadPhase(self)
+	return self._broadPhase
 end
 
 function addEntity(self, entity)
@@ -121,7 +131,7 @@ function onUpdate(self)
 		--(not behaviour._started) and behaviour.enabled and behaviour:start()
 	end
 	for behaviour, _ in pairs(self._updateDelegates) do
-		if behaviour.enabled then
+		if behaviour._started and behaviour.enabled then
 			behaviour:update()
 		end
 		--behaviour.enabled and behaviour:update()
@@ -173,15 +183,74 @@ function sortRenderOrder(self)
 	self._needSortRenderOrder = false
 end
 
+-- updatePairs callback
+function addPair(self, a, b)
+	local colliderA = a:getComponent(Collider)
+	local colliderB = b:getComponent(Collider)
+	if colliderA and colliderB then
+		local colliderPair = {colliderA, colliderB}
+		table.insert(self._collisions, colliderPair)
+	end
+end
+
+function queryCallback(self, proxyId)
+	local entity = self._broadPhase:getData(proxyId)
+	if self._mainCamera:isVisibleByMe(entity) then
+		table.insert(self._visibleEntities, entity);
+	end
+	return true
+end
+
+function onCollide(self)
+	self._collisions = {}
+	self._broadPhase:updatePairs(self)
+end
+
+function createRenderPath(self)
+	local renderers = {}
+	for _, entity in pairs(self._visibleEntities) do
+		entity:enumerate(function(entity)
+			local renderer = entity:getComponent(Renderer)
+			if renderer then
+				if renderer.isVisible then
+					table.insert(renderers, renderer)
+					return true
+				else
+					return false
+				end
+			end
+			return true
+		end)
+	end
+
+	table.sort(renderers, function(a, b)
+		if a.sortingLayer ~= b.sortingLayer then
+			return a.sortingLayer > b.sortingLayer
+		else
+			return a.sortingOrder > b.sortingOrder
+		end
+	end)
+
+	--print(#self._visibleEntities)
+	--print(#renderers)
+	self._visibleEntities = {}
+	return renderers
+end
+
 function onRender(self)
+	self._visibleEntities = {}
+	local cameraViewLowerBound = self._mainCamera:viewportToWorldPoint(0, 0)
+	local cameraViewUpperBound = self._mainCamera:viewportToWorldPoint(1, 1)
+	local aabb = AABB(cameraViewLowerBound, cameraViewUpperBound)
+	--print(cameraViewLowerBound.x, cameraViewLowerBound.y)
+	--print(cameraViewUpperBound.x, cameraViewUpperBound.y)
+	self._broadPhase:query(self, aabb)
 	if self._mainCamera.needClear then
 		Renderer.clear(self._mainCamera.backgroundColor)
 	end
-	self:sortRenderOrder()
-	for _, renderer in ipairs(self._orderedRenderDelegates) do
-		if self._mainCamera:isVisibleByMe(renderer.entity) then
-			renderer:render()
-		end
+	local renderers = self:createRenderPath()
+	for _, renderer in ipairs(renderers) do
+		renderer:render()
 	end
 	Renderer.present()
 end

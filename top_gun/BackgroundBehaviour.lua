@@ -5,6 +5,8 @@ local Sprite = require('Sprite')
 local Renderer = require('Renderer')
 local SpriteRenderer = require('SpriteRenderer')
 local Entity = require('Entity')
+local Enemy = require('Enemy')
+local Coroutine = require('Coroutine')
 
 local modName = ...
 
@@ -29,6 +31,8 @@ end
 
 function start(self)
 	super.start(self)
+	print('BackgroundBehaviour started')
+	self.entity:getScene():getMainCamera().needClear = true
 	self._layer11 = Entity()
 	self._layer11.name = 'layer11'
 	self._layer11:addComponent(SpriteRenderer)
@@ -58,6 +62,14 @@ function start(self)
 		self._layer11:getTransform():setPosition(mainCamera.pixelWidth, mainCamera.pixelHeight / 2)
 		self._layer12:getTransform():setPosition(mainCamera.pixelWidth - self._texture.width, mainCamera.pixelHeight / 2)
 	end
+
+	self:startCoroutine(function()
+		while true do
+			local enemy = Enemy() 
+			self.entity:getScene():addEntity(enemy)
+			Coroutine.waitForSeconds(15)
+		end
+	end)
 end
 
 function update(self)

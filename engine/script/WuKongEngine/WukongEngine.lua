@@ -6,6 +6,7 @@ local messageloop = require('runtime.messageloop')
 local SDL = require('SDL')
 local Camera = require('Camera')
 local Entity = require('Entity')
+local Touch = require('Touch')
 
 local modName = ...
 
@@ -35,7 +36,7 @@ end
 function init(self)
 	super.init(self)
 	self.Time = {}
-	self.Input = {mousePosition = {x = 0, y = 0}, mouseDelta = {x = 0, y = 0}}
+	self.Input = {mousePosition = {x = 0, y = 0}, mouseDelta = {x = 0, y = 0}, touches = {}}
 	self._cameraEntity = Entity()
 	self._cameraEntity:addComponent(Camera)
 	self._mainCamera = self._cameraEntity:getComponent(Camera)
@@ -66,16 +67,39 @@ function update(self)
 	self.Input.mouseDelta.x = 0
 	self.Input.mouseDelta.y = 0
 	for e in SDL.pollEvent() do
-		if e and e.type == SDL.event.MouseMotion then
+		if e.type == SDL.event.FingerMotion then
 			local state, x, y = SDL.getMouseState()
-			local _, dx, dy = SDL.getRelativeMouseState()
-			self.Input.mousePosition.x = x;
-			self.Input.mousePosition.y = y
+			local relativeState, dx, dy = SDL.getRelativeMouseState()
+			local worldPosition = self._mainCamera:screenToWorldPoint(x, y)
+			--print(state[SDL.mouseMask.Left], relativeState[SDL.mouseMask.Left])
+			self.Input.mousePosition.x = worldPosition.x
+			self.Input.mousePosition.y = worldPosition.y
+			self.Input.mouseDelta.x = 0
+			self.Input.mouseDelta.y = 0
 			if state[SDL.mouseMask.Left] then
 				self.Input.mouseDelta.x = dx or 0
 				self.Input.mouseDelta.y = dy or 0
-				--drawLine(x - dx, y - dy, dx, dy)
-				--renderer:present()
+				local touch = Touch()
+				touch.phase = Touch.Move
+				self.Input.touches[SDL.mouseMask.Left] = touch
+			end
+		elseif e.type == SDL.event.MouseButtonDown then
+			
+		elseif e.type == SDL.event.FingerDown then
+			local state, x, y = SDL.getMouseState()
+			if state[SDL.mouseMask.Left] then
+				local touch = Touch()
+				touch.phase = Touch.Began
+				self.Input.touches[SDL.mouseMask.Left] = touch
+			else
+			end
+		elseif e.type == SDL.event.FingerUp then
+			local state, x, y = SDL.getMouseState()
+			if state[SDL.mouseMask.Left] then
+				local touch = Touch()
+				touch.phase = Touch.End
+				self.Input.touches[SDL.mouseMask.Left] = touch
+			else
 			end
 		end
 	end
@@ -84,6 +108,7 @@ function update(self)
 	--end
 	self._scene:onUpdate()
 	doPenddingWorks()
+	self._scene:onCollide()
 	self._scene:onRender()
 	now = Time.now()
 	deltaTime = now - lastUpdateTime

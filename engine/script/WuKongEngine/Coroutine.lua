@@ -55,7 +55,7 @@ function resume(self)
 				observer()
 			end
 		end
-		print(coroutine.status(self._co))
+		--print(coroutine.status(self._co))
 	end
 end
 

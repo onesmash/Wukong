@@ -21,10 +21,11 @@ local setmetatable = setmetatable
 local pairs = pairs
 local type = type
 local rawget = rawget
+local rawset = rawset
 
 local _ENV = Class
 
-__call = function(class, ...)
+function __call(class, ...)
 	local self = {}
 	setmetatable(self, class)
 	self.isa = class
@@ -40,7 +41,15 @@ __call = function(class, ...)
 	return self
 end
 
-__index = function(class, key)
+function __newindex(class, key, value)
+	if key:sub(1, 2) ~= '__' then
+		class.public[key] = value
+	else
+		rawset(class, key, value)
+	end
+end
+
+function __index(class, key)
 	local cache = class.___staticCache
 	local x = cache[key]
 	if x == nil then
@@ -59,7 +68,6 @@ function subclass(className, superClass, hasFinalizer)
 	class.isa = Class
 	class.className = className
 	class.___superClass = superClass
-	class.super = superClass
 	class.private = {}
 	class.___privates = {}
 	class.___privates[className] = {}
@@ -78,6 +86,7 @@ function subclass(className, superClass, hasFinalizer)
 	class.static = {}
 	class.___staticCache = {}
 	setmetatable(class.___staticCache, {__mode = 'v'})
+	class.public = {}
 	class.___publicCache = {}
 	setmetatable(class.___publicCache, {__mode = 'v'})
 	class.__index = function(t, key)
@@ -86,13 +95,19 @@ function subclass(className, superClass, hasFinalizer)
 		if x == nil then
 			local clz = class
 			repeat
-				x = rawget(clz, key)
+				x = rawget(clz, 'public')[key] or rawget(clz, key)
 				clz = rawget(clz, '___superClass')
 			until x ~= nil or clz == nil
 			cache[key] = x
 		end
 		return x
 	end
+	if superClass.className ~= 'Object' then
+		class.super = setmetatable({}, superClass)
+	else
+		class.super = superClass
+	end
+	
 	if hasFinalizer then
 		class.finalize = function(...)
 			-- body

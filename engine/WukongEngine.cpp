@@ -12,6 +12,8 @@
 #include "lfs.h"
 #include "SDL.h"
 
+#include <iostream>
+
 extern "C" {
 #include "renderer.h"
 #include <common/common.h>
@@ -71,9 +73,18 @@ void WukongEngine::startInternal()
     
     SDL_GL_MakeCurrent(env_.window, env_.context);
     
+    lua_getglobal(L_, "debug");
+    lua_getfield(L_, -1, "traceback");
+    
     std::string bootScriptFilePath = env_.scriptDirectory + "/boot.lua";
-    if (luaL_loadfile(L_,  bootScriptFilePath.c_str()) == LUA_OK)
-        lua_call(L_, 0, 1);
+    if (luaL_loadfile(L_,  bootScriptFilePath.c_str()) == LUA_OK) {
+        if(lua_pcall(L_, 0, 0, -2)) {
+            std::cerr << "Uncaught Error: " << lua_tostring(L_, -1) << std::endl;
+            lua_pop(L_, 2);
+            return;
+        }
+    }
+    lua_pop(L_, 1);
 }
     
 void WukongEngine::stopInternal()

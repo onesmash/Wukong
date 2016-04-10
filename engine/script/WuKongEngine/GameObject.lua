@@ -16,6 +16,6 @@ function init(self)
 	super.init(self)
 end
 
-function static.destroy(class, object)
+function static.destroy(object)
 	-- body
 end

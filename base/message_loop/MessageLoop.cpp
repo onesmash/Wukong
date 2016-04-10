@@ -158,11 +158,12 @@ bool MessageLoop::doWork()
             break;
         }
         do {
-            Task& task = taskQueue_.front();
+            Task task(std::move(taskQueue_.front()));
             taskQueue_.pop();
             if(task.delayedRunTime_ != TimePoint::min()) {
+                int sequenceNum = task.sequenceNum_;
                 delayedTaskQueue_.push(std::move(task));
-                if(delayedTaskQueue_.top().sequenceNum_ == task.sequenceNum_) {
+                if(delayedTaskQueue_.top().sequenceNum_ == sequenceNum) {
                     if(doDelayedWork()) {
                         return true;
                     }

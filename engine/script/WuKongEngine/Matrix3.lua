@@ -39,7 +39,7 @@ end
 function static.rotate(rad)
 	local cos = math.cos(rad)
 	local sin = math.sin(rad)
-	return Matrix3( {cos, sin, 0},
+	return Matrix3( {cos, -sin, 0},
 					{sin, cos, 0},
 					{  0,   0, 1})
 end

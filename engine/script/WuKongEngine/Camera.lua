@@ -2,6 +2,7 @@ local Class = require('Class')
 local Component = require('Component')
 local Runtime = require('runtime')
 local Renderer = require('Renderer')
+local Vector3 = require('Vector3')
 
 local modName = ...
 
@@ -46,6 +47,25 @@ function isVisibleByMe(self, entity)
 	end
 	--print(entity.name, 'visible', entityTop, entityLeft, entityBottom, entityRight)
 	return true
+end
+
+function worldToScreenPoint(self, x, y)
+	local localPsition = self.transform:inverseTransformPoint(x, y)
+	return Vector3(localPsition.x + self.pixelWidth / 2, -(localPsition.y - self.pixelHeight / 2), 0)
+end
+
+function screenToWorldPoint(self, x, y)
+	local localX = x - self.pixelWidth / 2
+	local localY = -y + self.pixelHeight / 2
+	return self.transform:transformPoint(localX, localY)
+end
+
+function viewportToWorldPoint(self, x, y)
+	local pixelX = self.pixelWidth * x
+	local pixelY = self.pixelHeight * y
+	local localX = pixelX - self.pixelWidth / 2
+	local localY = pixelY - self.pixelHeight / 2
+	return self.transform:transformPoint(localX, localY)
 end
 
 function addPreRenderDelegate(self, delegate)

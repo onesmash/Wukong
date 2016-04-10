@@ -15,6 +15,8 @@ local Continuation = require('Continuation')
 local SDL = require('SDL')
 local Image = require('SDL.image')
 
+math.randomseed(os.time())
+
 Image.init({PNG = 1})
 
 local renderer = runtime._renderer
@@ -103,6 +105,13 @@ local sdlDisplayMode = SDL.getCurrentDisplayMode(0)
 Runtime.Device.displayInfo.w = sdlDisplayMode.w
 Runtime.Device.displayInfo.h = sdlDisplayMode.h
 Runtime.Device.displayInfo.refreshRate = sdlDisplayMode.refreshRate or 60
+
+function trace (event, line)
+      local s = debug.getinfo(2).short_src
+      print(s .. ":" .. line)
+end
+    
+--debug.sethook(trace, "l")
 
 local WukongEngine = require('WukongEngine')
 _G.WukongEngine = WukongEngine()

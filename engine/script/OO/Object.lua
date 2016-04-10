@@ -4,8 +4,6 @@ local modName = ...
 
 local Object = {}
 
-setmetatable(Object, Class)
-
 _G[modName] = Object
 package.loaded[modName] = Object
 
@@ -23,8 +21,10 @@ isa = Class
 private = {}
 ___privates = {}
 ___privates[modName] = {}
-___staticCache = {}
 static = {}
+___staticCache = {}
+public = {}
+__publicCahce = {}
 
 function init(self, ...)
 end
@@ -50,3 +50,5 @@ function clone(self)
 	c.isa = self.isa
 	return c
 end
+
+setmetatable(Object, Class)

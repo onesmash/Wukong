@@ -56,6 +56,7 @@ function getPosition(self)
 end
 
 function setPosition(self, x, y)
+	local oldPosiotion = self:getPosition()
 	self._position = Vector3(x, y, 0)
 	self._positionIsDirty = false
 	if not self._parent then
@@ -65,6 +66,7 @@ function setPosition(self, x, y)
 		self._localPositionIsDirty = true
 		--self._localPosition = self._parent:inverseTransformPoint(x, y)
 	end
+	self.entity:moveProxy(self._position - oldPosiotion)
 	self:setDirty()
 end
 
@@ -77,18 +79,22 @@ function getLocalPosition(self)
 end
 
 function setLocalPosition(self, x, y)
+	local oldPosiotion = self:getPosition()
 	self._localPosition = Vector3(x, y, 0)
 	self._positionIsDirty = true
 	self._localPositionIsDirty = false
 	self:setDirty()
+	local position = self:getPosition()
+	self.entity:moveProxy(position - oldPosiotion)
 end
 
 function getLocalRotation(self)
 	return self._localRotation
 end
 
-function setLocalRotation(self, angle)
-	self._localRotation = angle * math.pi / 180
+function setLocalRotation(self, rotation)
+	self._localRotation = rotation
+	self.entity:moveProxy(Vector3())
 	self:setDirty()
 end
 
@@ -98,6 +104,7 @@ end
 
 function  setLocalScale(self, x, y)
 	self._localScale = Vector3(x, y, 1)
+	self.entity:moveProxy(Vector3())
 	self:setDirty()
 end
 
@@ -128,16 +135,28 @@ function getWorldToLocalMatrix(self)
 	return self._worldToLocalMatrix
 end
 
-function translate(self, dx, dy)
-	local localPosition = self:getLocalPosition()
-	self:setLocalPosition(localPosition.x + dx, localPosition.y + dy)
-	self:setDirty()
+function translate(self, dx, dy, relateToSelf)
+	if relateToSelf then
+		local position = self:transformPoint(dx, dy)
+		self:setPosition(position.x, position.y)
+		--local localToParentMatrix = self:calclateLocalToParentMatrix()
+		--self:setLocalPosition(localToParentMatrix[1][1] * dx + localToParentMatrix[1][2] * dy + localToParentMatrix[1][3],
+		--						localToParentMatrix[2][1] * dx + localToParentMatrix[2][2] * dy + localToParentMatrix[2][3],
+		--						0)
+		--self:setDirty()
+		--self.entity:moveProxy(self:transformDirection(dx, dy))
+	else
+		local localPosition = self:getLocalPosition()
+		self:setLocalPosition(localPosition.x + dx, localPosition.y + dy)
+	end
 end
 
 function rotate(self, angle, relateToSelf)
-	local rad = angle * math.pi / 180
+	local rad = math.rad(angle)
 	if relateToSelf then
 		self._localRotation = self._localRotation + rad
+		self.entity:moveProxy(Vector3())
+		self:setDirty()
 	else
 		local cos = math.cos(rad)
 		local sin = math.sin(rad)
@@ -146,17 +165,17 @@ function rotate(self, angle, relateToSelf)
 		self:translate(localPosition.x * cos - localPosition.y * sin - localPosition.x, 
 					   localPosition.x * sin + localPosition.y * cos - localPosition.y)
 	end
-	self:setDirty()
 end
 
 function scale(self, sx, sy, relateToSelf)
 	if relateToSelf then
 		self._localScale = self._localScale:mul(sx, sy, 1)
+		self.entity:moveProxy(Vector3())
+		self:setDirty()
 	else
 		local localPosition = self:getLocalPosition()
 		self:translate(sx * localPosition.x - localPosition.x, sy * ocalPosition.y - localPosition.y)
 	end
-	self:setDirty()
 end
 
 function transformPoint(self, x, y)
@@ -172,4 +191,18 @@ function inverseTransformPoint(self, x, y)
 	return Vector3(worldToLocalMatrix[1][1] * x + worldToLocalMatrix[1][2] * y + worldToLocalMatrix[1][3], 
 					worldToLocalMatrix[2][1] * x + worldToLocalMatrix[2][2] * y + worldToLocalMatrix[2][3],
 					0)
+end
+
+function transformDirection(self, x, y)
+	local worldToLocalMatrix = self:getWorldToLocalMatrix()
+	return Vector3(x * worldToLocalMatrix[1][1] + y * worldToLocalMatrix[2][1],
+					x * worldToLocalMatrix[1][2] + y * worldToLocalMatrix[2][2],
+					x * worldToLocalMatrix[1][3] + y * worldToLocalMatrix[2][3])
+end
+
+function inverseTransformDirection(self, x, y)
+	local localToWorldMatrix = self:getLocalToWorldMatrix()
+	return Vector3(x * localToWorldMatrix[1][1] + y * localToWorldMatrix[2][1],
+					x * localToWorldMatrix[1][2] + y * localToWorldMatrix[2][2],
+					x * localToWorldMatrix[1][3] + y * localToWorldMatrix[2][3])
 end
