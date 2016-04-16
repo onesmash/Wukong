@@ -49,6 +49,8 @@ public:
     
     char* wakeUpPipeMessageBuf() { return wakeUpPipeMessageBuf_; }
     
+    int taskQueueSize() { return taskQueue_.size(); }
+    
 //    void addObserver(MessageLoopObserver& observer);
 //    
 //    void removeObserver(const MessageLoopObserver& observer);
@@ -87,9 +89,7 @@ private:
     char wakeUpPipeMessageBuf_[2];
     uv_timer_t timer_;
     
-    int observerSequenceNumber_;
-    
-    //std::unordered_map<ObserverOptionFlags, std::list<MessageLoopObserver>> observers;
+    std::mutex mutex_;
     
 };
     

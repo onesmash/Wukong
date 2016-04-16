@@ -25,7 +25,6 @@ extern "C" int luaopen_SDL_image(lua_State*);
 namespace WukongEngine {
 WukongEngine::WukongEngine(const std::string& name)
 {
-    L_ = luaL_newstate();
     thread_ = std::shared_ptr<Base::Thread>(new Base::Thread(name));
 }
     
@@ -49,6 +48,7 @@ void WukongEngine::stop()
     
 void WukongEngine::startInternal()
 {
+    L_ = luaL_newstate();
     luaL_openlibs(L_);
     Runtime::luax_preload(L_, Runtime::luaopen_runtime, "runtime");
     Runtime::luax_preload(L_, luaopen_lfs, "lfs");
@@ -69,6 +69,12 @@ void WukongEngine::startInternal()
     lua_setfield(L_, -2, "_scriptDirectory");
     commonPush(L_, "p", RendererName, env_.renderer);
     lua_setfield(L_, -2, "_renderer");
+    lua_pushlightuserdata(L_, env_.window);
+    lua_setfield(L_, -2, "__window");
+    lua_pushlightuserdata(L_, env_.renderer);
+    lua_setfield(L_, -2, "__renderer");
+    lua_pushlightuserdata(L_, env_.context);
+    lua_setfield(L_, -2, "__context");
     lua_pop(L_, 1);
     
     SDL_GL_MakeCurrent(env_.window, env_.context);
@@ -80,7 +86,7 @@ void WukongEngine::startInternal()
     if (luaL_loadfile(L_,  bootScriptFilePath.c_str()) == LUA_OK) {
         if(lua_pcall(L_, 0, 0, -2)) {
             std::cerr << "Uncaught Error: " << lua_tostring(L_, -1) << std::endl;
-            lua_pop(L_, 2);
+            lua_pop(L_, 1);
             return;
         }
     }

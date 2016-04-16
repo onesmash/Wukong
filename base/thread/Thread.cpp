@@ -17,7 +17,9 @@ Thread::Thread(const std::string& name):
     name_(name),
     thread_(NULL),
     messageLoop_(NULL),
-    started_(false)
+    started_(false),
+    mutex_(),
+    cv_()
 {
     
 }

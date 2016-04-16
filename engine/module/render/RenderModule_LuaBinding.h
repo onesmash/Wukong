@@ -9,6 +9,16 @@
 #ifndef RenderModule_LuaBinding_hpp
 #define RenderModule_LuaBinding_hpp
 
-#include <stdio.h>
+#include "Runtime.h"
+
+namespace WukongEngine {
+    
+namespace Runtime {
+    
+extern "C" APPCORE_EXPORT int luaopen_RenderModule(lua_State* L);
+    
+}
+    
+}
 
 #endif /* RenderModule_LuaBinding_hpp */

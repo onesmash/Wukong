@@ -22,9 +22,9 @@ class Module: public Object
     
 public:
     enum ModuleType {
-        ModuleServiceMgr,
         ModuleMessageLoop,
         ModuleTime,
+        ModuleRender,
         ModuleMaxEnum
     };
     

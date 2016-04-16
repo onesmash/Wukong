@@ -20,6 +20,7 @@ _G[modName] = WukongEngine
 package.loaded[modName] = WukongEngine
 
 local string = string
+local math = math
 
 local _ENV = WukongEngine
 
@@ -57,7 +58,7 @@ function loadScene(self, scene, additive)
 	scene:onLoad()
 end
 
-local tick = 1 / Runtime.Device.displayInfo.refreshRate
+local tick = 1 / 60
 
 function update(self)
 	local now = Time.now()
@@ -103,22 +104,19 @@ function update(self)
 			end
 		end
 	end
-	--for _, service in pairs(runtime._services) do
-	--		service:update()
-	--end
+	
 	self._scene:onUpdate()
 	doPenddingWorks()
 	self._scene:onCollide()
 	self._scene:onRender()
 	now = Time.now()
 	deltaTime = now - lastUpdateTime
-	if deltaTime > tick then
-		return self:update()
-	else
-		return messageloop.postDelayTask(function()
+	local slot = math.max(tick - deltaTime, 0)
+	--print(deltaTime, slot)
+	--print(slot)
+	return messageloop.postDelayTask(function()
 			self:update()
-		end, tick - deltaTime)
-	end
+	end, slot)
 end
 
 function start(self)

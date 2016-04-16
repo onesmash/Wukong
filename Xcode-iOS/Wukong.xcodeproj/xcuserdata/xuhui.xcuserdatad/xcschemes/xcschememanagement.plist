@@ -6,13 +6,20 @@
 	<dict>
 		<key>Wukong.xcscheme</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>0321FE651C7F434D00AC515D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>03BCFE411CBE15D60058F52F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

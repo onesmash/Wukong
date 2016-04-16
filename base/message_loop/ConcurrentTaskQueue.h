@@ -27,6 +27,8 @@ public:
     
     ~ConcurrentTaskQueue();
     
+    void pushTask(const Closure& closure);
+    
     void pushTask(const Closure& closure, const TimeDelta& delayTime);
     
     void swap(TaskQueue& taskQueue);

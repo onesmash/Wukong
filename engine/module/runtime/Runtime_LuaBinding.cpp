@@ -15,13 +15,14 @@ extern "C"
 {
 extern int luaopen_MessageLoopModule(lua_State*);
 extern int luaopen_TimeModule(lua_State*);
-    
+extern int luaopen_RenderModule(lua_State*);
 }
 
 static const luaL_Reg modules[] =
 {
     {"runtime.messageloop", luaopen_MessageLoopModule},
     {"runtime.time", luaopen_TimeModule},
+    {"runtime.render", luaopen_RenderModule},
     {0, 0}
 };
     

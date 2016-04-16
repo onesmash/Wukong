@@ -4,6 +4,7 @@ local Sprite = require('Sprite')
 local SpriteRenderer = require('SpriteRenderer')
 local Entity = require('Entity')
 local EnemyBehaviour = require('EnemyBehaviour')
+local BoxCollider = require('BoxCollider')
 
 local modName = ...
 
@@ -18,11 +19,15 @@ local _ENV = Enemy
 
 function init(self)
 	super.init(self)
-	self._texture = Texture()
-	self._texture:loadImage('mineAnimation.png')
-	self._sprite = Sprite(self._texture, {x = 0, y = 0, w = self._texture.width / 8, h = self._texture.height})
-	self._sprite.center = {x = 0.5, y = 0.5}
-	self._renderer = self:addComponent(SpriteRenderer)
-	self._renderer.sprite = self._sprite
+	local texture = Texture()
+	texture:loadImage('mineAnimation.png')
+	local sprite = Sprite(texture, {x = 0, y = 0, w = texture.width / 8, h = texture.height})
+	sprite.center = {x = 0.5, y = 0.5}
+	local renderer = self:addComponent(SpriteRenderer)
+	renderer.sprite = sprite
 	self:addComponent(EnemyBehaviour)
+	local collider = self:addComponent(BoxCollider)
+	collider.center = sprite.center
+	collider.width = sprite.width
+	collider.height = sprite.height
 end

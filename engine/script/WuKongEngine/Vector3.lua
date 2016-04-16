@@ -67,8 +67,19 @@ function mul(self, x, y, z)
 	return self
 end
 
+function div(self, x, y, z)
+	self.x = self.x / x
+	self.y = self.y / y
+	self.z = self.z / z
+	return self
+end
+
 function length(self)
 	return math.sqrt(self.x * self.x + self.y * self.y + self.x * self.z)
+end
+
+function squaredLength(self)
+	return self.x * self.x + self.y * self.y + self.x * self.z
 end
 
 function normalize(self)
@@ -81,6 +92,10 @@ function normalize(self)
 	self.y = self.y * invLength
 	self.z = self.z * invLength
 	return length
+end
+
+function dot(self, v)
+	return self.x * v.x + self.y * v.y + self.z * v.z
 end
 
 function clone(self)

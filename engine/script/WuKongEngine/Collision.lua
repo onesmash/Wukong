@@ -9,3 +9,8 @@ _G[modName] = Collision
 package.loaded[modName] = Collision
 
 local _ENV = Collision
+
+function init(self, collider)
+	super.init(self)
+	self.collider = collider
+end

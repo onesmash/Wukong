@@ -6,6 +6,8 @@ local Entity = require('Entity')
 local Texture = require('Texture')
 local Coroutine = require('Coroutine')
 local Sprite = require('Sprite')
+local Collider = require('Collider')
+local Explosion = require('Explosion')
 
 local modName = ...
 
@@ -26,14 +28,14 @@ end
 
 function start(self)
 	super.start(self)
+
 	local camera = self.entity:getScene():getMainCamera()
 	local position = camera:viewportToWorldPoint(1 + math.random(), math.random())
 	self.transform:setPosition(position.x, position.y)
 	
 	self._renderer = self.entity:getComponent(Renderer)
 	self._sprite = self._renderer.sprite
-	self._texture = self._sprite.texture
-	self._frames = self._texture.width / self._sprite.width
+	self._frames = self._sprite.texture.width / self._sprite.width
 	self._frameIndex = 0
 
 	self:startCoroutine(function()
@@ -46,4 +48,22 @@ function update(self)
 	self._frameIndex = (self._frameIndex + 1) % self._frames
 	self._sprite.rect.x = self._frameIndex * self._sprite.rect.w
 	self.transform:translate(-20 * Time.deltaTime, 0, true)
+end
+
+function onCollide(self, collision)
+	self.enabled = false
+	local collider = self.entity:getComponent(Collider)
+	collider.enabled = false
+	local renderer = self.entity:getComponent(Renderer)
+	renderer.isVisible = false
+	local explosion = Explosion()
+	local transform = explosion:getTransform()
+	local position = self.transform:getPosition()
+	transform:setPosition(position.x, position.y)
+	local scene = self.entity:getScene()
+	if scene then
+		scene:addEntity(explosion)
+		Entity.destroy(self.entity)
+	end
+	
 end

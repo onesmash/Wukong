@@ -4,6 +4,7 @@ local Behaviour = require('Behaviour')
 local Renderer = require('Renderer')
 local BroadPhase = require('BroadPhase')
 local Collider = require('Collider')
+local Collision = require('Collision')
 local AABB = require('AABB')
 
 local modName = ...
@@ -187,7 +188,7 @@ end
 function addPair(self, a, b)
 	local colliderA = a:getComponent(Collider)
 	local colliderB = b:getComponent(Collider)
-	if colliderA and colliderB then
+	if colliderA and colliderB and colliderA:testCollide(colliderB) then
 		local colliderPair = {colliderA, colliderB}
 		table.insert(self._collisions, colliderPair)
 	end
@@ -204,6 +205,18 @@ end
 function onCollide(self)
 	self._collisions = {}
 	self._broadPhase:updatePairs(self)
+	for _, colliderPair in ipairs(self._collisions) do
+		local behaviourA = colliderPair[1].entity:getComponent(Behaviour)
+		local behaviourB = colliderPair[2].entity:getComponent(Behaviour)
+		if type(behaviourA.onCollide) == 'function' then
+			local collision = Collision(colliderPair[2])
+			behaviourA:onCollide(collision)
+		end
+		if type(behaviourB.onCollide) == 'function' then
+			local collision = Collision(colliderPair[1])
+			behaviourB:onCollide(collision)
+		end
+	end
 end
 
 function createRenderPath(self)
@@ -245,6 +258,7 @@ function onRender(self)
 	--print(cameraViewLowerBound.x, cameraViewLowerBound.y)
 	--print(cameraViewUpperBound.x, cameraViewUpperBound.y)
 	self._broadPhase:query(self, aabb)
+	Renderer.renderBegin()
 	if self._mainCamera.needClear then
 		Renderer.clear(self._mainCamera.backgroundColor)
 	end
@@ -253,4 +267,5 @@ function onRender(self)
 		renderer:render()
 	end
 	Renderer.present()
+	Renderer.renderEnd()
 end

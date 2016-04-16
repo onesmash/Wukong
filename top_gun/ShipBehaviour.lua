@@ -33,7 +33,6 @@ function start(self)
 	--self.transform.position.x = 100
 	--self.transform.position.y = 200
 	self._renderer = self.entity:getComponent(Renderer)
-	print(self._renderer.className)
 	self._sprite = self._renderer.sprite
 	self._texture = self._sprite.texture
 	self._frames = self._texture.width / self._sprite.width

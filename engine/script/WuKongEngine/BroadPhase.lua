@@ -142,3 +142,7 @@ end
 function getData(self, proxyId)
 	return self._tree:getData(proxyId)
 end
+
+function getFatAABB(self, proxyId)
+	return self._tree:getFatAABB(proxyId)
+end

@@ -9,14 +9,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../base/message_loop/MessageLoop.cpp"
-            timestampString = "481911166.970223"
+            filePath = "../third_party/luasdl2/src/renderer.c"
+            timestampString = "480347140.359649"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
-            landmarkName = "MessageLoop::doDelayedWork()"
-            landmarkType = "5">
+            startingLineNumber = "372"
+            endingLineNumber = "372"
+            landmarkName = "l_renderer_copyEx()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,13 +25,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../third_party/luasdl2/src/renderer.c"
-            timestampString = "480347140.359649"
+            filePath = "../engine/module/render/RenderModule_LuaBinding.cpp"
+            timestampString = "482426595.671278"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "372"
-            endingLineNumber = "372"
-            landmarkName = "l_renderer_copyEx()"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "m_start(lua_State* L)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../engine/module/render/RenderModule_LuaBinding.cpp"
+            timestampString = "482506391.850227"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "m_renderEnd(lua_State* L)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

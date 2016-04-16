@@ -67,7 +67,7 @@ function start(self)
 		while true do
 			local enemy = Enemy() 
 			self.entity:getScene():addEntity(enemy)
-			Coroutine.waitForSeconds(15)
+			Coroutine.waitForSeconds(1)
 		end
 	end)
 end

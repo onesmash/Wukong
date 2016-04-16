@@ -4,6 +4,7 @@ local Sprite = require('Sprite')
 local SpriteRenderer = require('SpriteRenderer')
 local Entity = require('Entity')
 local BulletBehaviour = require('BulletBehaviour')
+local BoxCollider = require('BoxCollider')
 
 local modName = ...
 
@@ -25,4 +26,8 @@ function init(self)
 	self._renderer = self:addComponent(SpriteRenderer)
 	self._renderer.sprite = self._sprite
 	self:addComponent(BulletBehaviour)
+	self._collider = self:addComponent(BoxCollider)
+	self._collider.center = self._sprite.center
+	self._collider.width = self._sprite.width
+	self._collider.height = self._sprite.height
 end

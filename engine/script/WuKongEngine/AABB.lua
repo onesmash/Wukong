@@ -63,6 +63,12 @@ function combine(self, aabb)
 	return self
 end
 
+function combine2AABB(self, aabbA, aabbB)
+	self.lowerBound = Vector3.min(aabbA.lowerBound, aabbB.lowerBound)
+	self.upperBound = Vector3.max(aabbA.upperBound, aabbB.upperBound)
+	return self
+end
+
 function contains(self, aabb)
 	local result = true
 	result = result and self.lowerBound.x <= aabb.lowerBound.x

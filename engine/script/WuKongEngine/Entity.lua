@@ -104,7 +104,7 @@ function getAABB(self)
 	elseif not colliderAABB then
 		return spriteAABB
 	else
-		spriteAABB:combine(colliderAABB)
+		return spriteAABB:combine(colliderAABB)
 	end
 end
 
@@ -128,11 +128,10 @@ function getSpriteAABB(self)
 	local bottomLeft = transform:transformPoint(localBottomLeft.x, localBottomLeft.y)
 	local bottomRight = transform:transformPoint(localBottomRight.x, localBottomRight.y)
 
-	local minX math.min(topLeft.x, topRight.x, bottomLeft.x, bottomRight.x)
+	local minX = math.min(topLeft.x, topRight.x, bottomLeft.x, bottomRight.x)
 	local minY = math.min(topLeft.y, topRight.y, bottomLeft.y, bottomRight.y)
-	local maxX math.max(topLeft.x, topRight.x, bottomLeft.x, bottomRight.x)
+	local maxX = math.max(topLeft.x, topRight.x, bottomLeft.x, bottomRight.x)
 	local maxY = math.max(topLeft.y, topRight.y, bottomLeft.y, bottomRight.y)
-
 	return AABB(Vector3(minX, minY, 0), Vector3(maxX, maxY))
 end
 
@@ -156,11 +155,10 @@ function getColliderAABB(self)
 	local bottomLeft = transform:transformPoint(localBottomLeft.x, localBottomLeft.y)
 	local bottomRight = transform:transformPoint(localBottomRight.x, localBottomRight.y)
 
-	local minX math.min(topLeft.x, topRight.x, bottomLeft.x, bottomRight.x)
+	local minX = math.min(topLeft.x, topRight.x, bottomLeft.x, bottomRight.x)
 	local minY = math.min(topLeft.y, topRight.y, bottomLeft.y, bottomRight.y)
-	local maxX math.max(topLeft.x, topRight.x, bottomLeft.x, bottomRight.x)
+	local maxX = math.max(topLeft.x, topRight.x, bottomLeft.x, bottomRight.x)
 	local maxY = math.max(topLeft.y, topRight.y, bottomLeft.y, bottomRight.y)
-
 	return AABB(Vector3(minX, minY, 0), Vector3(maxX, maxY))
 end
 

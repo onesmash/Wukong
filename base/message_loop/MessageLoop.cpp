@@ -44,7 +44,8 @@ void onWakeUp(uv_stream_t* stream, ssize_t nread, const uv_buf_t* buf)
 }
 
 MessageLoop::MessageLoop():
-    running_(false)
+    running_(false),
+    mutex_()
 {
     uv_loop_init(&eventLoop_);
     pendingTaskQueue_ = std::shared_ptr<ConcurrentTaskQueue>(new ConcurrentTaskQueue(this));
@@ -59,11 +60,13 @@ MessageLoop::MessageLoop():
     wakeUpPipeOut_.data = this;
     uv_pipe_open(&wakeUpPipeOut_, wakeUpPipeOutId_);
     uv_read_start((uv_stream_t*)&wakeUpPipeOut_, allocBuf, Base::onWakeUp);
-    uv_key_create(&messageLoopTLSKey);
-    uv_key_set(&messageLoopTLSKey, this);
     uv_timer_init(&eventLoop_, &timer_);
     recentNow_ = Time::now();
-    observerSequenceNumber_ = 0;
+    std::unique_lock<std::mutex> lock(mutex_);
+    if(messageLoopTLSKey <= 0) {
+        uv_key_create(&messageLoopTLSKey);
+    }
+    uv_key_set(&messageLoopTLSKey, this);
 }
     
 MessageLoop::~MessageLoop()
@@ -88,7 +91,7 @@ MessageLoop* MessageLoop::current()
     
 void MessageLoop::postTask(const Closure& closure)
 {
-    postDelayTask(closure, TimeDelta::zero());
+    pendingTaskQueue_->pushTask(closure);
 }
     
 void MessageLoop::postDelayTask(const Closure& closure, const TimeDelta& delayTime)
@@ -131,8 +134,9 @@ void MessageLoop::run()
         if(!running_)
             break;
         
-        if(didWork)
+        if(didWork) {
             continue;
+        }
         uv_run(&eventLoop_, UV_RUN_ONCE);
     }
     running_ = false;
@@ -186,7 +190,8 @@ bool MessageLoop::doDelayedWork()
         Task task = delayedTaskQueue_.top();
         if(task.delayedRunTime_ > recentNow_) {
             recentNow_ = Time::now();
-            if(task.delayedRunTime_ > recentNow_) {
+            uint64_t delayTime = timeDeltaToMilliseconds(task.delayedRunTime_ - recentNow_);
+            if(task.delayedRunTime_ > recentNow_ && delayTime > 0) {
                 uv_timer_stop(&timer_);
                 uv_timer_init(&eventLoop_, &timer_);
                 timer_.data = this;

@@ -24,16 +24,17 @@ sequenceNumber_(0)
 ConcurrentTaskQueue::~ConcurrentTaskQueue() {
     
 }
+
+void ConcurrentTaskQueue::pushTask(const Closure& closure)
+{
+    Task task(closure, TimePoint::min());
+    pushTask(std::move(task));
+}
     
 void ConcurrentTaskQueue::pushTask(const Closure& closure, const TimeDelta& delayTime)
 {
-    if(delayTime == TimeDelta::zero()) {
-        Task task(closure, TimePoint::min());
-        pushTask(std::move(task));
-    } else {
-        Task task(closure, Time::now() + delayTime);
-        pushTask(std::move(task));
-    }
+    Task task(closure, Time::now() + delayTime);
+    pushTask(std::move(task));
 }
   
 void ConcurrentTaskQueue::pushTask(Task& task)

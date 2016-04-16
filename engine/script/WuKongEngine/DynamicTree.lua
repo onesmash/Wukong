@@ -208,7 +208,7 @@ function insertLeaf(self, leaf)
 	local newParentNode = self._nodes[newParent]
 	newParentNode.parent = oldParent
 	newParentNode.data = nil
-	newParentNode.aabb = AABB.combine(leafAABB, self._nodes[sibling].aabb)
+	newParentNode.aabb:combine2AABB(leafAABB, self._nodes[sibling].aabb)
 	newParentNode.height = self._nodes[sibling].height + 1
 
 	if oldParent ~= TreeNode.null then
@@ -239,7 +239,7 @@ function insertLeaf(self, leaf)
 		local childR = self._nodes[index].childR
 
 		self._nodes[index].height = 1 + math.max(self._nodes[childL].height, self._nodes[childR].height)
-		self._nodes[index].aabb = AABB.combine(self._nodes[childL].aabb, self._nodes[childR].aabb)
+		self._nodes[index].aabb:combine2AABB(self._nodes[childL].aabb, self._nodes[childR].aabb)
 
 		index = self._nodes[index].parent
 	end
@@ -278,7 +278,7 @@ function removeLeaf(self, leaf)
 			local childL = self._nodes[index].childL
 			local childR = self._nodes[index].childR
 
-			self._nodes[index].aabb = AABB.combine(self._nodes[childL].aabb, self._nodes[childR].aabb)
+			self._nodes[index].aabb:combine2AABB(self._nodes[childL].aabb, self._nodes[childR].aabb)
 			self._nodes[index].height = 1 + math.max(self._nodes[childL].height, self._nodes[childR].height)
 
 			index = self._nodes[index].parent
@@ -335,8 +335,8 @@ function balance(self, iA)
 			nodeR.childR = iRL
 			nodeA.childR = iRR
 			nodeRR.parent = iA
-			nodeA.aabb = AABB.combine(nodeL.aabb, nodeRR.aabb)
-			nodeR.aabb = AABB.combine(nodeA.aabb, nodeRL.aabb)
+			nodeA.aabb:combine2AABB(nodeL.aabb, nodeRR.aabb)
+			nodeR.aabb:combine2AABB(nodeA.aabb, nodeRL.aabb)
 
 			nodeA.height = 1 + math.max(nodeL.height, nodeRR.height)
 			nodeR.height = 1 + math.max(nodeA.height, nodeRL.height)
@@ -344,8 +344,8 @@ function balance(self, iA)
 			nodeR.childR = iRR
 			nodeA.childR = iRL
 			nodeRL.parent = iA
-			nodeA.aabb = AABB.combine(nodeL.aabb, nodeRL.aabb)
-			nodeR.aabb = AABB.combine(nodeA.aabb, nodeRR.aabb)
+			nodeA.aabb:combine2AABB(nodeL.aabb, nodeRL.aabb)
+			nodeR.aabb:combine2AABB(nodeA.aabb, nodeRR.aabb)
 
 			nodeA.height = 1 + math.max(nodeL.height, nodeRL.height)
 			nodeR.height = 1 + math.max(nodeA.height, nodeRR.height)
@@ -382,8 +382,8 @@ function balance(self, iA)
 			nodeL.childR = iLL
 			nodeA.childL = iLR
 			nodeLR.parent = iA
-			nodeA.aabb = AABB.combine(nodeR.aabb, nodeLR.aabb)
-			nodeL.aabb = AABB.combine(nodeA.aabb, nodeLL.aabb)
+			nodeA.aabb:combine2AABB(nodeR.aabb, nodeLR.aabb)
+			nodeL.aabb:combine2AABB(nodeA.aabb, nodeLL.aabb)
 
 			nodeA.height = 1 + math.max(nodeR.height, nodeLR.height)
 			nodeL.height = 1 + math.max(nodeA.height, nodeLL.height)
@@ -391,8 +391,8 @@ function balance(self, iA)
 			nodeL.childR = iLR
 			nodeA.childL = iLL
 			nodeLL.parent = iA
-			nodeA.aabb = AABB.combine(nodeR.aabb, nodeLL.aabb)
-			nodeL.aabb = AABB.combine(nodeA.aabb, nodeLR.aabb)
+			nodeA.aabb:combine2AABB(nodeR.aabb, nodeLL.aabb)
+			nodeL.aabb:combine2AABB(nodeA.aabb, nodeLR.aabb)
 
 			nodeA.height = 1 + math.max(nodeR.height, nodeLL.height)
 			nodeL.height = 1 + math.max(nodeA.height, nodeLR.height)
