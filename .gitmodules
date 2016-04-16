@@ -1,0 +1,6 @@
+[submodule "third_party/libuv"]
+        path = third_party/libuv
+        url = https://github.com/libuv/libuv.git
+[submodule "third_party/luasdl2"]
+        path = third_party/luasdl2
+        url = https://github.com/Tangent128/luasdl2.git
