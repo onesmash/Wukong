@@ -1,6 +1,6 @@
 [submodule "third_party/libuv"]
         path = third_party/libuv
-        url = https://github.com/onesmash/libuv.git
+	url = https://onesmash@github.com/onesmash/libuv.git
 [submodule "third_party/luasdl2"]
         path = third_party/luasdl2
         url = https://github.com/onesmash/luasdl2.git
