@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3C2618D0-5BFD-4724-81DC-7BA205AD661A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : "smpeg\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "smpeg",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Xcode\/smpeg.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/svn.icculus.org\/smpeg",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505"
+    }
+  ]
+}
