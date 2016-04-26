@@ -22,10 +22,28 @@ namespace WukongEngine {
     
 class Object;
 class Module;
+    
+struct Size {
+    int width;
+    int height;
+};
+    
+struct Rect {
+    int x, y;
+    int w, h;
+};
+
+struct Point
+{
+    int x, y;
+};
+    
+struct Color
+{
+    int r, g, b, a;
+};
 
 namespace Runtime {
-    
-
     
 struct WrappedModule {
     std::shared_ptr<Module> module;
@@ -41,12 +59,14 @@ enum Registry {
     
 enum Type {
     TypeModule,
+    TypeObject,
     TypeMaxEnum
 };
-    
+ 
+template <typename T>
 struct Proxy {
     Type type;
-    std::shared_ptr<Object> object;
+    std::shared_ptr<T> object;
     //Object *object;
 };
     
@@ -54,15 +74,44 @@ int luax_ensure_global(lua_State* L, const char* k);
     
 int luax_ensure_runtime(lua_State* L, const char* k);
     
-int luax_ensure_registry(lua_State *L, Registry r);
+int luax_ensure_registry(lua_State* L, Registry r);
     
-int luax_ensure_table(lua_State *L, int idx, const char *k);
+int luax_ensure_table(lua_State* L, int idx, const char *k);
     
-int luax_preload(lua_State *L, lua_CFunction f, const char *name);
+int luax_preload(lua_State* L, lua_CFunction f, const char *name);
     
-int luax_register_module(lua_State *L, const WrappedModule &m);
+int luax_register_module(lua_State* L, const WrappedModule &m);
     
-void luax_setfuncs(lua_State *L, const luaL_Reg *l);
+void luax_setfuncs(lua_State* L, const luaL_Reg *l);
+ 
+int rt_gc(lua_State* L);
+    
+template<typename T>
+void luax_push_objectPtr(lua_State* L, T* object)
+{
+    Proxy<T>** proxy = (Proxy<T>**)lua_newuserdata(L, sizeof(Proxy<T>*));
+    *proxy = new Proxy<T>;
+    (*proxy)->type = TypeObject;
+    (*proxy)->object = std::shared_ptr<T>(object);
+    typedef typename T::TypeName TypeName;
+    luaL_newmetatable(L, TypeName::stringify());
+    lua_pushvalue(L, -1);
+    lua_setfield(L, -2, "__index");
+    lua_pushcfunction(L, rt_gc);
+    lua_setfield(L, -2, "__gc");
+    lua_setmetatable(L, -2);
+}
+
+template<typename T>
+std::shared_ptr<T> luax_to_objectPtr(lua_State* L, int index)
+{
+    Proxy<T> **proxy = (Proxy<T> **)lua_touserdata(L, index);
+    return (*proxy)->object;
+}
+    
+Rect luax_to_rect(lua_State* L, int index);
+    
+Point luax_to_point(lua_State* L, int index);
     
 }
     

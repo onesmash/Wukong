@@ -17,22 +17,24 @@ namespace Runtime {
     
 #define instance() (WukongEngine::Module::getInstance<MessageLoopModule>(WukongEngine::Module::ModuleMessageLoop))
     
+static void callLuaCallback(lua_State* L, int closureId)
+{
+    lua_getglobal(L, "debug");
+    lua_getfield(L, -1, "traceback");
+    lua_rawgeti(L, LUA_REGISTRYINDEX, closureId);
+    if(lua_pcall(L, 0, 0, -2)) {
+        std::cerr << "Uncaught Error: " << lua_tostring(L, -1) << std::endl;
+        lua_pop(L, 1);
+    }
+    luaL_unref(L, LUA_REGISTRYINDEX, closureId);
+}
+    
 static int m_postTask(lua_State* L)
 {
     lua_pushvalue(L, -1);
     int closureId = luaL_ref(L, LUA_REGISTRYINDEX);
     std::shared_ptr<MessageLoopModule>& instance = instance();
-    auto closure = [](lua_State* L, int closureId) {
-        lua_getglobal(L, "debug");
-        lua_getfield(L, -1, "traceback");
-        lua_rawgeti(L, LUA_REGISTRYINDEX, closureId);
-        if(lua_pcall(L, 0, 0, -2)) {
-            std::cerr << "Uncaught Error: " << lua_tostring(L, -1) << std::endl;
-            lua_pop(L, 1);
-        }
-        luaL_unref(L, LUA_REGISTRYINDEX, closureId);
-    };
-    instance->postTask(std::bind(closure, L, closureId));
+    instance->postTask(std::bind(callLuaCallback, L, closureId));
     return 0;
 }
     
@@ -42,17 +44,7 @@ static int m_postDelayTask(lua_State* L)
     int closureId = luaL_ref(L, LUA_REGISTRYINDEX);
     lua_Number delay = luaL_checknumber(L, 2);
     std::shared_ptr<MessageLoopModule>& instance = instance();
-    auto closure = [](lua_State* L, int closureId) {
-        lua_getglobal(L, "debug");
-        lua_getfield(L, -1, "traceback");
-        lua_rawgeti(L, LUA_REGISTRYINDEX, closureId);
-        if(lua_pcall(L, 0, 0, -2)) {
-            std::cerr << "Uncaught Error: " << lua_tostring(L, -1) << std::endl;
-            lua_pop(L, 1);
-        }
-        luaL_unref(L, LUA_REGISTRYINDEX, closureId);
-    };
-    instance->postDelayTask(std::bind(closure, L, closureId), delay);
+    instance->postDelayTask(std::bind(callLuaCallback, L, closureId), delay);
     return 0;
 }
     

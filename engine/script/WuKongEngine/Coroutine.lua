@@ -19,7 +19,7 @@ package.loaded[modName] = Coroutine
 
 local _ENV = Coroutine
 
-function static.waitForSeconds(seconds)
+function waitForSeconds(seconds)
 	runtime.waitForSeconds(seconds)
 end
 

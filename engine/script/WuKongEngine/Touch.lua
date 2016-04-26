@@ -12,10 +12,10 @@ local print = print
 
 local _ENV = Touch
 
-static.Began = 0
-static.move = 1
-static.Stationary = 2
-static.End = 3
+Began = 0
+move = 1
+Stationary = 2
+End = 3
 
 function init(self)
 	self.phase = Touch.End

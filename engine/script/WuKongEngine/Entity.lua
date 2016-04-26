@@ -27,7 +27,7 @@ local function firstCharacterLowercase(str)
 	return string.gsub(str, '^%u', string.lower)
 end
 
-function static.destroy(entity)
+function destroy(entity)
 	local scene = entity:getScene()
 	if scene then
 		scene:removeEntity(entity)

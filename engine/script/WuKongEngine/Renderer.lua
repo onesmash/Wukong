@@ -16,28 +16,30 @@ local renderer = Runtime._renderer
 
 local _ENV = Renderer
 
-static.sortingLayer = {GUILayer = 0, defaultLayer = 100}
-static.sortingOrder = {defalutOrder = 0}
+sortingLayer = {GUILayer = 0, defaultLayer = 100}
+sortingOrder = {defalutOrder = 0}
 
-function static.clear(color)
+platformRenderer = Runtime._renderer
+
+function clear(color)
  	--renderer:setDrawColor(color)
 	--renderer:clear()
 	local renderService = Runtime.getService(RenderService)
 	renderService:clear(color)
 end
 
-function static.present()
+function present()
 	--renderer:present()
 	local renderService = Runtime.getService(RenderService)
 	renderService:present()
 end
 
-function static.renderBegin()
+function renderBegin()
 	local renderService = Runtime.getService(RenderService)
 	renderService:renderBegin()
 end
 
-function static.renderEnd()
+function renderEnd()
 	local renderService = Runtime.getService(RenderService)
 	renderService:renderEnd()
 end

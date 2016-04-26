@@ -3,12 +3,14 @@ local GameObject = require('GameObject')
 local runtime = require('runtime')
 local SDL = require('SDL')
 local Image = require('SDL.image')
+local Renderer = require('Renderer')
+local CTexture = require('runtime.texture.c')
 
-local renderer = runtime._renderer
+--local renderer = runtime._renderer
 
 local modName = ...
 
-local Texture = Class(modName, GameObject, false)
+local Texture = Class(modName, GameObject, true)
 
 _G[modName] = Texture
 package.loaded[modName] = Texture
@@ -17,6 +19,10 @@ local print = print
 
 local _ENV = Texture
 
+function new(class)
+	return CTexture.new(class)
+end
+
 function init(self, width, height)
 	super.init(self)
 	self.width = width
@@ -24,10 +30,16 @@ function init(self, width, height)
 end
 
 function loadImage(self, filePath)
-	local image = Image.load(filePath)
-	self._sdltexture = renderer:createTextureFromSurface(image)
-	self._sdltexture:setBlendMode(SDL.blendMode.Blend)
-	local format, access, w, h, error = self._sdltexture:query()
+	CTexture.loadImage(self, Renderer.platformRenderer, filePath)
+	local w, h = CTexture.size(self)
+	--local image = Image.load(filePath)
+	--self._sdltexture = renderer:createTextureFromSurface(image)
+	--self._sdltexture:setBlendMode(SDL.blendMode.Blend)
+	--local format, access, w, h, error = self._sdltexture:query()
 	self.width = w or 0
 	self.height = h or 0
+end
+
+function finalize( ... )
+	
 end

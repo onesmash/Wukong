@@ -11,13 +11,9 @@
 #include "MessageLoop.h"
 #include "lfs.h"
 #include "SDL.h"
+#include "Renderer.h"
 
 #include <iostream>
-
-extern "C" {
-#include "renderer.h"
-#include <common/common.h>
-}
 
 extern "C" int luaopen_SDL(lua_State*);
 extern "C" int luaopen_SDL_image(lua_State*);
@@ -67,14 +63,13 @@ void WukongEngine::startInternal()
     lua_setfield(L_, -2, "_serviceDirectory");
     lua_pushstring(L_, env_.scriptDirectory.c_str());
     lua_setfield(L_, -2, "_scriptDirectory");
-    commonPush(L_, "p", RendererName, env_.renderer);
-    lua_setfield(L_, -2, "_renderer");
     lua_pushlightuserdata(L_, env_.window);
-    lua_setfield(L_, -2, "__window");
-    lua_pushlightuserdata(L_, env_.renderer);
-    lua_setfield(L_, -2, "__renderer");
+    lua_setfield(L_, -2, "_window");
+    Renderer* renderer = new Renderer(env_.renderer);
+    Runtime::luax_push_objectPtr<Renderer>(L_, renderer);
+    lua_setfield(L_, -2, "_renderer");
     lua_pushlightuserdata(L_, env_.context);
-    lua_setfield(L_, -2, "__context");
+    lua_setfield(L_, -2, "_context");
     lua_pop(L_, 1);
     
     SDL_GL_MakeCurrent(env_.window, env_.context);

@@ -21,10 +21,12 @@ isa = Class
 private = {}
 ___privates = {}
 ___privates[modName] = {}
-static = {}
 ___staticCache = {}
-public = {}
-__publicCahce = {}
+___publicCache = {}
+
+function new(class)
+	return setmetatable({}, class)
+end
 
 function init(self, ...)
 end

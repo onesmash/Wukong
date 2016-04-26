@@ -19,11 +19,11 @@ math.randomseed(os.time())
 
 Image.init({PNG = 1})
 
-local renderer = runtime._renderer
+local renderer = Runtime._renderer
 --print(runtime['_scriptDirectory'])
 --print(runtime.messageloop)
 
-for file in lfs.dir(runtime['_serviceDirectory']) do
+for file in lfs.dir(Runtime['_serviceDirectory']) do
  	--file is the current file or directory name
 	--print( "Found file: " .. file )
 end
@@ -76,7 +76,7 @@ function Runtime.startAllServices()
 			Runtime.loadServic(serviceName)
 		end
 	end
-	for name, service in pairs(runtime._services) do
+	for name, service in pairs(Runtime._services) do
 		service:start()
 	end
 end

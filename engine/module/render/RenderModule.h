@@ -12,11 +12,22 @@
 #include "Closure.h"
 #include "Module.h"
 #include "Thread.h"
-#include "SDL.h"
+#include "Renderer.h"
+#include "Texture.h"
 
 #include <vector>
 
+struct SDL_Window;
+typedef void *SDL_GLContext;
+
 namespace WukongEngine {
+    
+typedef SDL_Window Window;
+typedef SDL_GLContext GLContext;
+    
+struct Rect;
+struct Point;
+    
 namespace Runtime {
     
 class RenderModule: public Module
@@ -31,41 +42,33 @@ public:
     
     virtual ModuleType moduleType() const { return ModuleRender; }
     
-    virtual std::string moduleName() const { return "runtime.renderer"; }
+    virtual std::string moduleName() const { return "runtime.render"; }
     
-    void start(SDL_Window *window, SDL_GLContext context, SDL_Renderer *renderer);
+    void start(Window *window, GLContext context, const std::shared_ptr<Renderer>& renderer);
     
     void clear(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
     
-    void draw(SDL_Texture* texture,
-              const SDL_Rect* srcrect,
-              const SDL_Rect* dstrect,
+    void draw(const std::shared_ptr<Texture>& texture,
+              const Rect& srcrect,
+              const Rect& dstrect,
               const double angle,
-              const SDL_Point* center);
+              const Point& center);
     
-    void drawRect(uint8_t r, uint8_t g, uint8_t b, uint8_t a, const SDL_Rect* dstrect);
+    void drawRect(uint8_t r, uint8_t g, uint8_t b, uint8_t a, const Rect& dstrect);
     
     void present();
     
     void renderBegin();
-    void renderEnd(const Base::Closure& completionHandler);
+    void renderEnd();
     
 private:
-    
-    void drawInternal(SDL_Texture* texture,
-                      const SDL_Rect& srcrect,
-                      const SDL_Rect& dstrect,
-                      const double angle,
-                      const SDL_Point& center);
-    
-    void drawRectInternal(uint8_t r, uint8_t g, uint8_t b, uint8_t a, const SDL_Rect& dstrect);
     
     void excute(const std::vector<Base::Closure>& commandBuffer);
     
     void postTask(const Base::Closure& closure);
     
     std::shared_ptr<Base::Thread> thread_;
-    SDL_Renderer* renderer_;
+    std::shared_ptr<Renderer> renderer_;
     
     CommandBuffer commandBuffer_;
     

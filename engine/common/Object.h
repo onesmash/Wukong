@@ -12,9 +12,20 @@
 #include <memory>
 
 namespace WukongEngine {
+    
+#define CLASS_NAME(clz) template<> struct TypeName<clz> { static const char *stringify() { return #clz; }};
 
 class Object {
 public:
+    template <typename T>
+    struct TypeName
+    {
+        static const char* stringify()
+        {
+            return typeid(T).name();
+        }
+    };
+    
     Object() {
     }
     virtual ~Object() = 0;

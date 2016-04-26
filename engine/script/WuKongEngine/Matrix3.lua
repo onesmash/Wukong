@@ -30,13 +30,13 @@ local type = type
 local string = string
 local _ENV = Matrix3
 
-function static.translate(x, y)
+function translate(x, y)
 	return Matrix3( {1, 0, x}, 
 					{0, 1, y},
 					{0,	0, 1})
 end
 
-function static.rotate(rad)
+function rotate(rad)
 	local cos = math.cos(rad)
 	local sin = math.sin(rad)
 	return Matrix3( {cos, -sin, 0},
@@ -44,7 +44,7 @@ function static.rotate(rad)
 					{  0,   0, 1})
 end
 
-function static.scale(x, y)
+function scale(x, y)
 	return Matrix3( {x, 0, 0},
 					{0, y, 0},
 					{0, 0, 1})
@@ -57,7 +57,7 @@ function init(self, row1, row2, row3)
 	self[3] = row3
 end
 
-static.identity = Matrix3({1, 0, 0}, {0, 1, 0}, {0, 0, 1})
+identity = Matrix3({1, 0, 0}, {0, 1, 0}, {0, 0, 1})
 
 function inverse(self)
 	local det = self[1][1] * self[2][2] * self[3][3] - 

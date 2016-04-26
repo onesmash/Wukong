@@ -155,7 +155,7 @@ function insertLeaf(self, leaf)
 
 		local area = node.aabb:getPerimeter()
 
-		local combinedAABB = AABB.combine(node.aabb, leafAABB)
+		local combinedAABB = AABB.combineAABBs(node.aabb, leafAABB)
 		local combinedArea = combinedAABB:getPerimeter()
 
 		-- Cost of creating a new parent for this node and the new leaf
@@ -167,10 +167,10 @@ function insertLeaf(self, leaf)
 		-- Cost of descending into childL
 		local costL = 0
 		if self._nodes[childL]:isLeaf() then
-			local aabb = AABB.combine(leafAABB, self._nodes[childL].aabb)
+			local aabb = AABB.combineAABBs(leafAABB, self._nodes[childL].aabb)
 			costL = aabb:getPerimeter() + inheritanceCost
 		else
-			local aabb = AABB.combine(leafAABB, self._nodes[childL].aabb)
+			local aabb = AABB.combineAABBs(leafAABB, self._nodes[childL].aabb)
 			local oldArea = self._nodes[childL].aabb:getPerimeter()
 			local newArea = aabb:getPerimeter()
 			costL = newArea - oldArea + inheritanceCost
@@ -179,10 +179,10 @@ function insertLeaf(self, leaf)
 		-- Cost of descending into childR
 		local costR = 0
 		if self._nodes[childR]:isLeaf() then
-			local aabb = AABB.combine(leafAABB, self._nodes[childR].aabb)
+			local aabb = AABB.combineAABBs(leafAABB, self._nodes[childR].aabb)
 			costR = aabb:getPerimeter() + inheritanceCost
 		else
-			local aabb = AABB.combine(leafAABB, self._nodes[childR].aabb)
+			local aabb = AABB.combineAABBs(leafAABB, self._nodes[childR].aabb)
 			local oldArea = self._nodes[childR].aabb:getPerimeter()
 			local newArea = aabb:getPerimeter()
 			costR = newArea - oldArea + inheritanceCost

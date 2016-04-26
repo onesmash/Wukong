@@ -11,7 +11,7 @@ package.loaded[modName] = TreeNode
 
 local _ENV = TreeNode
 
-static.null = -1
+null = -1
 
 function init(self)
 	super.init(self)

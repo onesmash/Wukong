@@ -25,8 +25,11 @@ public:
         ModuleMessageLoop,
         ModuleTime,
         ModuleRender,
+        ModuleResourceManager,
         ModuleMaxEnum
     };
+    
+    typedef TypeName<Module> TypeName;
     
     virtual ~Module() {}
     

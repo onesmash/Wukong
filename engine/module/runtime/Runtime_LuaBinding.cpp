@@ -16,6 +16,7 @@ extern "C"
 extern int luaopen_MessageLoopModule(lua_State*);
 extern int luaopen_TimeModule(lua_State*);
 extern int luaopen_RenderModule(lua_State*);
+extern int runtime_texture(lua_State* L);
 }
 
 static const luaL_Reg modules[] =
@@ -26,17 +27,19 @@ static const luaL_Reg modules[] =
     {0, 0}
 };
     
-static const luaL_Reg functions[] =
+static const luaL_Reg types[] =
 {
-    //{"startCoroutine",},
-    //{"waitForSeconds", rt_wait_for_seconds},
+    {"runtime.texture.c", runtime_texture},
     {0, 0}
 };
     
 extern "C" int luaopen_runtime(lua_State* L)
 {
     luax_ensure_global(L, "runtime");
-    luax_setfuncs(L, functions);
+    const luaL_Reg *reg = &types[0];
+    for (; reg->name != nullptr; reg++) {
+        luaL_requiref(L, reg->name, reg->func, 0);
+    }
     for (int i = 0; modules[i].name != 0; i++) {
         luax_preload(L, modules[i].func, modules[i].name);
     }

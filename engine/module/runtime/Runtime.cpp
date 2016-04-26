@@ -14,10 +14,11 @@ namespace WukongEngine {
     
 namespace Runtime {
     
-static int rt_gc(lua_State* L)
+int rt_gc(lua_State* L)
 {
-    Proxy **p = (Proxy **) lua_touserdata(L, 1);
-    delete *p;
+    Proxy<Object> **p = (Proxy<Object> **) lua_touserdata(L, 1);
+    Proxy<Object>* proxy = *p;
+    delete proxy;
     *p = nullptr;
     return 0;
 }
@@ -86,8 +87,8 @@ int luax_register_module(lua_State *L, const WrappedModule &m)
 {
     luax_ensure_registry(L, REGISTRY_MODULES);
     
-    Proxy **proxy = (Proxy **)lua_newuserdata(L, sizeof(Proxy *));
-    *proxy = new Proxy;
+    Proxy<Module> **proxy = (Proxy<Module> **)lua_newuserdata(L, sizeof(Proxy<Module> *));
+    *proxy = new Proxy<Module>;
     (*proxy)->type = TypeModule;
     (*proxy)->object = m.module;
     
@@ -126,6 +127,38 @@ void luax_setfuncs(lua_State *L, const luaL_Reg *l)
         lua_pushcfunction(L, l->func);
         lua_setfield(L, -2, l->name);
     }
+}
+    
+Rect luax_to_rect(lua_State* L, int index)
+{
+    luaL_checktype(L, index, LUA_TTABLE);
+    Rect rect;
+    lua_getfield(L, index, "x");
+    rect.x = (int)lua_tointeger(L, -1);
+    lua_pop(L, 1);
+    lua_getfield(L, index, "y");
+    rect.y = (int)lua_tointeger(L, -1);
+    lua_pop(L, 1);
+    lua_getfield(L, index, "w");
+    rect.w = (int)lua_tointeger(L, -1);
+    lua_pop(L, 1);
+    lua_getfield(L, index, "h");
+    rect.h = (int)lua_tointeger(L, -1);
+    lua_pop(L, 1);
+    return rect;
+}
+    
+Point luax_to_point(lua_State* L, int index)
+{
+    luaL_checktype(L, index, LUA_TTABLE);
+    Point point;
+    lua_getfield(L, index, "x");
+    point.x = (int)lua_tointeger(L, -1);
+    lua_pop(L, 1);
+    lua_getfield(L, index, "y");
+    point.y = (int)lua_tointeger(L, -1);
+    lua_pop(L, 1);
+    return point;
 }
     
 }

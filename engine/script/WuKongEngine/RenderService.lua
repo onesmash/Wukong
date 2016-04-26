@@ -18,28 +18,20 @@ local _ENV = RenderService
 
 function init(self, f)
 	super.init(self)
-	self._buffer = {}
-	self._renderCount = 0
 end
 
 function start(self)
 	-- body
 	--print('RenderService start')
-	render.start(Runtime.__window, Runtime.__context, Runtime.__renderer)
+	render.start(Runtime._window, Runtime._context, Runtime._renderer)
 end
 
 function renderBegin(self)
-	self._renderCount = self._renderCount + 1
 	render.renderBegin()
 end
 
 function renderEnd(self)
-	render.renderEnd(function()
-		self._renderCount = self._renderCount - 1
-		if self._renderCount <= 0 then
-			self._buffer = {}
-		end
-	end)
+	render.renderEnd()
 end
 
 function clear(self, color)
@@ -47,8 +39,7 @@ function clear(self, color)
 end
 
 function draw(self, texture, srcRect, dstRect, angle, center)
-	self._buffer[texture] = 1
-	render.draw(texture._sdltexture, srcRect, dstRect, angle, center)
+	render.draw(texture, srcRect, dstRect, angle, center)
 end
 
 function drawRect(self, color, rect)

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		030C22321C8485510031AA7E /* stroke.png in Resources */ = {isa = PBXBuildFile; fileRef = 030C22311C8485510031AA7E /* stroke.png */; };
 		030E49941C91B80A007360B7 /* Camera.lua in Resources */ = {isa = PBXBuildFile; fileRef = 030E49931C91B80A007360B7 /* Camera.lua */; };
 		03210B5A1C7F492800AC515D /* WukongEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0321064B1C7F492700AC515D /* WukongEngine.cpp */; };
 		03210B5B1C7F492800AC515D /* Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0321064F1C7F492700AC515D /* Module.cpp */; };
@@ -54,6 +53,7 @@
 		0321FEBC1C7F482000AC515D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321FEBB1C7F482000AC515D /* CoreGraphics.framework */; };
 		0321FEBE1C7F482B00AC515D /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321FEBD1C7F482B00AC515D /* CoreMotion.framework */; };
 		0321FEC01C7F483400AC515D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0321FEBF1C7F483400AC515D /* AudioToolbox.framework */; };
+		034AED0C1CC7CB5500FE65AB /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 034AED0A1CC7CB5500FE65AB /* Renderer.cpp */; };
 		035DE3601C9AF0E60032BE07 /* Matrix3.lua in Resources */ = {isa = PBXBuildFile; fileRef = 035DE35E1C9AF0E60032BE07 /* Matrix3.lua */; };
 		035DE3611C9AF0E60032BE07 /* Vector3.lua in Resources */ = {isa = PBXBuildFile; fileRef = 035DE35F1C9AF0E60032BE07 /* Vector3.lua */; };
 		039D141B1CB6A5410076AD10 /* explosion.png in Resources */ = {isa = PBXBuildFile; fileRef = 039D14191CB6A5410076AD10 /* explosion.png */; };
@@ -71,12 +71,12 @@
 		03BD8EDA1CBA27D000E2661C /* EnemyBehaviour.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03BD8ED81CBA27D000E2661C /* EnemyBehaviour.lua */; };
 		03BD8EDD1CBA72DD00E2661C /* Explosion.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03BD8EDB1CBA72DD00E2661C /* Explosion.lua */; };
 		03BD8EDE1CBA72DD00E2661C /* ExplosionBehaviour.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03BD8EDC1CBA72DD00E2661C /* ExplosionBehaviour.lua */; };
+		03BFB6931CC9158600832FC9 /* LTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03BFB6921CC9158600832FC9 /* LTexture.cpp */; };
 		03C0DD2F1C818E840009D98F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DD2E1C818E840009D98F /* Foundation.framework */; };
 		03C0DD311C818EAF0009D98F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DD301C818EAF0009D98F /* UIKit.framework */; };
 		03C0DF771C8208B20009D98F /* liblua.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DF701C8208690009D98F /* liblua.a */; };
 		03C0DF781C8208B20009D98F /* libluasdl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DF761C8208730009D98F /* libluasdl2.a */; };
 		03C0DF791C8208B20009D98F /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C0DF6A1C82085D0009D98F /* libuv.a */; };
-		03C0DF821C820CF70009D98F /* stroke.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 03C0DF811C820CF70009D98F /* stroke.bmp */; };
 		03C241A21CB24F3200942D52 /* AABB.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C2419C1CB24F3200942D52 /* AABB.lua */; };
 		03C241A31CB24F3200942D52 /* BroadPhase.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C2419D1CB24F3200942D52 /* BroadPhase.lua */; };
 		03C241A41CB24F3200942D52 /* DynamicTree.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C2419E1CB24F3200942D52 /* DynamicTree.lua */; };
@@ -96,6 +96,8 @@
 		03DE569E1C8DB38A00B2FF61 /* WukongEngine.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */; };
 		03DE569F1C8DB38A00B2FF61 /* Texture.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569B1C8DB38A00B2FF61 /* Texture.lua */; };
 		03DE56A01C8DB38A00B2FF61 /* Transform.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569C1C8DB38A00B2FF61 /* Transform.lua */; };
+		03E042921CC672EC009ADA73 /* ResourceModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E042901CC672EC009ADA73 /* ResourceModule.cpp */; };
+		03E042961CC676DD009ADA73 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E042941CC676DD009ADA73 /* Texture.cpp */; };
 		03E721E71CB7EFF0002F7B92 /* Bullet.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03E721E61CB7EFF0002F7B92 /* Bullet.lua */; };
 		03F5A8D21CC3D24F009ED94F /* libsmpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5A8CD1CC3D198009ED94F /* libsmpeg.a */; };
 		03F5A8D31CC3D255009ED94F /* libSDL_mixer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F5A89B1CC3C3A9009ED94F /* libSDL_mixer.a */; };
@@ -234,7 +236,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		030C22311C8485510031AA7E /* stroke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = stroke.png; path = ../../../../Desktop/stroke.png; sourceTree = "<group>"; };
 		030E49931C91B80A007360B7 /* Camera.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Camera.lua; sourceTree = "<group>"; };
 		0321064B1C7F492700AC515D /* WukongEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WukongEngine.cpp; sourceTree = "<group>"; };
 		0321064C1C7F492700AC515D /* WukongEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WukongEngine.h; sourceTree = "<group>"; };
@@ -308,6 +309,9 @@
 		0321FEBB1C7F482000AC515D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0321FEBD1C7F482B00AC515D /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		0321FEBF1C7F483400AC515D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		034AED031CC7BE0600FE65AB /* LTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTexture.h; sourceTree = "<group>"; };
+		034AED0A1CC7CB5500FE65AB /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
+		034AED0B1CC7CB5500FE65AB /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
 		035DE35E1C9AF0E60032BE07 /* Matrix3.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Matrix3.lua; sourceTree = "<group>"; };
 		035DE35F1C9AF0E60032BE07 /* Vector3.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Vector3.lua; sourceTree = "<group>"; };
 		039D14191CB6A5410076AD10 /* explosion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explosion.png; sourceTree = "<group>"; };
@@ -331,12 +335,12 @@
 		03BD8ED81CBA27D000E2661C /* EnemyBehaviour.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = EnemyBehaviour.lua; sourceTree = "<group>"; };
 		03BD8EDB1CBA72DD00E2661C /* Explosion.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Explosion.lua; sourceTree = "<group>"; };
 		03BD8EDC1CBA72DD00E2661C /* ExplosionBehaviour.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExplosionBehaviour.lua; sourceTree = "<group>"; };
+		03BFB6921CC9158600832FC9 /* LTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTexture.cpp; sourceTree = "<group>"; };
 		03C0DD2E1C818E840009D98F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		03C0DD301C818EAF0009D98F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		03C0DF651C82085D0009D98F /* libuv.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libuv.xcodeproj; path = libuv/libuv.xcodeproj; sourceTree = "<group>"; };
 		03C0DF6B1C8208690009D98F /* lua.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = lua.xcodeproj; path = lua/lua.xcodeproj; sourceTree = "<group>"; };
 		03C0DF711C8208730009D98F /* luasdl2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = luasdl2.xcodeproj; path = luasdl2/luasdl2.xcodeproj; sourceTree = "<group>"; };
-		03C0DF811C820CF70009D98F /* stroke.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = stroke.bmp; path = ../../../../Desktop/stroke.bmp; sourceTree = "<group>"; };
 		03C2419C1CB24F3200942D52 /* AABB.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AABB.lua; sourceTree = "<group>"; };
 		03C2419D1CB24F3200942D52 /* BroadPhase.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BroadPhase.lua; sourceTree = "<group>"; };
 		03C2419E1CB24F3200942D52 /* DynamicTree.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DynamicTree.lua; sourceTree = "<group>"; };
@@ -356,6 +360,10 @@
 		03DE569A1C8DB38A00B2FF61 /* WukongEngine.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WukongEngine.lua; sourceTree = "<group>"; };
 		03DE569B1C8DB38A00B2FF61 /* Texture.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Texture.lua; sourceTree = "<group>"; };
 		03DE569C1C8DB38A00B2FF61 /* Transform.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Transform.lua; sourceTree = "<group>"; };
+		03E042901CC672EC009ADA73 /* ResourceModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ResourceModule.cpp; sourceTree = "<group>"; };
+		03E042911CC672EC009ADA73 /* ResourceModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceModule.h; sourceTree = "<group>"; };
+		03E042941CC676DD009ADA73 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		03E042951CC676DD009ADA73 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		03E721E61CB7EFF0002F7B92 /* Bullet.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bullet.lua; sourceTree = "<group>"; };
 		03F5A8951CC3C3A9009ED94F /* SDL_mixer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL_mixer.xcodeproj; path = "../third_party/SDL_mixer-1.2.12/Xcode-iOS/SDL_mixer.xcodeproj"; sourceTree = "<group>"; };
 		03F5A8BC1CC3D197009ED94F /* smpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = smpeg.xcodeproj; path = ../third_party/smpeg/Xcode/smpeg.xcodeproj; sourceTree = "<group>"; };
@@ -416,6 +424,12 @@
 				032106501C7F492700AC515D /* Module.h */,
 				032106511C7F492700AC515D /* Object.cpp */,
 				032106521C7F492700AC515D /* Object.h */,
+				03E042941CC676DD009ADA73 /* Texture.cpp */,
+				03E042951CC676DD009ADA73 /* Texture.h */,
+				03BFB6921CC9158600832FC9 /* LTexture.cpp */,
+				034AED031CC7BE0600FE65AB /* LTexture.h */,
+				034AED0A1CC7CB5500FE65AB /* Renderer.cpp */,
+				034AED0B1CC7CB5500FE65AB /* Renderer.h */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -431,6 +445,8 @@
 		032106551C7F492700AC515D /* module */ = {
 			isa = PBXGroup;
 			children = (
+				03E0428F1CC672C4009ADA73 /* resource */,
+				0346869A1CC5210800476E1B /* renderer */,
 				03F953241CBFD5DF007A4126 /* render */,
 				032106561C7F492700AC515D /* filesystem */,
 				032106591C7F492700AC515D /* message_loop */,
@@ -645,8 +661,6 @@
 		0321FE691C7F434D00AC515D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				030C22311C8485510031AA7E /* stroke.png */,
-				03C0DF811C820CF70009D98F /* stroke.bmp */,
 				0321FEA81C7F479D00AC515D /* main.mm */,
 			);
 			name = "Supporting Files";
@@ -658,6 +672,13 @@
 				0321FEB01C7F47BD00AC515D /* libSDL2.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0346869A1CC5210800476E1B /* renderer */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = renderer;
 			sourceTree = "<group>";
 		};
 		03AB8E581C83311E0054C593 /* Products */ = {
@@ -737,6 +758,15 @@
 			);
 			name = top_gun;
 			path = ../../top_gun;
+			sourceTree = "<group>";
+		};
+		03E0428F1CC672C4009ADA73 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				03E042901CC672EC009ADA73 /* ResourceModule.cpp */,
+				03E042911CC672EC009ADA73 /* ResourceModule.h */,
+			);
+			path = resource;
 			sourceTree = "<group>";
 		};
 		03F5A8961CC3C3A9009ED94F /* Products */ = {
@@ -981,7 +1011,6 @@
 				03BB55E51CC13CE4002A642D /* RenderService.lua in Resources */,
 				03C241A61CB24F3200942D52 /* Collision.lua in Resources */,
 				03E721E71CB7EFF0002F7B92 /* Bullet.lua in Resources */,
-				030C22321C8485510031AA7E /* stroke.png in Resources */,
 				03210B6F1C7F492800AC515D /* Entity.lua in Resources */,
 				03210B731C7F492800AC515D /* Sprite.lua in Resources */,
 				03BD8ED21CBA1FE100E2661C /* mineAnimation.png in Resources */,
@@ -990,7 +1019,6 @@
 				03210B701C7F492800AC515D /* GameObject.lua in Resources */,
 				035DE3601C9AF0E60032BE07 /* Matrix3.lua in Resources */,
 				03BD8EDA1CBA27D000E2661C /* EnemyBehaviour.lua in Resources */,
-				03C0DF821C820CF70009D98F /* stroke.bmp in Resources */,
 				03C241A21CB24F3200942D52 /* AABB.lua in Resources */,
 				03BD8ECF1CBA1FAF00E2661C /* Ship.lua in Resources */,
 				03DE56961C8DB35B00B2FF61 /* main.lua in Resources */,
@@ -1007,20 +1035,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				03210B621C7F492800AC515D /* Runtime_LuaBinding.cpp in Sources */,
+				03E042961CC676DD009ADA73 /* Texture.cpp in Sources */,
 				03210B5A1C7F492800AC515D /* WukongEngine.cpp in Sources */,
 				03210B7E1C7F492800AC515D /* IPAddress.cpp in Sources */,
 				03210B5E1C7F492800AC515D /* lfs.c in Sources */,
 				03210B5B1C7F492800AC515D /* Module.cpp in Sources */,
+				034AED0C1CC7CB5500FE65AB /* Renderer.cpp in Sources */,
 				03210B7D1C7F492800AC515D /* Endian.cpp in Sources */,
 				03210B601C7F492800AC515D /* MessageLoopMoudle.cpp in Sources */,
 				03210B801C7F492800AC515D /* Packet.cpp in Sources */,
 				0321FEA91C7F479D00AC515D /* main.mm in Sources */,
 				03210B5F1C7F492800AC515D /* MessageLoopModule_LuaBinding.cpp in Sources */,
 				03F9532B1CBFD790007A4126 /* RenderModule_LuaBinding.cpp in Sources */,
+				03BFB6931CC9158600832FC9 /* LTexture.cpp in Sources */,
 				03210B781C7F492800AC515D /* MessageLoop.cpp in Sources */,
 				03F953281CBFD62A007A4126 /* RenderModule.cpp in Sources */,
 				03210B7B1C7F492800AC515D /* Time.cpp in Sources */,
 				03210B5C1C7F492800AC515D /* Object.cpp in Sources */,
+				03E042921CC672EC009ADA73 /* ResourceModule.cpp in Sources */,
 				03210B821C7F492800AC515D /* TCPSession.cpp in Sources */,
 				03210B7F1C7F492800AC515D /* Packer.cpp in Sources */,
 				03210B611C7F492800AC515D /* Runtime.cpp in Sources */,
@@ -1132,7 +1164,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include";
+				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL2_image-2.0.1";
 			};
 			name = Debug;
 		};
@@ -1174,7 +1206,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include";
+				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL2_image-2.0.1";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

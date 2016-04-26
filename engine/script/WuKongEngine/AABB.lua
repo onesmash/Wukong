@@ -13,10 +13,10 @@ local print = print
 
 local _ENV = AABB
 
-static.extension = 10
-static.multiplier = 2
+extension = 10
+multiplier = 2
 
-function static.testOverlap(aabb1, aabb2)
+function testOverlap(aabb1, aabb2)
 	local d1 = aabb2.lowerBound - aabb1.upperBound
 	local d2 = aabb1.lowerBound - aabb2.upperBound
 
@@ -31,7 +31,7 @@ function static.testOverlap(aabb1, aabb2)
 	return true
 end
 
-function static.combine(aabb1, aabb2)
+function combineAABBs(aabb1, aabb2)
 	local lowerBound = Vector3.min(aabb1.lowerBound, aabb2.lowerBound)
 	local upperBound = Vector3.max(aabb1.upperBound, aabb2.upperBound)
 	return AABB(lowerBound, upperBound)

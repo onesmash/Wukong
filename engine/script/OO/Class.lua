@@ -26,8 +26,8 @@ local rawset = rawset
 local _ENV = Class
 
 function __call(class, ...)
-	local self = {}
-	setmetatable(self, class)
+	local self = class.new(class)
+	--setmetatable(self, class)
 	self.isa = class
 	self.___privates = {}
 	for className, privates in pairs(class.___privates) do
@@ -41,21 +41,13 @@ function __call(class, ...)
 	return self
 end
 
-function __newindex(class, key, value)
-	if key:sub(1, 2) ~= '__' then
-		class.public[key] = value
-	else
-		rawset(class, key, value)
-	end
-end
-
 function __index(class, key)
 	local cache = class.___staticCache
 	local x = cache[key]
 	if x == nil then
 		local clz = class
 		repeat
-			x = clz.static[key]
+			x = rawget(clz.___staticCache, key) or rawget(clz, key)
 			clz = rawget(clz, '___superClass')
 		until x ~= nil or clz == nil
 		cache[key] = x
@@ -83,10 +75,8 @@ function subclass(className, superClass, hasFinalizer)
 	end, __newindex = function(private, k, v)
 		class.___privates[className][k] = v
 	end})
-	class.static = {}
 	class.___staticCache = {}
 	setmetatable(class.___staticCache, {__mode = 'v'})
-	class.public = {}
 	class.___publicCache = {}
 	setmetatable(class.___publicCache, {__mode = 'v'})
 	class.__index = function(t, key)
@@ -95,7 +85,7 @@ function subclass(className, superClass, hasFinalizer)
 		if x == nil then
 			local clz = class
 			repeat
-				x = rawget(clz, 'public')[key] or rawget(clz, key)
+				x = rawget(clz.___publicCache, key) or rawget(clz, key)
 				clz = rawget(clz, '___superClass')
 			until x ~= nil or clz == nil
 			cache[key] = x

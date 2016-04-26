@@ -27,15 +27,15 @@ function __mul(left, right)
 	return Vector3(left.x * right.x, left.y * right.y, left.z * right.z)
 end
 
-function static.min(a, b)
+function min(a, b)
 	return Vector3(math.min(a.x, b.x), math.min(a.y, b.y), math.min(a.z, b.z))
 end
 
-function static.max(a, b)
+function max(a, b)
 	return Vector3(math.max(a.x, b.x), math.max(a.y, b.y), math.max(a.z, b.z))
 end
 
-function static.abs(v)
+function abs(v)
 	return Vector3(math.abs(v.x), math.abs(v.y), math.abs(v.z))
 end
 

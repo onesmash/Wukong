@@ -15,24 +15,6 @@ local print = print
 
 _ENV = BoxCollider
 
-function static.testProjectionOverlap(vertices, axis)
-	local min = axis:dot(vertices[1])
-	local max = min
-	for i = 2, #vertices do
-		local p = axis:dot(vertices[i])
-		if p < min then
-			min = p
-		elseif p > max then
-			max = p
-		end
-	end
-	local base = vertices[1]:dot(axis)
-	if min > 1 + base or max < base then
-		return false
-	end
-	return true
-end
-
 function init(self)
 	super.init(self)
 end

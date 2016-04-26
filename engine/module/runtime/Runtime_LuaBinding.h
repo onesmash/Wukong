@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 Xuhui. All rights reserved.
 //
 
-#ifndef __AppCore__Runtime_LuaBinding__
-#define __AppCore__Runtime_LuaBinding__
+#ifndef __Wukong__Runtime_LuaBinding__
+#define __Wukong__Runtime_LuaBinding__
 
 #include "Runtime.h"
 
@@ -23,4 +23,4 @@ extern "C" APPCORE_EXPORT int luaopen_runtime(lua_State* L);
 
 
 
-#endif /* defined(__AppCore__Runtime_LuaBinding__) */
+#endif /* defined(__Wukong__Runtime_LuaBinding__) */

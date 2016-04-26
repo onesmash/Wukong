@@ -17,9 +17,9 @@ local table = table
 local print = print
 local _ENV = BroadPhase
 
-static.nullProxy = -1
+nullProxy = -1
 
-function static.pairLessThan(a, b)
+function pairLessThan(a, b)
 	if a.proxyIdA < b.proxyIdA then
 		return true
 	end
