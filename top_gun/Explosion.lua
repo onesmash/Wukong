@@ -4,6 +4,7 @@ local Sprite = require('Sprite')
 local SpriteRenderer = require('SpriteRenderer')
 local Entity = require('Entity')
 local ExplosionBehaviour = require('ExplosionBehaviour')
+local AudioSource = require('AudioSource')
 
 local modName = ...
 
@@ -26,4 +27,5 @@ function init(self)
 	local renderer = self:addComponent(SpriteRenderer)
 	renderer.sprite = sprite
 	self:addComponent(ExplosionBehaviour)
+	self:addComponent(AudioSource)
 end

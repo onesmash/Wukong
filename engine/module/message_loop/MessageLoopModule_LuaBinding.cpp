@@ -24,8 +24,9 @@ static void callLuaCallback(lua_State* L, int closureId)
     lua_rawgeti(L, LUA_REGISTRYINDEX, closureId);
     if(lua_pcall(L, 0, 0, -2)) {
         std::cerr << "Uncaught Error: " << lua_tostring(L, -1) << std::endl;
-        lua_pop(L, 1);
+        lua_pop(L, 2);
     }
+    lua_pop(L, 2);
     luaL_unref(L, LUA_REGISTRYINDEX, closureId);
 }
     

@@ -7,7 +7,8 @@ local Texture = require('Texture')
 local Coroutine = require('Coroutine')
 local Sprite = require('Sprite')
 local Bullet = require('Bullet')
-
+local AudioClip = require('AudioClip')
+local AudioSource = require('AudioSource')
 local modName = ...
 
 local ShipBehaviour = Class(modName, Behaviour, true)
@@ -29,14 +30,14 @@ function start(self)
 	print('ShipBehaviour started')
 	self.entity:getScene():getMainCamera().needClear = true
 	self.transform:setPosition(200, 0)
-	--self.transform:rotate(-20, false)
-	--self.transform.position.x = 100
-	--self.transform.position.y = 200
 	self._renderer = self.entity:getComponent(Renderer)
 	self._sprite = self._renderer.sprite
 	self._texture = self._sprite.texture
 	self._frames = self._texture.width / self._sprite.width
 	self._frameIndex = 0
+	local audioSource = self.entity:getComponent(AudioSource)
+	local fireSound = AudioClip('laserFire.wav')
+	audioSource:setClip(fireSound)
 	--self.transform:rotate(30, true)
 	self:startCoroutine(function()
 		while true do
@@ -46,6 +47,7 @@ function start(self)
 			local startPosition = self.transform:transformPoint(self._sprite.width / 2, 0)
 			transform:setPosition(startPosition.x, startPosition.y) 
 			self.entity:getScene():addEntity(bullet)
+			audioSource:play()
 			Coroutine.waitForSeconds(0.5)
 		end
 	end)

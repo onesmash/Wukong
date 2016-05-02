@@ -109,6 +109,15 @@ std::shared_ptr<T> luax_to_objectPtr(lua_State* L, int index)
     return (*proxy)->object;
 }
     
+template<typename T>
+std::shared_ptr<T> luax_to_cproxy(lua_State* L, int index)
+{
+    lua_getfield(L, index, "_cproxy");
+    Proxy<T> **proxy = (Proxy<T> **)lua_touserdata(L, -1);
+    lua_pop(L, 1);
+    return (*proxy)->object;
+}
+    
 Rect luax_to_rect(lua_State* L, int index);
     
 Point luax_to_point(lua_State* L, int index);

@@ -8,6 +8,7 @@ local Coroutine = require('Coroutine')
 local Sprite = require('Sprite')
 local Collider = require('Collider')
 local Explosion = require('Explosion')
+local AudioSource = require('AudioSource')
 
 local modName = ...
 
@@ -63,6 +64,8 @@ function onCollide(self, collision)
 	local scene = self.entity:getScene()
 	if scene then
 		scene:addEntity(explosion)
+		local audioSource = explosion:getComponent(AudioSource)
+		audioSource:setClip(self.entity.explosionSound)
 		Entity.destroy(self.entity)
 	end
 	

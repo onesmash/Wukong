@@ -34,7 +34,6 @@
 #include "MPEGstream.h"
 #include "MPEGaction.h"
 #include "MPEGaudio.h"
-#include "MPEGvideo.h"
 #include "MPEGsystem.h"
 
 #define LENGTH_TO_CHECK_FOR_SYSTEM 0x50000	// Added by HanishKVC
@@ -113,7 +112,6 @@ protected:
     MPEGvideoaction *videoaction;
 
     MPEGaudio *audio;
-    MPEGvideo *video;
 
     bool audioaction_enabled;
     bool videoaction_enabled;

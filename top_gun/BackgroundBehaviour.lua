@@ -7,6 +7,7 @@ local SpriteRenderer = require('SpriteRenderer')
 local Entity = require('Entity')
 local Enemy = require('Enemy')
 local Coroutine = require('Coroutine')
+local AudioClip = require('AudioClip')
 
 local modName = ...
 
@@ -63,9 +64,12 @@ function start(self)
 		self._layer12:getTransform():setPosition(mainCamera.pixelWidth - self._texture.width, mainCamera.pixelHeight / 2)
 	end
 
+	local explosionSound = AudioClip('explosion.wav')
+
 	self:startCoroutine(function()
 		while true do
 			local enemy = Enemy() 
+			enemy.explosionSound = explosionSound
 			self.entity:getScene():addEntity(enemy)
 			Coroutine.waitForSeconds(1)
 		end

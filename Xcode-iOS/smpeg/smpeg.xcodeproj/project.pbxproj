@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		032F27171CD5D4CA0012E3B0 /* bitwindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F269B1CD5D4C90012E3B0 /* bitwindow.cpp */; };
+		032F27181CD5D4CA0012E3B0 /* filter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F269D1CD5D4C90012E3B0 /* filter.cpp */; };
+		032F27191CD5D4CA0012E3B0 /* filter_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F269E1CD5D4C90012E3B0 /* filter_2.cpp */; };
+		032F271B1CD5D4CA0012E3B0 /* MPEGaudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26A01CD5D4C90012E3B0 /* MPEGaudio.cpp */; };
+		032F271C1CD5D4CA0012E3B0 /* mpeglayer1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26A11CD5D4C90012E3B0 /* mpeglayer1.cpp */; };
+		032F271D1CD5D4CA0012E3B0 /* mpeglayer2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26A21CD5D4C90012E3B0 /* mpeglayer2.cpp */; };
+		032F271E1CD5D4CA0012E3B0 /* mpeglayer3.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26A31CD5D4C90012E3B0 /* mpeglayer3.cpp */; };
+		032F271F1CD5D4CA0012E3B0 /* mpegtable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26A41CD5D4C90012E3B0 /* mpegtable.cpp */; };
+		032F27201CD5D4CA0012E3B0 /* mpegtoraw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26A51CD5D4C90012E3B0 /* mpegtoraw.cpp */; };
+		032F27211CD5D4CA0012E3B0 /* MPEG.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26B71CD5D4CA0012E3B0 /* MPEG.cpp */; };
+		032F27221CD5D4CA0012E3B0 /* MPEGlist.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26BD1CD5D4CA0012E3B0 /* MPEGlist.cpp */; };
+		032F27231CD5D4CA0012E3B0 /* MPEGring.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26BF1CD5D4CA0012E3B0 /* MPEGring.cpp */; };
+		032F27241CD5D4CA0012E3B0 /* MPEGstream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26C11CD5D4CA0012E3B0 /* MPEGstream.cpp */; };
+		032F27251CD5D4CA0012E3B0 /* MPEGsystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26C31CD5D4CA0012E3B0 /* MPEGsystem.cpp */; };
+		032F27281CD5D4CA0012E3B0 /* plaympeg.c in Sources */ = {isa = PBXBuildFile; fileRef = 032F26DC1CD5D4CA0012E3B0 /* plaympeg.c */; };
+		032F27291CD5D4CA0012E3B0 /* smpeg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26DF1CD5D4CA0012E3B0 /* smpeg.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		032F267B1CD5D4AD0012E3B0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		032F267D1CD5D4AD0012E3B0 /* libsmpeg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsmpeg.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		032F26991CD5D4C90012E3B0 /* .cvsignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .cvsignore; sourceTree = "<group>"; };
+		032F269A1CD5D4C90012E3B0 /* AUTHORS */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AUTHORS; sourceTree = "<group>"; };
+		032F269B1CD5D4C90012E3B0 /* bitwindow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = bitwindow.cpp; sourceTree = "<group>"; };
+		032F269C1CD5D4C90012E3B0 /* COPYING.LIB */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = COPYING.LIB; sourceTree = "<group>"; };
+		032F269D1CD5D4C90012E3B0 /* filter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = filter.cpp; sourceTree = "<group>"; };
+		032F269E1CD5D4C90012E3B0 /* filter_2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = filter_2.cpp; sourceTree = "<group>"; };
+		032F26A01CD5D4C90012E3B0 /* MPEGaudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEGaudio.cpp; sourceTree = "<group>"; };
+		032F26A11CD5D4C90012E3B0 /* mpeglayer1.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mpeglayer1.cpp; sourceTree = "<group>"; };
+		032F26A21CD5D4C90012E3B0 /* mpeglayer2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mpeglayer2.cpp; sourceTree = "<group>"; };
+		032F26A31CD5D4C90012E3B0 /* mpeglayer3.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mpeglayer3.cpp; sourceTree = "<group>"; };
+		032F26A41CD5D4C90012E3B0 /* mpegtable.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mpegtable.cpp; sourceTree = "<group>"; };
+		032F26A51CD5D4C90012E3B0 /* mpegtoraw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mpegtoraw.cpp; sourceTree = "<group>"; };
+		032F26A61CD5D4C90012E3B0 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		032F26A71CD5D4C90012E3B0 /* README.LIB */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.LIB; sourceTree = "<group>"; };
+		032F26B71CD5D4CA0012E3B0 /* MPEG.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEG.cpp; sourceTree = "<group>"; };
+		032F26B81CD5D4CA0012E3B0 /* MPEG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEG.h; sourceTree = "<group>"; };
+		032F26B91CD5D4CA0012E3B0 /* MPEGaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEGaction.h; sourceTree = "<group>"; };
+		032F26BA1CD5D4CA0012E3B0 /* MPEGaudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEGaudio.h; sourceTree = "<group>"; };
+		032F26BB1CD5D4CA0012E3B0 /* MPEGerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEGerror.h; sourceTree = "<group>"; };
+		032F26BC1CD5D4CA0012E3B0 /* MPEGframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEGframe.h; sourceTree = "<group>"; };
+		032F26BD1CD5D4CA0012E3B0 /* MPEGlist.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEGlist.cpp; sourceTree = "<group>"; };
+		032F26BE1CD5D4CA0012E3B0 /* MPEGlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEGlist.h; sourceTree = "<group>"; };
+		032F26BF1CD5D4CA0012E3B0 /* MPEGring.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEGring.cpp; sourceTree = "<group>"; };
+		032F26C01CD5D4CA0012E3B0 /* MPEGring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEGring.h; sourceTree = "<group>"; };
+		032F26C11CD5D4CA0012E3B0 /* MPEGstream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEGstream.cpp; sourceTree = "<group>"; };
+		032F26C21CD5D4CA0012E3B0 /* MPEGstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEGstream.h; sourceTree = "<group>"; };
+		032F26C31CD5D4CA0012E3B0 /* MPEGsystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MPEGsystem.cpp; sourceTree = "<group>"; };
+		032F26C41CD5D4CA0012E3B0 /* MPEGsystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPEGsystem.h; sourceTree = "<group>"; };
+		032F26DC1CD5D4CA0012E3B0 /* plaympeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = plaympeg.c; sourceTree = "<group>"; };
+		032F26DD1CD5D4CA0012E3B0 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		032F26DF1CD5D4CA0012E3B0 /* smpeg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = smpeg.cpp; sourceTree = "<group>"; };
+		032F26E01CD5D4CA0012E3B0 /* smpeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smpeg.h; sourceTree = "<group>"; };
+		032F26E41CD5D4CA0012E3B0 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		032F267A1CD5D4AD0012E3B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		032F26741CD5D4AD0012E3B0 = {
+			isa = PBXGroup;
+			children = (
+				032F26891CD5D4C90012E3B0 /* smpeg */,
+				032F267E1CD5D4AD0012E3B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		032F267E1CD5D4AD0012E3B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				032F267D1CD5D4AD0012E3B0 /* libsmpeg.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		032F26891CD5D4C90012E3B0 /* smpeg */ = {
+			isa = PBXGroup;
+			children = (
+				032F26981CD5D4C90012E3B0 /* audio */,
+				032F26B71CD5D4CA0012E3B0 /* MPEG.cpp */,
+				032F26B81CD5D4CA0012E3B0 /* MPEG.h */,
+				032F26B91CD5D4CA0012E3B0 /* MPEGaction.h */,
+				032F26BA1CD5D4CA0012E3B0 /* MPEGaudio.h */,
+				032F26BB1CD5D4CA0012E3B0 /* MPEGerror.h */,
+				032F26BC1CD5D4CA0012E3B0 /* MPEGframe.h */,
+				032F26BD1CD5D4CA0012E3B0 /* MPEGlist.cpp */,
+				032F26BE1CD5D4CA0012E3B0 /* MPEGlist.h */,
+				032F26BF1CD5D4CA0012E3B0 /* MPEGring.cpp */,
+				032F26C01CD5D4CA0012E3B0 /* MPEGring.h */,
+				032F26C11CD5D4CA0012E3B0 /* MPEGstream.cpp */,
+				032F26C21CD5D4CA0012E3B0 /* MPEGstream.h */,
+				032F26C31CD5D4CA0012E3B0 /* MPEGsystem.cpp */,
+				032F26C41CD5D4CA0012E3B0 /* MPEGsystem.h */,
+				032F26DC1CD5D4CA0012E3B0 /* plaympeg.c */,
+				032F26DD1CD5D4CA0012E3B0 /* README */,
+				032F26DF1CD5D4CA0012E3B0 /* smpeg.cpp */,
+				032F26E01CD5D4CA0012E3B0 /* smpeg.h */,
+				032F26E41CD5D4CA0012E3B0 /* TODO */,
+			);
+			name = smpeg;
+			path = ../../third_party/smpeg;
+			sourceTree = "<group>";
+		};
+		032F26981CD5D4C90012E3B0 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				032F26991CD5D4C90012E3B0 /* .cvsignore */,
+				032F269A1CD5D4C90012E3B0 /* AUTHORS */,
+				032F269B1CD5D4C90012E3B0 /* bitwindow.cpp */,
+				032F269C1CD5D4C90012E3B0 /* COPYING.LIB */,
+				032F269D1CD5D4C90012E3B0 /* filter.cpp */,
+				032F269E1CD5D4C90012E3B0 /* filter_2.cpp */,
+				032F26A01CD5D4C90012E3B0 /* MPEGaudio.cpp */,
+				032F26A11CD5D4C90012E3B0 /* mpeglayer1.cpp */,
+				032F26A21CD5D4C90012E3B0 /* mpeglayer2.cpp */,
+				032F26A31CD5D4C90012E3B0 /* mpeglayer3.cpp */,
+				032F26A41CD5D4C90012E3B0 /* mpegtable.cpp */,
+				032F26A51CD5D4C90012E3B0 /* mpegtoraw.cpp */,
+				032F26A61CD5D4C90012E3B0 /* README */,
+				032F26A71CD5D4C90012E3B0 /* README.LIB */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		032F267C1CD5D4AD0012E3B0 /* smpeg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 032F26861CD5D4AD0012E3B0 /* Build configuration list for PBXNativeTarget "smpeg" */;
+			buildPhases = (
+				032F26791CD5D4AD0012E3B0 /* Sources */,
+				032F267A1CD5D4AD0012E3B0 /* Frameworks */,
+				032F267B1CD5D4AD0012E3B0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = smpeg;
+			productName = smpeg;
+			productReference = 032F267D1CD5D4AD0012E3B0 /* libsmpeg.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		032F26751CD5D4AD0012E3B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Xuhui;
+				TargetAttributes = {
+					032F267C1CD5D4AD0012E3B0 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 032F26781CD5D4AD0012E3B0 /* Build configuration list for PBXProject "smpeg" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				English,
+			);
+			mainGroup = 032F26741CD5D4AD0012E3B0;
+			productRefGroup = 032F267E1CD5D4AD0012E3B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				032F267C1CD5D4AD0012E3B0 /* smpeg */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		032F26791CD5D4AD0012E3B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				032F27241CD5D4CA0012E3B0 /* MPEGstream.cpp in Sources */,
+				032F27211CD5D4CA0012E3B0 /* MPEG.cpp in Sources */,
+				032F271E1CD5D4CA0012E3B0 /* mpeglayer3.cpp in Sources */,
+				032F27221CD5D4CA0012E3B0 /* MPEGlist.cpp in Sources */,
+				032F27281CD5D4CA0012E3B0 /* plaympeg.c in Sources */,
+				032F271C1CD5D4CA0012E3B0 /* mpeglayer1.cpp in Sources */,
+				032F27291CD5D4CA0012E3B0 /* smpeg.cpp in Sources */,
+				032F271B1CD5D4CA0012E3B0 /* MPEGaudio.cpp in Sources */,
+				032F27251CD5D4CA0012E3B0 /* MPEGsystem.cpp in Sources */,
+				032F27191CD5D4CA0012E3B0 /* filter_2.cpp in Sources */,
+				032F271D1CD5D4CA0012E3B0 /* mpeglayer2.cpp in Sources */,
+				032F271F1CD5D4CA0012E3B0 /* mpegtable.cpp in Sources */,
+				032F27171CD5D4CA0012E3B0 /* bitwindow.cpp in Sources */,
+				032F27231CD5D4CA0012E3B0 /* MPEGring.cpp in Sources */,
+				032F27181CD5D4CA0012E3B0 /* filter.cpp in Sources */,
+				032F27201CD5D4CA0012E3B0 /* mpegtoraw.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		032F26841CD5D4AD0012E3B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = ../../third_party/SDL/include;
+			};
+			name = Debug;
+		};
+		032F26851CD5D4AD0012E3B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = ../../third_party/SDL/include;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		032F26871CD5D4AD0012E3B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		032F26881CD5D4AD0012E3B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		032F26781CD5D4AD0012E3B0 /* Build configuration list for PBXProject "smpeg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				032F26841CD5D4AD0012E3B0 /* Debug */,
+				032F26851CD5D4AD0012E3B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		032F26861CD5D4AD0012E3B0 /* Build configuration list for PBXNativeTarget "smpeg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				032F26871CD5D4AD0012E3B0 /* Debug */,
+				032F26881CD5D4AD0012E3B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 032F26751CD5D4AD0012E3B0 /* Project object */;
+}

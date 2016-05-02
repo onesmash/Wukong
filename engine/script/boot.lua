@@ -115,5 +115,7 @@ _G.WukongEngine = WukongEngine()
 
 local main = loadfile(Runtime._scriptDirectory .. '/main.lua')
 
+--luatrace.tron()
 main()
+--luatrace.troff()
 

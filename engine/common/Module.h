@@ -25,6 +25,7 @@ public:
         ModuleMessageLoop,
         ModuleTime,
         ModuleRender,
+        ModuleAudio,
         ModuleResourceManager,
         ModuleMaxEnum
     };

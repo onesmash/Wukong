@@ -21,8 +21,6 @@ function init(self, f)
 end
 
 function start(self)
-	-- body
-	--print('RenderService start')
 	render.start(Runtime._window, Runtime._context, Runtime._renderer)
 end
 

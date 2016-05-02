@@ -16,7 +16,10 @@ extern "C"
 extern int luaopen_MessageLoopModule(lua_State*);
 extern int luaopen_TimeModule(lua_State*);
 extern int luaopen_RenderModule(lua_State*);
+extern int luaopen_AudioModule(lua_State*);
 extern int runtime_texture(lua_State* L);
+extern int runtime_audio_clip(lua_State* L);
+extern int runtime_audio_source(lua_State* L);
 }
 
 static const luaL_Reg modules[] =
@@ -24,12 +27,15 @@ static const luaL_Reg modules[] =
     {"runtime.messageloop", luaopen_MessageLoopModule},
     {"runtime.time", luaopen_TimeModule},
     {"runtime.render", luaopen_RenderModule},
+    {"runtime.audio", luaopen_AudioModule},
     {0, 0}
 };
     
 static const luaL_Reg types[] =
 {
-    {"runtime.texture.c", runtime_texture},
+    {"runtime.Texture.c", runtime_texture},
+    {"runtime.AudioClip.c", runtime_audio_clip},
+    {"runtime.AudioSource.c", runtime_audio_source},
     {0, 0}
 };
     

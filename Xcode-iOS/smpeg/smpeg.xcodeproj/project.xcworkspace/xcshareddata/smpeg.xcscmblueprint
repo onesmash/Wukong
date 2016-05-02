@@ -1,22 +1,22 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "447AD3CCC28208570155B0DD879E8294185E28ED",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : {
 
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : 0,
-    "447AD3CCC28208570155B0DD879E8294185E28ED" : 0
+    "447AD3CCC28208570155B0DD879E8294185E28ED" : 0,
+    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : 0
   },
-  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "95506140-8371-472C-A117-5965E1DDB85F",
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6FB773FA-6D70-450C-AB02-6B5C022534ED",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : "smpeg\/",
-    "447AD3CCC28208570155B0DD879E8294185E28ED" : ".."
+    "447AD3CCC28208570155B0DD879E8294185E28ED" : "Wukong\/",
+    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : "Wukong\/third_party\/smpeg\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "smpeg",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Xcode\/smpeg.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Xcode-iOS\/smpeg\/smpeg.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:onesmash\/Wukong.git",

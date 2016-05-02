@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "03F5A8AF1CC3CE53009ED94F"
+               BlueprintIdentifier = "032F267C1CD5D4AD0012E3B0"
                BuildableName = "libsmpeg.a"
                BlueprintName = "smpeg"
                ReferencedContainer = "container:smpeg.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "03F5A8AF1CC3CE53009ED94F"
+            BlueprintIdentifier = "032F267C1CD5D4AD0012E3B0"
             BuildableName = "libsmpeg.a"
             BlueprintName = "smpeg"
             ReferencedContainer = "container:smpeg.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "03F5A8AF1CC3CE53009ED94F"
+            BlueprintIdentifier = "032F267C1CD5D4AD0012E3B0"
             BuildableName = "libsmpeg.a"
             BlueprintName = "smpeg"
             ReferencedContainer = "container:smpeg.xcodeproj">

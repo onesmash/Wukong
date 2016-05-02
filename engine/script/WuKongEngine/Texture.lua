@@ -4,7 +4,7 @@ local runtime = require('runtime')
 local SDL = require('SDL')
 local Image = require('SDL.image')
 local Renderer = require('Renderer')
-local CTexture = require('runtime.texture.c')
+local CTexture = require('runtime.Texture.c')
 
 --local renderer = runtime._renderer
 

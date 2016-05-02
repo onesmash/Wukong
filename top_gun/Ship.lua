@@ -4,6 +4,7 @@ local Sprite = require('Sprite')
 local SpriteRenderer = require('SpriteRenderer')
 local Entity = require('Entity')
 local ShipBehaviour = require('ShipBehaviour')
+local AudioSource = require('AudioSource')
 
 local modName = ...
 
@@ -25,4 +26,5 @@ function init(self)
 	self._renderer = self:addComponent(SpriteRenderer)
 	self._renderer.sprite = self._sprite
 	self:addComponent(ShipBehaviour)
+	self:addComponent(AudioSource)
 end

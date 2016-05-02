@@ -41,9 +41,7 @@ public:
     void present();
     
 private:
-    
-    
-    
+
     SDL_Renderer* renderer_;
 };
 }

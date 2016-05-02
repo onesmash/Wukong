@@ -36,6 +36,7 @@ end
 
 function init(self)
 	super.init(self)
+	self._started = false
 	self.Time = {}
 	self.Input = {mousePosition = {x = 0, y = 0}, mouseDelta = {x = 0, y = 0}, touches = {}}
 	self._cameraEntity = Entity()
@@ -60,7 +61,7 @@ end
 
 local tick = 1 / 60
 
-function update(self)
+function update(self) 
 	local now = Time.now()
 	local deltaTime = now - lastUpdateTime
 	self.Time.deltaTime = deltaTime
@@ -114,13 +115,26 @@ function update(self)
 	local slot = math.max(tick - deltaTime, 0)
 	--print(deltaTime, slot)
 	--print(slot)
+	if not self._started then
+		return
+	end
 	return messageloop.postDelayTask(function()
 			self:update()
 	end, slot)
 end
 
-function start(self)
+function start(self, duration)
 	--Renderer.clear({r = 255, g = 255, b = 255, a = 255})
-	lastUpdateTime = Time.now()
-	self:update()
+	self._started = true
+	if duration then
+		Runtime.startCoroutine(function()
+			lastUpdateTime = Time.now()
+			self:update()
+			Runtime.waitForSeconds(duration)
+			self._started = false
+		end)
+	else
+		lastUpdateTime = Time.now()
+		self:update()
+	end
 end

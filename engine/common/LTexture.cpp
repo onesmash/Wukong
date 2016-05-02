@@ -7,7 +7,6 @@
 //
 
 #include "LTexture.h"
-#include "Runtime.h"
 #include "Texture.h"
 #include "Renderer.h"
 
