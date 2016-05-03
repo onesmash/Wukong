@@ -9,7 +9,21 @@ local Component = Class(modName, GameObject, false)
 _G[modName] = Component
 package.loaded[modName] = Component
 
+local string = string
+local print = print
+
 local _ENV = Component
+
+local function firstCharacterLowercase(str)
+	return string.gsub(str, '^%u', string.lower)
+end
+
+function getComponentName(class)
+	if not class._componentName then
+		class._componentName = firstCharacterLowercase(class.className)
+	end
+	return class._componentName
+end
 
 function init(self)
 	super.init(self)

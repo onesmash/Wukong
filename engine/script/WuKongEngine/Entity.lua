@@ -23,10 +23,6 @@ local math = math
 
 local _ENV = Entity
 
-local function firstCharacterLowercase(str)
-	return string.gsub(str, '^%u', string.lower)
-end
-
 function destroy(entity)
 	local scene = entity:getScene()
 	if scene then
@@ -167,7 +163,7 @@ function addComponent(self, componentClass)
 	if not component:isKindOf(Component) then
 		return
 	end
-	local componentName = (component:isKindOf(Behaviour) and 'behaviour') or (component:isKindOf(Renderer) and 'renderer') or (component:isKindOf(Collider) and 'collider') or firstCharacterLowercase(componentClass.className)
+	local componentName = (component:isKindOf(Behaviour) and 'behaviour') or (component:isKindOf(Renderer) and 'renderer') or (component:isKindOf(Collider) and 'collider') or componentClass:getComponentName()
 	self._components[componentName] = component
 	component:setEntity(self)
 	component:setTransform(self._components.transform)
@@ -176,7 +172,7 @@ end
 
 function getComponent(self, componentClass)
 	--print(self.className, componentClass)
-	local componentName = firstCharacterLowercase(componentClass.className)
+	local componentName = componentClass:getComponentName()
 	return self._components[componentName]
 end
 
