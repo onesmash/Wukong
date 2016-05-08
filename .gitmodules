@@ -4,3 +4,9 @@
 [submodule "third_party/luasdl2"]
         path = third_party/luasdl2
         url = https://github.com/onesmash/luasdl2.git
+[submodule "third_party/luaprofiler"]
+	path = third_party/luaprofiler
+	url = https://onesmash@github.com/onesmash/luaprofiler.git
+[submodule "third_party/nuklear"]
+	path = third_party/nuklear
+	url = https://onesmash@github.com/onesmash/nuklear.git
