@@ -121,6 +121,8 @@ std::shared_ptr<T> luax_to_cproxy(lua_State* L, int index)
 Rect luax_to_rect(lua_State* L, int index);
     
 Point luax_to_point(lua_State* L, int index);
+
+Color luax_to_color(lua_State* L, int index);
     
 }
     

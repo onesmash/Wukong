@@ -13,6 +13,14 @@
 #include "SDL.h"
 #include "Renderer.h"
 
+#define NK_INCLUDE_FIXED_TYPES
+#define NK_INCLUDE_STANDARD_IO
+#define NK_INCLUDE_DEFAULT_ALLOCATOR
+#define NK_IMPLEMENTATION
+#define NK_SDL_IMPLEMENTATION
+#include "nuklear.h"
+#include "nuklear_sdl.h"
+
 #include <iostream>
 
 extern "C" int luaopen_SDL(lua_State*);
@@ -65,6 +73,8 @@ void WukongEngine::startInternal()
     lua_setfield(L_, -2, "_serviceDirectory");
     lua_pushstring(L_, env_.scriptDirectory.c_str());
     lua_setfield(L_, -2, "_scriptDirectory");
+    lua_pushstring(L_, env_.tempDirectory.c_str());
+    lua_setfield(L_, -2, "_tempDirectory");
     lua_pushlightuserdata(L_, env_.window);
     lua_setfield(L_, -2, "_window");
     Renderer* renderer = new Renderer(env_.renderer);

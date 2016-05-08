@@ -19,6 +19,7 @@ package.loaded[modName] = DynamicTree
 
 local math = math
 local print = print
+local table = table
 local debug = debug
 
 local _ENV = DynamicTree
@@ -413,6 +414,7 @@ end
 
 function query(self, delegate, aabb)
 	local stack = Stack()
+	local nodes = {}
 	stack:push(self._root)
 
 	while stack:size() > 0 do
@@ -421,9 +423,13 @@ function query(self, delegate, aabb)
 			local node = self._nodes[nodeId]
 			if AABB.testOverlap(node.aabb, aabb) then
 				if node:isLeaf() then
-					local proceed = delegate:queryCallback(nodeId)
+					table.insert(nodes, nodeId)
+					local proceed = true
+					if delegate then
+						proceed = delegate:queryCallback(nodeId)
+					end
 					if not proceed then
-						return
+						return nodes
 					end
 				else
 					stack:push(node.childL)
@@ -432,6 +438,7 @@ function query(self, delegate, aabb)
 			end
 		end
 	end
+	return nodes
 
 end
 

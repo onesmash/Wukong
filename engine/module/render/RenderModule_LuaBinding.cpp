@@ -57,7 +57,11 @@ static int m_draw(lua_State* L)
     
 static int m_drawRect(lua_State* L)
 {
-
+    std::shared_ptr<RenderModule>& instance = instance();
+    const Color& color = luax_to_color(L, 1);
+    const Rect& dstRect = luax_to_rect(L, 2);
+    
+    instance->drawRect(color.r, color.g, color.b, color.a, dstRect);
     return 0;
 }
     

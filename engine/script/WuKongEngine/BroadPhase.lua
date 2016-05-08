@@ -136,7 +136,7 @@ function updatePairs(self, delegate)
 end
 
 function query(self, delegate, aabb)
-	self._tree:query(delegate, aabb)
+	return self._tree:query(delegate, aabb)
 end
 
 function getData(self, proxyId)

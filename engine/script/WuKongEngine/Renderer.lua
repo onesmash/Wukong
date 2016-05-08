@@ -62,8 +62,6 @@ function render(self)
 end
 
 function drawRect(self, color, rect)
-	--renderer:setDrawColor(color)
-	--renderer:drawRect(rect)
 	local renderService = Runtime.getService(RenderService)
 	renderService:drawRect(color, rect)
 end

@@ -1,0 +1,276 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		030403E91CDCE52D00564EE1 /* SDL2_framerate.c in Sources */ = {isa = PBXBuildFile; fileRef = 030403C51CDCE52D00564EE1 /* SDL2_framerate.c */; };
+		030403EA1CDCE52D00564EE1 /* SDL2_gfxPrimitives.c in Sources */ = {isa = PBXBuildFile; fileRef = 030403CA1CDCE52D00564EE1 /* SDL2_gfxPrimitives.c */; };
+		030403EB1CDCE52D00564EE1 /* SDL2_imageFilter.c in Sources */ = {isa = PBXBuildFile; fileRef = 030403CD1CDCE52D00564EE1 /* SDL2_imageFilter.c */; };
+		030403EC1CDCE52D00564EE1 /* SDL2_rotozoom.c in Sources */ = {isa = PBXBuildFile; fileRef = 030403CF1CDCE52D00564EE1 /* SDL2_rotozoom.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		030403491CDCE50C00564EE1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0304034B1CDCE50C00564EE1 /* libSDL_gfx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDL_gfx.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		030403C51CDCE52D00564EE1 /* SDL2_framerate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL2_framerate.c; sourceTree = "<group>"; };
+		030403C61CDCE52D00564EE1 /* SDL2_framerate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL2_framerate.h; sourceTree = "<group>"; };
+		030403CA1CDCE52D00564EE1 /* SDL2_gfxPrimitives.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL2_gfxPrimitives.c; sourceTree = "<group>"; };
+		030403CB1CDCE52D00564EE1 /* SDL2_gfxPrimitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL2_gfxPrimitives.h; sourceTree = "<group>"; };
+		030403CC1CDCE52D00564EE1 /* SDL2_gfxPrimitives_font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL2_gfxPrimitives_font.h; sourceTree = "<group>"; };
+		030403CD1CDCE52D00564EE1 /* SDL2_imageFilter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL2_imageFilter.c; sourceTree = "<group>"; };
+		030403CE1CDCE52D00564EE1 /* SDL2_imageFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL2_imageFilter.h; sourceTree = "<group>"; };
+		030403CF1CDCE52D00564EE1 /* SDL2_rotozoom.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SDL2_rotozoom.c; sourceTree = "<group>"; };
+		030403D01CDCE52D00564EE1 /* SDL2_rotozoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDL2_rotozoom.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		030403481CDCE50C00564EE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		030403421CDCE50C00564EE1 = {
+			isa = PBXGroup;
+			children = (
+				030403571CDCE52D00564EE1 /* SDL2_gfx-1.0.1 */,
+				0304034C1CDCE50C00564EE1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0304034C1CDCE50C00564EE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0304034B1CDCE50C00564EE1 /* libSDL_gfx.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		030403571CDCE52D00564EE1 /* SDL2_gfx-1.0.1 */ = {
+			isa = PBXGroup;
+			children = (
+				030403C51CDCE52D00564EE1 /* SDL2_framerate.c */,
+				030403C61CDCE52D00564EE1 /* SDL2_framerate.h */,
+				030403CA1CDCE52D00564EE1 /* SDL2_gfxPrimitives.c */,
+				030403CB1CDCE52D00564EE1 /* SDL2_gfxPrimitives.h */,
+				030403CC1CDCE52D00564EE1 /* SDL2_gfxPrimitives_font.h */,
+				030403CD1CDCE52D00564EE1 /* SDL2_imageFilter.c */,
+				030403CE1CDCE52D00564EE1 /* SDL2_imageFilter.h */,
+				030403CF1CDCE52D00564EE1 /* SDL2_rotozoom.c */,
+				030403D01CDCE52D00564EE1 /* SDL2_rotozoom.h */,
+			);
+			name = "SDL2_gfx-1.0.1";
+			path = "../../third_party/SDL2_gfx-1.0.1";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0304034A1CDCE50C00564EE1 /* SDL_gfx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 030403541CDCE50C00564EE1 /* Build configuration list for PBXNativeTarget "SDL_gfx" */;
+			buildPhases = (
+				030403471CDCE50C00564EE1 /* Sources */,
+				030403481CDCE50C00564EE1 /* Frameworks */,
+				030403491CDCE50C00564EE1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SDL_gfx;
+			productName = SDL_gfx;
+			productReference = 0304034B1CDCE50C00564EE1 /* libSDL_gfx.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		030403431CDCE50C00564EE1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Xuhui;
+				TargetAttributes = {
+					0304034A1CDCE50C00564EE1 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 030403461CDCE50C00564EE1 /* Build configuration list for PBXProject "SDL_gfx" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 030403421CDCE50C00564EE1;
+			productRefGroup = 0304034C1CDCE50C00564EE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0304034A1CDCE50C00564EE1 /* SDL_gfx */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		030403471CDCE50C00564EE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				030403EB1CDCE52D00564EE1 /* SDL2_imageFilter.c in Sources */,
+				030403EC1CDCE52D00564EE1 /* SDL2_rotozoom.c in Sources */,
+				030403EA1CDCE52D00564EE1 /* SDL2_gfxPrimitives.c in Sources */,
+				030403E91CDCE52D00564EE1 /* SDL2_framerate.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		030403521CDCE50C00564EE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../third_party/SDL/include;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		030403531CDCE50C00564EE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = ../../third_party/SDL/include;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		030403551CDCE50C00564EE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		030403561CDCE50C00564EE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		030403461CDCE50C00564EE1 /* Build configuration list for PBXProject "SDL_gfx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				030403521CDCE50C00564EE1 /* Debug */,
+				030403531CDCE50C00564EE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		030403541CDCE50C00564EE1 /* Build configuration list for PBXNativeTarget "SDL_gfx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				030403551CDCE50C00564EE1 /* Debug */,
+				030403561CDCE50C00564EE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 030403431CDCE50C00564EE1 /* Project object */;
+}

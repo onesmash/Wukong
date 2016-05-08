@@ -55,7 +55,7 @@ extern "C" int runtime_texture(lua_State* L)
         {"loadImage", t_loadImage},
         { NULL, NULL },
     };
-    luaL_newlib(L,l);
+    luaL_newlib(L, l);
     return 1;
 }
 }

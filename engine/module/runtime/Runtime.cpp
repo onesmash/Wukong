@@ -161,6 +161,25 @@ Point luax_to_point(lua_State* L, int index)
     return point;
 }
     
+Color luax_to_color(lua_State* L, int index)
+{
+    luaL_checktype(L, index, LUA_TTABLE);
+    Color color;
+    lua_getfield(L, index, "r");
+    color.r = (int)lua_tointeger(L, -1);
+    lua_pop(L, 1);
+    lua_getfield(L, index, "g");
+    color.g = (int)lua_tointeger(L, -1);
+    lua_pop(L, 1);
+    lua_getfield(L, index, "b");
+    color.b = (int)lua_tointeger(L, -1);
+    lua_pop(L, 1);
+    lua_getfield(L, index, "a");
+    color.a = (int)lua_tointeger(L, -1);
+    lua_pop(L, 1);
+    return color;
+}
+    
 }
 
 }

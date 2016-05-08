@@ -17,10 +17,12 @@ local print = print
 
 local _ENV = Bullet
 
+local texture = Texture()
+texture:loadImage('laser.png')
+
 function init(self)
 	super.init(self)
-	self._texture = Texture()
-	self._texture:loadImage('laser.png')
+	self._texture = texture
 	self._sprite = Sprite(self._texture, {x = 0, y = 0, w = self._texture.width, h = self._texture.height})
 	self._sprite.center = {x = 0, y = 0.5}
 	self._renderer = self:addComponent(SpriteRenderer)

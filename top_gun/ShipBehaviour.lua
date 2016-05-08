@@ -18,6 +18,7 @@ package.loaded[modName] = ShipBehaviour
 
 local print = print
 local Input = WukongEngine.Input
+local WukongEngine = WukongEngine
 
 local _ENV = ShipBehaviour
 
@@ -63,9 +64,14 @@ function update(self)
 	self._sprite.rect.x = self._frameIndex * self._sprite.rect.w
 	--print(Input.mouseDelta.x)
 	--print(Input.mouseDelta.y)
-	self.transform:setPosition(Input.mousePosition.x, Input.mousePosition.y)
+	--self.transform:setPosition(Input.mousePosition.x, Input.mousePosition.y)
 	self.transform:rotate(1, true)
 	--print(self.transform._localRotation)
 	--self.transform.position.x = Input.mousePosition.x
 	--self.transform.position.y = Input.mousePosition.y
+end
+
+function onDrag(self)
+	self.transform:setPosition(Input.mousePosition.x, Input.mousePosition.y)
+	WukongEngine:stopProfile()
 end

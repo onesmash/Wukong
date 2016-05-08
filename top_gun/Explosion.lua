@@ -17,11 +17,12 @@ local print = print
 
 local _ENV = Explosion
 
+local texture = Texture()
+texture:loadImage('explosion.png')
+
 function init(self)
 	super.init(self)
 	self.frames = 12
-	local texture = Texture()
-	texture:loadImage('explosion.png')
 	local sprite = Sprite(texture, {x = 0, y = 0, w = texture.width / self.frames, h = texture.height})
 	sprite.center = {x = 0.5, y = 0.5}
 	local renderer = self:addComponent(SpriteRenderer)

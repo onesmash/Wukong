@@ -33,6 +33,7 @@ end
 
 function init(self)
 	super.init(self)
+	self.selected = false
 	self._components = {}
 	self:addComponent(Transform)
 	self._children = {}

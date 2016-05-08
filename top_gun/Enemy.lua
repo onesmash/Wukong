@@ -17,10 +17,11 @@ local print = print
 
 local _ENV = Enemy
 
+local texture = Texture()
+texture:loadImage('mineAnimation.png')
+
 function init(self)
 	super.init(self)
-	local texture = Texture()
-	texture:loadImage('mineAnimation.png')
 	local sprite = Sprite(texture, {x = 0, y = 0, w = texture.width / 8, h = texture.height})
 	sprite.center = {x = 0.5, y = 0.5}
 	local renderer = self:addComponent(SpriteRenderer)

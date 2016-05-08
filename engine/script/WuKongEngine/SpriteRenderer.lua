@@ -32,7 +32,7 @@ function render(self)
 	self:draw(self.sprite.texture, self.sprite.rect, dstRect, -math.deg(self.transform:getLocalRotation()), 
 		{x = width * self.sprite.center.x, y = height * (1 - self.sprite.center.y)})
 	
-	--[[
+	
 	local aabb = self.entity:getScene():getBroadPhase():getFatAABB(self.entity._proxyId);
 	if aabb then
 		local lowerBound = self.entity:getScene():getMainCamera():worldToScreenPoint(aabb.lowerBound.x, aabb.lowerBound.y)
@@ -40,10 +40,8 @@ function render(self)
 
 		local height = lowerBound.y - upperBound.y
 		local width = upperBound.x - lowerBound.x
-		--print('lowerBound ', lowerBound.x, lowerBound.y)
-		--print('upperBound', upperBound.x, upperBound.y)
 		self:drawRect({r = 100, g = 100, b = 100, a = 255}, {x = lowerBound.x, y = lowerBound.y - height, w = width, h = height})
 	end
-	]]--
+	
 	
 end

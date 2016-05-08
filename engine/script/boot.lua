@@ -19,10 +19,6 @@ math.randomseed(os.time())
 
 Image.init({PNG = 1})
 
-local renderer = Runtime._renderer
---print(runtime['_scriptDirectory'])
---print(runtime.messageloop)
-
 for file in lfs.dir(Runtime['_serviceDirectory']) do
  	--file is the current file or directory name
 	--print( "Found file: " .. file )
@@ -115,7 +111,5 @@ _G.WukongEngine = WukongEngine()
 
 local main = loadfile(Runtime._scriptDirectory .. '/main.lua')
 
---luatrace.tron()
 main()
---luatrace.troff()
 

@@ -20,6 +20,7 @@ extern int luaopen_AudioModule(lua_State*);
 extern int runtime_texture(lua_State* L);
 extern int runtime_audio_clip(lua_State* L);
 extern int runtime_audio_source(lua_State* L);
+extern int luaopen_profiler(lua_State *L);
 }
 
 static const luaL_Reg modules[] =
@@ -28,6 +29,7 @@ static const luaL_Reg modules[] =
     {"runtime.time", luaopen_TimeModule},
     {"runtime.render", luaopen_RenderModule},
     {"runtime.audio", luaopen_AudioModule},
+    {"runtime.profile", luaopen_profiler},
     {0, 0}
 };
     

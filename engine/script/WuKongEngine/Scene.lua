@@ -6,6 +6,8 @@ local BroadPhase = require('BroadPhase')
 local Collider = require('Collider')
 local Collision = require('Collision')
 local AABB = require('AABB')
+local Touch = require('Touch')
+local Vector3 = require('Vector3')
 
 local modName = ...
 
@@ -134,6 +136,9 @@ function onUpdate(self)
 	for behaviour, _ in pairs(self._updateDelegates) do
 		if behaviour._started and behaviour.enabled then
 			behaviour:update()
+			if behaviour.entity.selected == true and behaviour.onDrag then
+				behaviour:onDrag()
+			end
 		end
 		--behaviour.enabled and behaviour:update()
 	end
@@ -215,6 +220,32 @@ function onCollide(self)
 		if type(behaviourB.onCollide) == 'function' then
 			local collision = Collision(colliderPair[1])
 			behaviourB:onCollide(collision)
+		end
+	end
+end
+
+function onGUIEvent(self, input)
+	local touch = input.touches[1]
+	if touch then
+		if touch.phase == Touch.began then
+			local position = Vector3(input.mousePosition.x, input.mousePosition.y, 0)
+			local v = Vector3(1, 1, 1)
+			local touchAABB = AABB(position - v, position + v)
+			local proxyIds = self._broadPhase:query(nil, touchAABB)
+			for _, proxyId in ipairs(proxyIds) do
+				local entity = self._broadPhase:getData(proxyId)
+				entity.selected = true
+			end
+		elseif touch.phase == Touch.End then
+			local position = Vector3(input.mousePosition.x, input.mousePosition.y, 0)
+			local v = Vector3(1, 1, 1)
+			local touchAABB = AABB(position - v, position + v)
+			local proxyIds = self._broadPhase:query(nil, touchAABB)
+			for _, proxyId in ipairs(proxyIds) do
+				local entity = self._broadPhase:getData(proxyId)
+				entity.selected = false
+			end
+		elseif touch.phase == Touch.moved then
 		end
 	end
 end

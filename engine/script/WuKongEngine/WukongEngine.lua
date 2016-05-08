@@ -7,6 +7,7 @@ local SDL = require('SDL')
 local Camera = require('Camera')
 local Entity = require('Entity')
 local Touch = require('Touch')
+local Profile = require('runtime.profile')
 
 local modName = ...
 
@@ -15,6 +16,7 @@ local WukongEngine = Class(modName, Object, false)
 local print = print
 local ipairs = ipairs
 local setmetatable = setmetatable
+local loadfile = loadfile
 
 _G[modName] = WukongEngine
 package.loaded[modName] = WukongEngine
@@ -37,6 +39,7 @@ end
 function init(self)
 	super.init(self)
 	self._started = false
+	self._profileStarted = false
 	self.Time = {}
 	self.Input = {mousePosition = {x = 0, y = 0}, mouseDelta = {x = 0, y = 0}, touches = {}}
 	self._cameraEntity = Entity()
@@ -73,34 +76,45 @@ function update(self)
 			local state, x, y = SDL.getMouseState()
 			local relativeState, dx, dy = SDL.getRelativeMouseState()
 			local worldPosition = self._mainCamera:screenToWorldPoint(x, y)
+			local oldWorldPosition = self._mainCamera:screenToWorldPoint(x + dx, y + dy)
+			dx = worldPosition.x - oldWorldPosition.x
+			dy = worldPosition.y - oldWorldPosition.y
 			--print(state[SDL.mouseMask.Left], relativeState[SDL.mouseMask.Left])
 			self.Input.mousePosition.x = worldPosition.x
 			self.Input.mousePosition.y = worldPosition.y
-			self.Input.mouseDelta.x = 0
-			self.Input.mouseDelta.y = 0
 			if state[SDL.mouseMask.Left] then
 				self.Input.mouseDelta.x = dx or 0
 				self.Input.mouseDelta.y = dy or 0
-				local touch = Touch()
-				touch.phase = Touch.Move
-				self.Input.touches[SDL.mouseMask.Left] = touch
+				local touch = self.Input.touches[1] or Touch()
+				touch.phase = Touch.Moved
+				touch.deltaPosition.x = dx or 0
+				touch.deltaPosition.y = dy or 0
+				self.Input.touches[1] = touch
 			end
 		elseif e.type == SDL.event.MouseButtonDown then
 			
 		elseif e.type == SDL.event.FingerDown then
 			local state, x, y = SDL.getMouseState()
+			self.Input.mouseDelta.x = 0
+			self.Input.mouseDelta.y = 0
 			if state[SDL.mouseMask.Left] then
 				local touch = Touch()
 				touch.phase = Touch.Began
-				self.Input.touches[SDL.mouseMask.Left] = touch
+				touch.deltaPosition.x = 0
+				touch.deltaPosition.y = 0
+				self.Input.touches[1] = touch
 			else
 			end
 		elseif e.type == SDL.event.FingerUp then
 			local state, x, y = SDL.getMouseState()
-			if state[SDL.mouseMask.Left] then
-				local touch = Touch()
+			self.Input.mouseDelta.x = 0
+			self.Input.mouseDelta.y = 0
+			if not state[SDL.mouseMask.Left] then
+				local touch = self.Input.touches[1] or Touch()
 				touch.phase = Touch.End
-				self.Input.touches[SDL.mouseMask.Left] = touch
+				touch.deltaPosition.x = 0
+				touch.deltaPosition.y = 0
+				self.Input.touches[1] = touch
 			else
 			end
 		end
@@ -108,6 +122,7 @@ function update(self)
 	
 	self._scene:onUpdate()
 	doPenddingWorks()
+	self._scene:onGUIEvent(self.Input)
 	self._scene:onCollide()
 	self._scene:onRender()
 	now = Time.now()
@@ -125,6 +140,7 @@ end
 
 function start(self, duration)
 	--Renderer.clear({r = 255, g = 255, b = 255, a = 255})
+	self:startProfile()
 	self._started = true
 	if duration then
 		Runtime.startCoroutine(function()
@@ -137,4 +153,21 @@ function start(self, duration)
 		lastUpdateTime = Time.now()
 		self:update()
 	end
+end
+
+function startProfile(self)
+	if not self._profileStarted then
+		--self._profileStarted = true
+		--Profile.start(Runtime._tempDirectory .. 'profile.txt')
+	end
+	
+end
+
+function stopProfile(self)
+	if self._profileStarted then
+		--Profile.stop()
+		--local summary = loadfile('summary.lua')
+		--summary(Runtime._tempDirectory .. 'profile.txt')
+	end
+	
 end

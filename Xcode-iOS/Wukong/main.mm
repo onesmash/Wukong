@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
         env.moduleDirectory = [[[NSBundle mainBundle] resourcePath] UTF8String];
         env.serviceDirectory = [[[NSBundle mainBundle] resourcePath] UTF8String];
         env.scriptDirectory = [[[NSBundle mainBundle] resourcePath] UTF8String];
+        env.tempDirectory = [NSTemporaryDirectory() UTF8String];
         env.window = window;
         env.renderer = renderer;
         env.screenWidth = displayMode.w;

@@ -26,6 +26,7 @@ public:
         std::string moduleDirectory;
         std::string serviceDirectory;
         std::string scriptDirectory;
+        std::string tempDirectory;
         SDL_Window *window;
         SDL_Renderer *renderer;
         void *context;
