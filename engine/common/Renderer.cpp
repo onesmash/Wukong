@@ -34,7 +34,7 @@ void Renderer::draw(const std::shared_ptr<Texture>& texture,
           const double angle,
           const Point& center)
 {
-    SDL_RenderCopyEx(renderer_, texture->texture(), (SDL_Rect*)&srcrect, (SDL_Rect*)&dstrect, angle, (SDL_Point*)&center, SDL_FLIP_NONE);
+    SDL_RenderCopyEx(renderer_, (SDL_Texture*)texture->texture(), (SDL_Rect*)&srcrect, (SDL_Rect*)&dstrect, angle, (SDL_Point*)&center, SDL_FLIP_NONE);
 }
 
 void Renderer::drawRect(uint8_t r, uint8_t g, uint8_t b, uint8_t a, const Rect& dstrect)

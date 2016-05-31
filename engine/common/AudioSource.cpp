@@ -29,7 +29,7 @@ int AudioSource::play(double limit)
 {
     if(!clip_) return -1;
     clip_->loadAudioData();
-    channel_ = Mix_PlayChannelTimed(channel_, clip_->clip(), 0, limit * 1000);
+    channel_ = Mix_PlayChannelTimed(channel_, (Mix_Chunk*)clip_->clip(), 0, limit * 1000);
     return channel_;
 }
     

@@ -26,7 +26,7 @@ public:
     Renderer(SDL_Renderer* renderer);
     virtual ~Renderer();
 
-    SDL_Renderer* renderer() { return renderer_; }
+    const SDL_Renderer* renderer() const { return renderer_; }
     
     void clear(uint8_t r, uint8_t g, uint8_t b, uint8_t a);
     

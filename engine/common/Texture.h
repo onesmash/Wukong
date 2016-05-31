@@ -10,6 +10,7 @@
 #define Texture_h
 
 #include "Object.h"
+#include "TTFont.h"
 
 #include <string>
 
@@ -21,6 +22,8 @@ struct Size;
     
 class Renderer;
     
+class Canvas;
+    
 class Texture: public Object
 {
 public:
@@ -29,10 +32,12 @@ public:
     virtual ~Texture();
     
     void loadImage(Renderer& renderer, const std::string& path);
+    void loadCanvas(Renderer& renderer, const Canvas& canvas);
+    //void loadText(Renderer& renderer, const TTFont& font, const std::string& text, uint8_t r, uint8_t g, uint8_t b, uint8_t a);
     
     Size size();
     
-    SDL_Texture* texture() { return texture_; }
+    const SDL_Texture* texture() const { return texture_; }
 private:
     SDL_Texture* texture_;
 };

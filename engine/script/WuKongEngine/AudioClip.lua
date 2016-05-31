@@ -1,10 +1,10 @@
 local Class = require('Class')
-local Object = require('Object')
+local GameObject = require('GameObject')
 local CAudioClip = require('runtime.AudioClip.c')
 
 local modName = ...
 
-local AudioClip = Class(modName, Object, false)
+local AudioClip = Class(modName, GameObject, false)
 
 _G[modName] = AudioClip
 package.loaded[modName] = AudioClip

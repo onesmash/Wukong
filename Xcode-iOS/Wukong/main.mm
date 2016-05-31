@@ -20,7 +20,6 @@ int main(int argc, char *argv[])
     @autoreleasepool {
         SDL_Window *window;         /* main window */
         SDL_Renderer *renderer;
-        
         /* initialize SDL */
         if (SDL_Init(SDL_INIT_VIDEO) < 0) {
             printf("Could not initialize SDL");

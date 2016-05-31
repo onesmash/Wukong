@@ -40,6 +40,12 @@ function loadImage(self, filePath)
 	self.height = h or 0
 end
 
+function loadCanvas(self, canvas)
+	CTexture.loadCanvas(self, Renderer.platformRenderer, canvas)
+	self.width = canvas.width
+	self.height = canvas.height
+end
+
 function finalize( ... )
 	
 end

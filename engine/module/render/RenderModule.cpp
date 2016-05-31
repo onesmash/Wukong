@@ -10,6 +10,8 @@
 #include "Runtime.h"
 #include "MessageLoop.h"
 #include "SDL.h"
+#include "SDL_ttf.h"
+#include "SDL_image.h"
 
 namespace WukongEngine {
 namespace Runtime {
@@ -29,6 +31,8 @@ void RenderModule::start(Window *window, GLContext context, const std::shared_pt
     renderer_ = renderer;
     auto closure = [](Window *window, GLContext context) {
         SDL_GL_MakeCurrent(window, context);
+        IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG);
+        TTF_Init();
     };
     thread_->start();
     thread_->messageLoop()->postTask(std::bind(closure, window, context));

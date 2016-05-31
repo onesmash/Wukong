@@ -120,6 +120,13 @@
 		03C241A51CB24F3200942D52 /* TreeNode.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C2419F1CB24F3200942D52 /* TreeNode.lua */; };
 		03C241A61CB24F3200942D52 /* Collision.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C241A01CB24F3200942D52 /* Collision.lua */; };
 		03C241A71CB24F3200942D52 /* Stack.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C241A11CB24F3200942D52 /* Stack.lua */; };
+		03C250EB1CFB3BF3009ACDC3 /* Canvas.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C250E41CFB3BF3009ACDC3 /* Canvas.lua */; };
+		03C250EC1CFB3BF3009ACDC3 /* UILabel.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C250E51CFB3BF3009ACDC3 /* UILabel.lua */; };
+		03C250ED1CFB3BF3009ACDC3 /* UIRenderer.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C250E61CFB3BF3009ACDC3 /* UIRenderer.lua */; };
+		03C250EE1CFB3BF3009ACDC3 /* UIView.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C250E71CFB3BF3009ACDC3 /* UIView.lua */; };
+		03C250EF1CFB3BF3009ACDC3 /* UIFont.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C250E81CFB3BF3009ACDC3 /* UIFont.lua */; };
+		03C250F01CFB3BF3009ACDC3 /* UIBehaviour.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C250E91CFB3BF3009ACDC3 /* UIBehaviour.lua */; };
+		03C250F11CFB3BF3009ACDC3 /* UILabelBehaviour.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03C250EA1CFB3BF3009ACDC3 /* UILabelBehaviour.lua */; };
 		03CB95F11CA2E21D00166ACA /* BackgroundBehaviour.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F01CA2E21D00166ACA /* BackgroundBehaviour.lua */; };
 		03CB95F71CA2E5A000166ACA /* bgLayer1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F31CA2E5A000166ACA /* bgLayer1.png */; };
 		03CB95F81CA2E5A000166ACA /* bgLayer2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F41CA2E5A000166ACA /* bgLayer2.png */; };
@@ -135,6 +142,12 @@
 		03DE56A01C8DB38A00B2FF61 /* Transform.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569C1C8DB38A00B2FF61 /* Transform.lua */; };
 		03E042921CC672EC009ADA73 /* ResourceModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E042901CC672EC009ADA73 /* ResourceModule.cpp */; };
 		03E042961CC676DD009ADA73 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E042941CC676DD009ADA73 /* Texture.cpp */; };
+		03E1234A1CFC787B002F9BF1 /* Hiragino Sans GB W3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03E123491CFC787B002F9BF1 /* Hiragino Sans GB W3.ttf */; };
+		03E1234D1CFC8237002F9BF1 /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E1234B1CFC8237002F9BF1 /* Canvas.cpp */; };
+		03E123501CFC8588002F9BF1 /* LCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E1234E1CFC8588002F9BF1 /* LCanvas.cpp */; };
+		03E5F7EC1CF72F56009DF07F /* libSDL2_ttf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E5F7E91CF72F2E009DF07F /* libSDL2_ttf.a */; };
+		03E5F7EF1CF72FE8009DF07F /* LTTFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E5F7ED1CF72FE8009DF07F /* LTTFont.cpp */; };
+		03E5F7F21CF7304D009DF07F /* TTFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E5F7F01CF7304D009DF07F /* TTFont.cpp */; };
 		03E721E71CB7EFF0002F7B92 /* Bullet.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03E721E61CB7EFF0002F7B92 /* Bullet.lua */; };
 		03ED9D0C1CD5E64C00162A7A /* AudioModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03ED9D0A1CD5E64C00162A7A /* AudioModule.cpp */; };
 		03ED9D0F1CD63E7300162A7A /* AudioModule_LuaBinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03ED9D0D1CD63E7300162A7A /* AudioModule_LuaBinding.cpp */; };
@@ -235,6 +248,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 03C0DDC91C8204150009D98F;
 			remoteInfo = uv;
+		};
+		03E5F7E81CF72F2E009DF07F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03E5F7E31CF72F2E009DF07F /* SDL_ttf.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BE48FD6E07AFA17000BB41DA;
+			remoteInfo = "Static Library";
+		};
+		03E5F7EA1CF72F4C009DF07F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03E5F7E31CF72F2E009DF07F /* SDL_ttf.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BE48FD6807AFA17000BB41DA;
+			remoteInfo = "Static Library";
 		};
 		03F5A89A1CC3C3A9009ED94F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -407,6 +434,13 @@
 		03C2419F1CB24F3200942D52 /* TreeNode.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TreeNode.lua; sourceTree = "<group>"; };
 		03C241A01CB24F3200942D52 /* Collision.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Collision.lua; sourceTree = "<group>"; };
 		03C241A11CB24F3200942D52 /* Stack.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Stack.lua; sourceTree = "<group>"; };
+		03C250E41CFB3BF3009ACDC3 /* Canvas.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Canvas.lua; sourceTree = "<group>"; };
+		03C250E51CFB3BF3009ACDC3 /* UILabel.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UILabel.lua; sourceTree = "<group>"; };
+		03C250E61CFB3BF3009ACDC3 /* UIRenderer.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIRenderer.lua; sourceTree = "<group>"; };
+		03C250E71CFB3BF3009ACDC3 /* UIView.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIView.lua; sourceTree = "<group>"; };
+		03C250E81CFB3BF3009ACDC3 /* UIFont.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIFont.lua; sourceTree = "<group>"; };
+		03C250E91CFB3BF3009ACDC3 /* UIBehaviour.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UIBehaviour.lua; sourceTree = "<group>"; };
+		03C250EA1CFB3BF3009ACDC3 /* UILabelBehaviour.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UILabelBehaviour.lua; sourceTree = "<group>"; };
 		03CB95F01CA2E21D00166ACA /* BackgroundBehaviour.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BackgroundBehaviour.lua; sourceTree = "<group>"; };
 		03CB95F31CA2E5A000166ACA /* bgLayer1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLayer1.png; sourceTree = "<group>"; };
 		03CB95F41CA2E5A000166ACA /* bgLayer2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLayer2.png; sourceTree = "<group>"; };
@@ -424,6 +458,16 @@
 		03E042911CC672EC009ADA73 /* ResourceModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceModule.h; sourceTree = "<group>"; };
 		03E042941CC676DD009ADA73 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		03E042951CC676DD009ADA73 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		03E123491CFC787B002F9BF1 /* Hiragino Sans GB W3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Hiragino Sans GB W3.ttf"; path = "../../../Downloads/Hiragino Sans GB W3.ttf"; sourceTree = "<group>"; };
+		03E1234B1CFC8237002F9BF1 /* Canvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Canvas.cpp; sourceTree = "<group>"; };
+		03E1234C1CFC8237002F9BF1 /* Canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
+		03E1234E1CFC8588002F9BF1 /* LCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LCanvas.cpp; sourceTree = "<group>"; };
+		03E1234F1CFC8588002F9BF1 /* LCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCanvas.h; sourceTree = "<group>"; };
+		03E5F7E31CF72F2E009DF07F /* SDL_ttf.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL_ttf.xcodeproj; path = "../third_party/SDL2_ttf-2.0.14/Xcode-iOS/SDL_ttf.xcodeproj"; sourceTree = "<group>"; };
+		03E5F7ED1CF72FE8009DF07F /* LTTFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LTTFont.cpp; sourceTree = "<group>"; };
+		03E5F7EE1CF72FE8009DF07F /* LTTFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTTFont.h; sourceTree = "<group>"; };
+		03E5F7F01CF7304D009DF07F /* TTFont.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TTFont.cpp; sourceTree = "<group>"; };
+		03E5F7F11CF7304D009DF07F /* TTFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFont.h; sourceTree = "<group>"; };
 		03E721E61CB7EFF0002F7B92 /* Bullet.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bullet.lua; sourceTree = "<group>"; };
 		03ED9D0A1CD5E64C00162A7A /* AudioModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioModule.cpp; sourceTree = "<group>"; };
 		03ED9D0B1CD5E64C00162A7A /* AudioModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioModule.h; sourceTree = "<group>"; };
@@ -449,6 +493,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03E5F7EC1CF72F56009DF07F /* libSDL2_ttf.a in Frameworks */,
 				030404031CDCEB4E00564EE1 /* libSDL_gfx.a in Frameworks */,
 				03F5A8D31CC3D255009ED94F /* libSDL_mixer.a in Frameworks */,
 				03AB8E6F1C83372F0054C593 /* MobileCoreServices.framework in Frameworks */,
@@ -628,6 +673,14 @@
 				032F26711CD5D1AE0012E3B0 /* LAudioSource.h */,
 				030CBD4A1CDF283C003155E2 /* GUI.cpp */,
 				030CBD4B1CDF283C003155E2 /* GUI.h */,
+				03E5F7F01CF7304D009DF07F /* TTFont.cpp */,
+				03E5F7F11CF7304D009DF07F /* TTFont.h */,
+				03E5F7ED1CF72FE8009DF07F /* LTTFont.cpp */,
+				03E5F7EE1CF72FE8009DF07F /* LTTFont.h */,
+				03E1234B1CFC8237002F9BF1 /* Canvas.cpp */,
+				03E1234C1CFC8237002F9BF1 /* Canvas.h */,
+				03E1234E1CFC8588002F9BF1 /* LCanvas.cpp */,
+				03E1234F1CFC8588002F9BF1 /* LCanvas.h */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -719,6 +772,13 @@
 		032106741C7F492700AC515D /* WuKongEngine */ = {
 			isa = PBXGroup;
 			children = (
+				03C250E41CFB3BF3009ACDC3 /* Canvas.lua */,
+				03C250E51CFB3BF3009ACDC3 /* UILabel.lua */,
+				03C250E61CFB3BF3009ACDC3 /* UIRenderer.lua */,
+				03C250E71CFB3BF3009ACDC3 /* UIView.lua */,
+				03C250E81CFB3BF3009ACDC3 /* UIFont.lua */,
+				03C250E91CFB3BF3009ACDC3 /* UIBehaviour.lua */,
+				03C250EA1CFB3BF3009ACDC3 /* UILabelBehaviour.lua */,
 				03ED9D101CD64ED300162A7A /* AudioClip.lua */,
 				03ED9D111CD64ED300162A7A /* AudioService.lua */,
 				03ED9D121CD64ED300162A7A /* AudioSource.lua */,
@@ -825,6 +885,7 @@
 				0321FEB71C7F480800AC515D /* OpenGLES.framework */,
 				0321FEB51C7F480000AC515D /* QuartzCore.framework */,
 				03C0DD301C818EAF0009D98F /* UIKit.framework */,
+				03E5F7E31CF72F2E009DF07F /* SDL_ttf.xcodeproj */,
 				030403FC1CDCEB3400564EE1 /* SDL_gfx.xcodeproj */,
 				03C0DF711C8208730009D98F /* luasdl2.xcodeproj */,
 				03C0DF6B1C8208690009D98F /* lua.xcodeproj */,
@@ -939,6 +1000,7 @@
 		03DE56931C8DB35B00B2FF61 /* top_gun */ = {
 			isa = PBXGroup;
 			children = (
+				03E123491CFC787B002F9BF1 /* Hiragino Sans GB W3.ttf */,
 				03ED9D161CD64F9E00162A7A /* explosion.wav */,
 				03ED9D171CD64F9E00162A7A /* gameMusic.mp3 */,
 				03ED9D181CD64F9E00162A7A /* laserFire.wav */,
@@ -975,6 +1037,14 @@
 			path = resource;
 			sourceTree = "<group>";
 		};
+		03E5F7E41CF72F2E009DF07F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03E5F7E91CF72F2E009DF07F /* libSDL2_ttf.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		03F5A8961CC3C3A9009ED94F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1008,6 +1078,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				03E5F7EB1CF72F4C009DF07F /* PBXTargetDependency */,
 				030404051CDCEB5C00564EE1 /* PBXTargetDependency */,
 				03F5A8CF1CC3D1D5009ED94F /* PBXTargetDependency */,
 				03AB8E601C83315A0054C593 /* PBXTargetDependency */,
@@ -1075,6 +1146,10 @@
 					ProductGroup = 03F5A8961CC3C3A9009ED94F /* Products */;
 					ProjectRef = 03F5A8951CC3C3A9009ED94F /* SDL_mixer.xcodeproj */;
 				},
+				{
+					ProductGroup = 03E5F7E41CF72F2E009DF07F /* Products */;
+					ProjectRef = 03E5F7E31CF72F2E009DF07F /* SDL_ttf.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1126,6 +1201,13 @@
 			remoteRef = 03C0DF751C8208730009D98F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		03E5F7E91CF72F2E009DF07F /* libSDL2_ttf.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDL2_ttf.a;
+			remoteRef = 03E5F7E81CF72F2E009DF07F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		03F5A89B1CC3C3A9009ED94F /* libSDL_mixer.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1155,6 +1237,8 @@
 				03210B711C7F492800AC515D /* Renderer.lua in Resources */,
 				03CB95FA1CA2E5A000166ACA /* shipAnimation.png in Resources */,
 				030404C91CDCEC4C00564EE1 /* Cousine-Regular.ttf in Resources */,
+				03C250EF1CFB3BF3009ACDC3 /* UIFont.lua in Resources */,
+				03E1234A1CFC787B002F9BF1 /* Hiragino Sans GB W3.ttf in Resources */,
 				030404D11CDCEC4C00564EE1 /* Roboto-Bold.ttf in Resources */,
 				039D141B1CB6A5410076AD10 /* explosion.png in Resources */,
 				03210B721C7F492800AC515D /* Service.lua in Resources */,
@@ -1162,12 +1246,15 @@
 				030404CA1CDCEC4C00564EE1 /* DroidSans.ttf in Resources */,
 				030CBD7D1CDF2C1B003155E2 /* summary.lua in Resources */,
 				03DE56971C8DB35B00B2FF61 /* ShipBehaviour.lua in Resources */,
+				03C250EB1CFB3BF3009ACDC3 /* Canvas.lua in Resources */,
 				030CBD761CDF2C1B003155E2 /* Makefile.linux in Resources */,
 				03210B6D1C7F492800AC515D /* Continuation.lua in Resources */,
 				030CBD711CDF2C1B003155E2 /* index.html in Resources */,
 				03CB95F91CA2E5A000166ACA /* mainbackground.png in Resources */,
 				030CBD7B1CDF2C1B003155E2 /* luaprofiler-2.0.2-2.rockspec in Resources */,
+				03C250EC1CFB3BF3009ACDC3 /* UILabel.lua in Resources */,
 				030CBD751CDF2C1B003155E2 /* Makefile.darwin in Resources */,
+				03C250F11CFB3BF3009ACDC3 /* UILabelBehaviour.lua in Resources */,
 				030CBD771CDF2C1B003155E2 /* Makefile.win in Resources */,
 				03210B6B1C7F492800AC515D /* Behaviour.lua in Resources */,
 				030404CE1CDCEC4C00564EE1 /* ProggyClean.ttf in Resources */,
@@ -1189,12 +1276,14 @@
 				03FDE8AC1C985B8600A7AF6E /* SpriteRenderer.lua in Resources */,
 				03ED9D1C1CD64F9E00162A7A /* laserFire.wav in Resources */,
 				030404CD1CDCEC4C00564EE1 /* kenvector_future_thin.ttf in Resources */,
+				03C250EE1CFB3BF3009ACDC3 /* UIView.lua in Resources */,
 				03ED9D1D1CD64F9E00162A7A /* menuMusic.mp3 in Resources */,
 				03210B6E1C7F492800AC515D /* Coroutine.lua in Resources */,
 				03BD8EDE1CBA72DD00E2661C /* ExplosionBehaviour.lua in Resources */,
 				03C241A31CB24F3200942D52 /* BroadPhase.lua in Resources */,
 				03210B681C7F492800AC515D /* boot.lua in Resources */,
 				030404D31CDCEC4C00564EE1 /* Roboto-Regular.ttf in Resources */,
+				03C250ED1CFB3BF3009ACDC3 /* UIRenderer.lua in Resources */,
 				03DE569D1C8DB38A00B2FF61 /* Scene.lua in Resources */,
 				03BD8ED41CBA200200E2661C /* Touch.lua in Resources */,
 				039D141C1CB6A5410076AD10 /* laser.png in Resources */,
@@ -1215,6 +1304,7 @@
 				03210B701C7F492800AC515D /* GameObject.lua in Resources */,
 				035DE3601C9AF0E60032BE07 /* Matrix3.lua in Resources */,
 				03BD8EDA1CBA27D000E2661C /* EnemyBehaviour.lua in Resources */,
+				03C250F01CFB3BF3009ACDC3 /* UIBehaviour.lua in Resources */,
 				03C241A21CB24F3200942D52 /* AABB.lua in Resources */,
 				03BD8ECF1CBA1FAF00E2661C /* Ship.lua in Resources */,
 				030CBD7C1CDF2C1B003155E2 /* luaprofiler-cvs-1.rockspec in Resources */,
@@ -1239,10 +1329,13 @@
 				03210B7E1C7F492800AC515D /* IPAddress.cpp in Sources */,
 				030CBD811CDF2C1B003155E2 /* lua50_profiler.c in Sources */,
 				03868E391CCFA79100978B51 /* AudioClip.cpp in Sources */,
+				03E1234D1CFC8237002F9BF1 /* Canvas.cpp in Sources */,
 				032F266C1CD5C4A70012E3B0 /* LAudioClip.cpp in Sources */,
 				03210B5E1C7F492800AC515D /* lfs.c in Sources */,
 				032F266F1CD5CB050012E3B0 /* AudioSource.cpp in Sources */,
 				03210B5B1C7F492800AC515D /* Module.cpp in Sources */,
+				03E123501CFC8588002F9BF1 /* LCanvas.cpp in Sources */,
+				03E5F7EF1CF72FE8009DF07F /* LTTFont.cpp in Sources */,
 				030CBD7E1CDF2C1B003155E2 /* clocks.c in Sources */,
 				034AED0C1CC7CB5500FE65AB /* Renderer.cpp in Sources */,
 				032F26721CD5D1AE0012E3B0 /* LAudioSource.cpp in Sources */,
@@ -1254,6 +1347,7 @@
 				03ED9D0F1CD63E7300162A7A /* AudioModule_LuaBinding.cpp in Sources */,
 				030CBD4C1CDF283C003155E2 /* GUI.cpp in Sources */,
 				030CBD7F1CDF2C1B003155E2 /* core_profiler.c in Sources */,
+				03E5F7F21CF7304D009DF07F /* TTFont.cpp in Sources */,
 				03210B5F1C7F492800AC515D /* MessageLoopModule_LuaBinding.cpp in Sources */,
 				03F9532B1CBFD790007A4126 /* RenderModule_LuaBinding.cpp in Sources */,
 				03BFB6931CC9158600832FC9 /* LTexture.cpp in Sources */,
@@ -1311,6 +1405,11 @@
 			name = uv;
 			targetProxy = 03C0DF7E1C8208C10009D98F /* PBXContainerItemProxy */;
 		};
+		03E5F7EB1CF72F4C009DF07F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Static Library";
+			targetProxy = 03E5F7EA1CF72F4C009DF07F /* PBXContainerItemProxy */;
+		};
 		03F5A8CF1CC3D1D5009ED94F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Static Library";
@@ -1364,7 +1463,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/nuklear";
+				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../third_party/nuklear";
 			};
 			name = Debug;
 		};
@@ -1406,7 +1505,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/nuklear";
+				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../third_party/nuklear";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

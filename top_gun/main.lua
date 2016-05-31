@@ -7,6 +7,8 @@ local SpriteRenderer = require('SpriteRenderer')
 local Entity = require('Entity')
 local Ship = require('Ship')
 local Background = require('Background')
+local UILabel = require('UILabel')
+local UIFont = require('UIFont')
 
 local scene = Scene()
 
@@ -22,6 +24,15 @@ scene:addEntity(background3)
 local ship = Ship()
 
 scene:addEntity(ship)
+
+local font = UIFont('Hiragino Sans GB W3.ttf', 13)
+local  label = UILabel(150, 13, 0, 0)
+label:setWorldSpace(true)
+label:setFont(font)
+label:setTextColor(100, 0, 0, 255)
+label:setText('Hello World! 你好世界!')
+label:getTransform():setPosition(150, 150, 0)
+scene:addEntity(label)
 
 WukongEngine:loadScene(scene, false)
 

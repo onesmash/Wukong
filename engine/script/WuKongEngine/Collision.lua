@@ -1,9 +1,9 @@
 local Class = require('Class')
-local Object = require('Object')
+local GameObject = require('GameObject')
 
 local modName = ...
 
-local Collision = Class(modName, Object, false)
+local Collision = Class(modName, GameObject, false)
 
 _G[modName] = Collision
 package.loaded[modName] = Collision

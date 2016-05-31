@@ -1,4 +1,4 @@
-local Class = require('Class')
+ local Class = require('Class')
 local Component = require('Component')
 local Runtime = require('runtime')
 local RenderService = require('RenderService')

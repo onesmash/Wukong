@@ -27,7 +27,7 @@ public:
     
     void loadAudioData();
     
-    Mix_Chunk* clip() { return soundChunk_; }
+    const Mix_Chunk* clip() const { return soundChunk_; }
     
 private:
     std::string filePath_;

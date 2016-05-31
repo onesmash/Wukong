@@ -13,11 +13,8 @@ package.path = package.path .. ';' .. Runtime._scriptDirectory .. '/?.lua'
 local Coroutine = require('Coroutine')
 local Continuation = require('Continuation')
 local SDL = require('SDL')
-local Image = require('SDL.image')
 
 math.randomseed(os.time())
-
-Image.init({PNG = 1})
 
 for file in lfs.dir(Runtime['_serviceDirectory']) do
  	--file is the current file or directory name

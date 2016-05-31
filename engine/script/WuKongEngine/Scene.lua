@@ -281,6 +281,10 @@ function createRenderPath(self)
 	return renderers
 end
 
+function onGUI(self)
+	
+end
+
 function onRender(self)
 	self._visibleEntities = {}
 	local cameraViewLowerBound = self._mainCamera:viewportToWorldPoint(0, 0)

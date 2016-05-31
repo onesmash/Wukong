@@ -110,7 +110,7 @@ function getSpriteAABB(self)
 	if not renderer then
 		return nil
 	end
-	local sprite = renderer.sprite
+	local sprite = renderer.sprite or renderer.canvas
 	local transform = self:getTransform()
 	local centerLeftWidth = sprite.width * sprite.center.x
 	local centerBottomHeight = sprite.height * sprite.center.y

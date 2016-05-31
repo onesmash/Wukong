@@ -26,7 +26,7 @@ end
 
 function isVisibleByMe(self, entity)
 	local entityPosition = entity:getTransform():getPosition()
-	local entitySprite = entity:getComponent(Renderer).sprite
+	local entitySprite = entity:getComponent(Renderer).sprite or entity:getComponent(Renderer).canvas
 	local localPsition = self.transform:inverseTransformPoint(entityPosition.x, entityPosition.y)
 	local entityTop = localPsition.y - entitySprite.height * entitySprite.center.y
 	local entityBottom = entityTop + entitySprite.height

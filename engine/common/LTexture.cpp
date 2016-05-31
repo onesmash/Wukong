@@ -9,6 +9,7 @@
 #include "LTexture.h"
 #include "Texture.h"
 #include "Renderer.h"
+#include "TTFont.h"
 
 namespace WukongEngine {
     
@@ -26,9 +27,10 @@ static int t_new(lua_State* L)
     
 static int t_size(lua_State* L)
 {
-    lua_getfield(L, 1, "_cproxy");
-    Proxy<Texture>** proxyP = (Proxy<Texture>**)lua_touserdata(L, -1);
-    const std::shared_ptr<Texture>& texture = (*proxyP)->object;
+//    lua_getfield(L, 1, "_cproxy");
+//    Proxy<Texture>** proxyP = (Proxy<Texture>**)lua_touserdata(L, -1);
+    //const std::shared_ptr<Texture>& texture = (*proxyP)->object;
+    const std::shared_ptr<Texture>& texture = luax_to_cproxy<Texture>(L, 1);
     const Size& size = texture->size();
     lua_pushinteger(L, size.width);
     lua_pushinteger(L, size.height);
@@ -37,13 +39,19 @@ static int t_size(lua_State* L)
     
 static int t_loadImage(lua_State* L)
 {
-    lua_getfield(L, 1, "_cproxy");
-    Proxy<Texture>** textureProxyP = (Proxy<Texture>**)lua_touserdata(L, -1);
-    Proxy<Renderer>** rendererProxyP = (Proxy<Renderer>**)lua_touserdata(L, 2);
+    const std::shared_ptr<Texture>& texture = luax_to_cproxy<Texture>(L, 1);
+    const std::shared_ptr<Renderer>& renderer = luax_to_objectPtr<Renderer>(L, 2);
     const std::string path(lua_tostring(L, 3));
-    const std::shared_ptr<Texture> texture = (*textureProxyP)->object;
-    const std::shared_ptr<Renderer> renderer = (*rendererProxyP)->object;
     texture->loadImage(*renderer, path);
+    return 0;
+}
+    
+static int t_loadCanvas(lua_State* L)
+{
+    const std::shared_ptr<Texture>& texture = luax_to_cproxy<Texture>(L, 1);
+    const std::shared_ptr<Renderer>& renderer = luax_to_objectPtr<Renderer>(L, 2);
+    const std::shared_ptr<Canvas>& canvas = luax_to_cproxy<Canvas>(L, 3);
+    texture->loadCanvas(*renderer, *canvas);
     return 0;
 }
     
@@ -53,6 +61,7 @@ extern "C" int runtime_texture(lua_State* L)
         {"new", t_new},
         {"size", t_size},
         {"loadImage", t_loadImage},
+        {"loadCanvas", t_loadCanvas},
         { NULL, NULL },
     };
     luaL_newlib(L, l);

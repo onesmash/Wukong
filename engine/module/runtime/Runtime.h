@@ -40,7 +40,7 @@ struct Point
     
 struct Color
 {
-    int r, g, b, a;
+    uint8_t r, g, b, a;
 };
 
 namespace Runtime {
