@@ -1,4 +1,4 @@
 osx_image: xcode7.3
 language: objective-c
 script:
-  - xcodebuild workspace ./Xcode-iOS/Wukong.xcworkspace -scheme Wukong -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+  - xcodebuild workspace ./Xcode-iOS/Wukong.xcworkspace -scheme Wukong -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO 
