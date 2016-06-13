@@ -44,8 +44,7 @@ static int m_clear(lua_State* L)
 static int m_draw(lua_State* L)
 {
     std::shared_ptr<RenderModule>& instance = instance();
-    lua_getfield(L, 1, "_cproxy");
-    const std::shared_ptr<Texture>& texture = luax_to_objectPtr<Texture>(L, -1);
+    const std::shared_ptr<Texture>& texture = luax_to_cproxy<Texture>(L, 1);
     const Rect& srcRect = luax_to_rect(L, 2);
     const Rect& dstRect = luax_to_rect(L, 3);
     double angle = lua_tonumber(L, 4);

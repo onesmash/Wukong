@@ -9,14 +9,28 @@ local UIBehaviour = Class(modName, Behaviour, false)
 _G[modName] = UIBehaviour
 package.loaded[modName] = UIBehaviour
 
+local print = print
+
 local _ENV = UIBehaviour
 
 function init(self)
 	super.init(self)
 end
 
-function hitTest(self, position)
-	local localPosition = self.transform:inverseTransformPoint(position.x, position.y)
+function hitTest(self, point)
+	if self.entity:pointInside(point) then
+		for _, entity in ipairs(self._children) do
+			local view = entity:hitTest(point)
+			if view then
+				return view
+			end
+		end
+	end
+	return nil
+end
+
+function pointInside(self, point)
+	local localPosition = self.transform:inverseTransformPoint(point.x, point.y)
 	local renderer = self.entity:getComponent(Renderer)
 	local canvas = renderer.canvas
 	local lowerX = -canvas.width * canvas.center.x

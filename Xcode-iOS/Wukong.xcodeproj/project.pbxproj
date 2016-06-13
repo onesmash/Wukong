@@ -20,7 +20,6 @@
 		030404D21CDCEC4C00564EE1 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0304047B1CDCEC4C00564EE1 /* Roboto-Light.ttf */; };
 		030404D31CDCEC4C00564EE1 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0304047C1CDCEC4C00564EE1 /* Roboto-Regular.ttf */; };
 		030404D41CDCEC4C00564EE1 /* Readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 0304047E1CDCEC4C00564EE1 /* Readme.md */; };
-		030CBD4C1CDF283C003155E2 /* GUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 030CBD4A1CDF283C003155E2 /* GUI.cpp */; };
 		030CBD711CDF2C1B003155E2 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 030CBD531CDF2C1B003155E2 /* index.html */; };
 		030CBD721CDF2C1B003155E2 /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 030CBD541CDF2C1B003155E2 /* license.html */; };
 		030CBD731CDF2C1B003155E2 /* luaprofiler.png in Resources */ = {isa = PBXBuildFile; fileRef = 030CBD551CDF2C1B003155E2 /* luaprofiler.png */; };
@@ -294,9 +293,6 @@
 		0304047C1CDCEC4C00564EE1 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		0304047D1CDCEC4C00564EE1 /* nuklear.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuklear.h; sourceTree = "<group>"; };
 		0304047E1CDCEC4C00564EE1 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
-		030404D61CDCED3F00564EE1 /* nuklear_sdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nuklear_sdl.h; sourceTree = "<group>"; };
-		030CBD4A1CDF283C003155E2 /* GUI.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GUI.cpp; sourceTree = "<group>"; };
-		030CBD4B1CDF283C003155E2 /* GUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUI.h; sourceTree = "<group>"; };
 		030CBD531CDF2C1B003155E2 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		030CBD541CDF2C1B003155E2 /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		030CBD551CDF2C1B003155E2 /* luaprofiler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = luaprofiler.png; sourceTree = "<group>"; };
@@ -446,6 +442,8 @@
 		03CB95F41CA2E5A000166ACA /* bgLayer2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgLayer2.png; sourceTree = "<group>"; };
 		03CB95F51CA2E5A000166ACA /* mainbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainbackground.png; sourceTree = "<group>"; };
 		03CB95F61CA2E5A000166ACA /* shipAnimation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shipAnimation.png; sourceTree = "<group>"; };
+		03D02FB71D0DA91600DC3A26 /* UIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKit.h; sourceTree = "<group>"; };
+		03D02FBA1D0DB56400DC3A26 /* nuklear_sdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuklear_sdl.h; path = ../../../gui/nuklear_sdl.h; sourceTree = "<group>"; };
 		03DD7A751CB5479E00BAB24A /* BoxCollider.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BoxCollider.lua; sourceTree = "<group>"; };
 		03DD7A761CB5479E00BAB24A /* Collider.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Collider.lua; sourceTree = "<group>"; };
 		03DE56941C8DB35B00B2FF61 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
@@ -554,15 +552,6 @@
 			path = extra_font;
 			sourceTree = "<group>";
 		};
-		030404D51CDCED1D00564EE1 /* gui */ = {
-			isa = PBXGroup;
-			children = (
-				030404D61CDCED3F00564EE1 /* nuklear_sdl.h */,
-			);
-			name = gui;
-			path = ../../gui;
-			sourceTree = "<group>";
-		};
 		030CBD4D1CDF2C1B003155E2 /* luaprofiler */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +641,7 @@
 		0321064D1C7F492700AC515D /* common */ = {
 			isa = PBXGroup;
 			children = (
+				03D02FB61D0DA8F000DC3A26 /* GUI */,
 				0321064E1C7F492700AC515D /* Config.h */,
 				0321064F1C7F492700AC515D /* Module.cpp */,
 				032106501C7F492700AC515D /* Module.h */,
@@ -671,8 +661,6 @@
 				032F266E1CD5CB050012E3B0 /* AudioSource.h */,
 				032F26701CD5D1AE0012E3B0 /* LAudioSource.cpp */,
 				032F26711CD5D1AE0012E3B0 /* LAudioSource.h */,
-				030CBD4A1CDF283C003155E2 /* GUI.cpp */,
-				030CBD4B1CDF283C003155E2 /* GUI.h */,
 				03E5F7F01CF7304D009DF07F /* TTFont.cpp */,
 				03E5F7F11CF7304D009DF07F /* TTFont.h */,
 				03E5F7ED1CF72FE8009DF07F /* LTTFont.cpp */,
@@ -909,7 +897,6 @@
 		0321FE681C7F434D00AC515D /* Wukong */ = {
 			isa = PBXGroup;
 			children = (
-				030404D51CDCED1D00564EE1 /* gui */,
 				03868D9B1CCF364C00978B51 /* third_party */,
 				03DE56931C8DB35B00B2FF61 /* top_gun */,
 				0321067F1C7F492700AC515D /* base */,
@@ -995,6 +982,15 @@
 				03C0DF761C8208730009D98F /* libluasdl2.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		03D02FB61D0DA8F000DC3A26 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				03D02FBA1D0DB56400DC3A26 /* nuklear_sdl.h */,
+				03D02FB71D0DA91600DC3A26 /* UIKit.h */,
+			);
+			path = GUI;
 			sourceTree = "<group>";
 		};
 		03DE56931C8DB35B00B2FF61 /* top_gun */ = {
@@ -1345,7 +1341,6 @@
 				03210B801C7F492800AC515D /* Packet.cpp in Sources */,
 				0321FEA91C7F479D00AC515D /* main.mm in Sources */,
 				03ED9D0F1CD63E7300162A7A /* AudioModule_LuaBinding.cpp in Sources */,
-				030CBD4C1CDF283C003155E2 /* GUI.cpp in Sources */,
 				030CBD7F1CDF2C1B003155E2 /* core_profiler.c in Sources */,
 				03E5F7F21CF7304D009DF07F /* TTFont.cpp in Sources */,
 				03210B5F1C7F492800AC515D /* MessageLoopModule_LuaBinding.cpp in Sources */,
@@ -1463,7 +1458,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../third_party/nuklear";
+				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14";
 			};
 			name = Debug;
 		};
@@ -1505,7 +1500,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../third_party/nuklear";
+				USER_HEADER_SEARCH_PATHS = "../third_party/libuv/include/ ../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

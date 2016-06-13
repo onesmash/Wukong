@@ -13,14 +13,6 @@
 #include "SDL.h"
 #include "Renderer.h"
 
-#define NK_INCLUDE_FIXED_TYPES
-#define NK_INCLUDE_STANDARD_IO
-#define NK_INCLUDE_DEFAULT_ALLOCATOR
-#define NK_IMPLEMENTATION
-#define NK_SDL_IMPLEMENTATION
-#include "nuklear.h"
-#include "nuklear_sdl.h"
-
 #include <iostream>
 
 extern "C" int luaopen_SDL(lua_State*);

@@ -26,7 +26,7 @@ function render(self)
 	local width = self.canvas.width
 	local height = self.canvas.height
 	local position = self.transform:getPosition()
-	local screenPosition = self.canvas.worldSpace and self.entity:getScene():getMainCamera():worldToScreenPoint(position.x, position.y) or position
+	local screenPosition = self.entity:getScene():getMainCamera():worldToScreenPoint(position.x, position.y)
 	local originX = screenPosition.x - width * self.canvas.center.x
 	local originY = screenPosition.y - height * (1 - self.canvas.center.y)
 	local dstRect = {x = originX, y = originY, w = width, h = height}

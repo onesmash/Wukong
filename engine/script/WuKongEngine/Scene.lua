@@ -8,6 +8,8 @@ local Collision = require('Collision')
 local AABB = require('AABB')
 local Touch = require('Touch')
 local Vector3 = require('Vector3')
+local UIView = require('UIView')
+local Runtime = require('runtime')
 
 local modName = ...
 
@@ -34,9 +36,9 @@ function init(self)
 	local mt = {__mode = 'k'}
 	self._startDelegates = setmetatable({}, mt)
 	self._updateDelegates = setmetatable({}, mt)
-	--self._renderDelegates = setmetatable({}, mt)
-	--self._orderedRenderDelegates = setmetatable({}, {__mode = 'v'})
-	--self._needSortRenderOrder = true
+
+	self._uiroot = UIView(Runtime.Device.displayInfo.w, Runtime.Device.displayInfo.h, 0, 0)
+	self:addEntity(self._uiroot)
 end
 
 function getMainCamera(self)
@@ -51,10 +53,15 @@ function setMainCamera(self, camera)
 	self._mainCamera = camera
 	self:resetDelegates(camera.entity)
 	self._mainCamera.entity:setScene(self)
+	self._mainCamera.entity:addChild(self._uiroot)
 end
 
 function getBroadPhase(self)
 	return self._broadPhase
+end
+
+function getUIRoot(self)
+	return self._uiroot
 end
 
 function addEntity(self, entity)
@@ -67,10 +74,6 @@ function removeEntity(self, entity)
 	entity:setScene(nil)
 	self._entities[entity] = nil
 	self:removeDelegates(entity)
-end
-
-function setNeedSortRenderOrder(self)
-	self._needSortRenderOrder = true
 end
 
 function addStartDelegate(self, behaviour)
@@ -104,7 +107,6 @@ function resetDelegates(self, entity)
 		local behaviour = entity:getComponent(Behaviour)
 		self:addStartDelegate(behaviour)
 		self:addUpdateDelegate(behaviour)
-		self:setNeedSortRenderOrder()
 		return true
 	end)
 end
@@ -114,7 +116,6 @@ function removeDelegates(self, entity)
 		local behaviour = entity:getComponent(Behaviour)
 		self:removeStartDelegate(behaviour)
 		self:removeUpdateDelegate(behaviour)
-		self:setNeedSortRenderOrder()
 		return true
 	end)
 end
@@ -142,51 +143,6 @@ function onUpdate(self)
 		end
 		--behaviour.enabled and behaviour:update()
 	end
-end
-
-local function sortedTableKeys(t)
-	local keys = {}
-	for key, _ in pairs(t) do
-		table.insert(keys, key)
-	end
-	table.sort(keys, function(a, b)
-		return a > b
-	end)
-	return keys
-end 
-
-function sortRenderOrder(self)
-	if not self._needSortRenderOrder then
-		return
-	end
-	local renderers = setmetatable({}, {__mode = 'v'})
-	for entity, _ in pairs(self._entities) do
-		entity:enumerate(function(entity)
-			local renderer = entity:getComponent(Renderer)
-			if renderer then
-				if renderer.isVisible then
-					--if self._mainCamera:isVisibleByMe(entity) then
-					table.insert(renderers, renderer)
-					--end
-					return true
-				else
-					return false
-				end
-			end
-			return true
-		end)
-	end
-
-	table.sort(renderers, function(a, b)
-		if a.sortingLayer ~= b.sortingLayer then
-			return a.sortingLayer > b.sortingLayer
-		else
-			return a.sortingOrder > b.sortingOrder
-		end
-	end)
-
-	self._orderedRenderDelegates = renderers
-	self._needSortRenderOrder = false
 end
 
 -- updatePairs callback
@@ -282,7 +238,18 @@ function createRenderPath(self)
 end
 
 function onGUI(self)
-	
+	self._uiroot:enumerate(function (view)
+		if view == self._uiroot then
+			return true
+		else
+			local renderer = view:getComponent(Renderer)
+			if renderer.isVisible then
+				local position = renderer.transform:getPosition()
+				renderer:render()
+			end
+			return true
+		end
+	end)
 end
 
 function onRender(self)
@@ -293,7 +260,6 @@ function onRender(self)
 	--print(cameraViewLowerBound.x, cameraViewLowerBound.y)
 	--print(cameraViewUpperBound.x, cameraViewUpperBound.y)
 	self._broadPhase:query(self, aabb)
-	Renderer.renderBegin()
 	if self._mainCamera.needClear then
 		Renderer.clear(self._mainCamera.backgroundColor)
 	end
@@ -301,6 +267,4 @@ function onRender(self)
 	for _, renderer in ipairs(renderers) do
 		renderer:render()
 	end
-	Renderer.present()
-	Renderer.renderEnd()
 end

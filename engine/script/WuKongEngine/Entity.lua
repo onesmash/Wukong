@@ -41,6 +41,7 @@ function init(self)
 end
 
 function setScene(self, scene)
+
 	if scene then
 		local broadPhase = scene:getBroadPhase()
 		self:enumerate(function(entity)
@@ -65,7 +66,7 @@ function setScene(self, scene)
 			return true
 		end)
 	end
-	
+
 end
 
 function getScene(self)

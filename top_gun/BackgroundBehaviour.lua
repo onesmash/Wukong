@@ -97,3 +97,7 @@ function update(self)
 		end
 	end
 end
+
+function finalize(self)
+	print('background finalize')
+end

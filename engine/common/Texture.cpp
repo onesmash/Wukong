@@ -28,6 +28,8 @@ void Texture::loadImage(Renderer& renderer, const std::string& path)
     }
     texture_ = IMG_LoadTexture((SDL_Renderer*)renderer.renderer(), path.c_str());
     SDL_SetTextureBlendMode(texture_, SDL_BLENDMODE_BLEND);
+    isCanvas_ = false;
+    imagePath_ = path;
 }
     
 void Texture::loadCanvas(Renderer& renderer, const Canvas& canvas)
@@ -37,6 +39,7 @@ void Texture::loadCanvas(Renderer& renderer, const Canvas& canvas)
         texture_ = nullptr;
     }
     texture_ = SDL_CreateTextureFromSurface((SDL_Renderer*)renderer.renderer(), (SDL_Surface *)canvas.surface());
+    isCanvas_ = true;
 }
     
 Size Texture::size()

@@ -9,4 +9,4 @@
 	url = https://onesmash@github.com/onesmash/luaprofiler.git
 [submodule "third_party/nuklear"]
 	path = third_party/nuklear
-	url = https://onesmash@github.com/onesmash/nuklear.git
+	url = https://github.com/vurtun/nuklear.git

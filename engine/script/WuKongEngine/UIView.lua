@@ -44,3 +44,16 @@ end
 function display(self, canvas)
 	-- body
 end
+
+function setScene(self, scene)
+	self:enumerate(function(view)
+		view._scene = scene
+		return true
+	end)
+end
+
+function addSubview(self, subview)
+	if subview:isKindOf(UIView) then
+		self:addChild(subview)
+	end
+end

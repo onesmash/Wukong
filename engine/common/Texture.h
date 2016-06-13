@@ -37,9 +37,15 @@ public:
     
     Size size();
     
+    bool isCanvas() { return isCanvas_; }
+    
+    const std::string& imagePath() { return imagePath_; }
+    
     const SDL_Texture* texture() const { return texture_; }
 private:
     SDL_Texture* texture_;
+    bool isCanvas_;
+    std::string imagePath_;
 };
 }
 
