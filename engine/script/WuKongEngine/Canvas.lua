@@ -26,6 +26,7 @@ function init(self, width, height)
 	self.height = height
 	self.worldSpace = false
 	self.delegate = nil
+	CCanvas.init(self, width, height)
 end
 
 function setWorldSpace(self, worldSpace)

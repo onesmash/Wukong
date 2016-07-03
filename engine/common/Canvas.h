@@ -25,15 +25,19 @@ class Canvas: public Object
 {
 public:
     typedef TypeName<Canvas> TypeName;
-    Canvas(): surface_(nullptr) {}
+    Canvas(): width_(0), height_(0), background_color_(0x00000000), surface_(nullptr) {}
     virtual ~Canvas();
+    
+    void init(int width, int height);
     
     void drawText(const std::string& text, const TTFont& font, uint8_t r, uint8_t g, uint8_t b, uint8_t a);
     
     const SDL_Surface* surface() const { return surface_; }
     
 private:
-    
+    int width_;
+    int height_;
+    unsigned background_color_;
     SDL_Surface* surface_;
     
 };

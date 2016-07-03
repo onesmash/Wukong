@@ -103,7 +103,8 @@ function subclass(className, superClass, hasFinalizer)
 			-- body
 		end
 		class.__gc = function(...)
-			return class.finalize(...)
+			local param = ...
+			return class.finalize(param)
 		end
 	end
 	return setmetatable(class, Class)

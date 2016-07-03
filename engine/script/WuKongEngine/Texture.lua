@@ -38,6 +38,7 @@ function loadImage(self, filePath)
 	--local format, access, w, h, error = self._sdltexture:query()
 	self.width = w or 0
 	self.height = h or 0
+	self._imagePath = filePath
 end
 
 function loadCanvas(self, canvas)
@@ -46,6 +47,6 @@ function loadCanvas(self, canvas)
 	self.height = canvas.height
 end
 
-function finalize( ... )
-	
+function finalize(self)
+	--print(self._imagePath)
 end

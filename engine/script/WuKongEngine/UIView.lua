@@ -19,7 +19,7 @@ function init(self, width, height, centerX, centerY)
 	super.init(self)
 	self:addComponent(UIBehaviour)
 	local renderer = self:addComponent(UIRenderer)
-	local canvas = Canvas()
+	local canvas = Canvas(width, height)
 	canvas.delegate = self
 	canvas.center = {x = centerX, y = centerY}
 	canvas.width = width
