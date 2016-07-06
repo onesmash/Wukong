@@ -17,6 +17,11 @@ namespace Net {
 class SKBuffer {
 public:
     SKBuffer(size_t size);
+    SKBuffer(const SKBuffer& buffer);
+    SKBuffer(SKBuffer&& buffer);
+    
+    SKBuffer& operator=(const SKBuffer& buffer);
+    SKBuffer& operator=(SKBuffer&& buffer);
     
     size_t headRoom() const;
     size_t tailRoom() const;
@@ -26,8 +31,10 @@ public:
     void append(const char* data, size_t len);
     const char* pop(size_t len);
     
-    const char* data() { return &*buffer_.begin() + dataIndex_; }
-    size_t size() { return tailIndex_ - dataIndex_; }
+    const char* data() const { return &*buffer_.begin() + dataIndex_; }
+    size_t size() const { return tailIndex_ - dataIndex_; }
+    
+    void swap(SKBuffer& buffer);
     
 private:
     

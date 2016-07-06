@@ -6,11 +6,12 @@
     }
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : 0,
+    "90C3FD88F8002F902A5FDF9D64063244571F233C" : 0,
     "AD8EDAAE54E7490CA5E4BBD2E51D2579F59292FB" : 0,
     "EB5942DB83CC418D1AB4E62E189E06433BDFAB51" : 0,
     "BC09C09DC2853BA9B3A84860F78F2E9FD790D8C3" : 0,
     "53EB73BF8D8F93D990B4D2C839928547BA3D1E1A" : 0,
+    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : 0,
     "447AD3CCC28208570155B0DD879E8294185E28ED" : 0,
     "41A96FFEE5326FF71F2E6D6E9152F6107D98E57E" : 0,
     "A13D8C27565A57028B5564BFC04F06AC33216E5B" : 0,
@@ -18,11 +19,12 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "656ABE61-9E7E-4B37-A664-4CE4B213EBAF",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : "Wukong\/third_party\/smpeg\/",
+    "90C3FD88F8002F902A5FDF9D64063244571F233C" : "Wukong\/third_party\/http_parser\/",
     "AD8EDAAE54E7490CA5E4BBD2E51D2579F59292FB" : "Wukong\/third_party\/nuklear\/",
     "EB5942DB83CC418D1AB4E62E189E06433BDFAB51" : "Wukong\/third_party\/luaprofiler\/",
     "BC09C09DC2853BA9B3A84860F78F2E9FD790D8C3" : "Wukong\/third_party\/libuv\/",
     "53EB73BF8D8F93D990B4D2C839928547BA3D1E1A" : "Wukong\/third_party\/ogg\/",
+    "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : "Wukong\/third_party\/smpeg\/",
     "447AD3CCC28208570155B0DD879E8294185E28ED" : "Wukong\/",
     "41A96FFEE5326FF71F2E6D6E9152F6107D98E57E" : "Wukong\/third_party\/luatrace\/",
     "A13D8C27565A57028B5564BFC04F06AC33216E5B" : "Wukong\/engine\/module\/lua_matrix\/",
@@ -51,6 +53,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Tangent128\/luasdl2.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7A9428317F5BEFFBDAE2F9C8327C5CA0BD2BE2D8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/nodejs\/http-parser.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "90C3FD88F8002F902A5FDF9D64063244571F233C"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/davidm\/lua-matrix.git",

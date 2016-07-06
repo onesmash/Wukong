@@ -21,6 +21,45 @@ SKBuffer::SKBuffer(size_t size):
     
 }
     
+SKBuffer::SKBuffer(const SKBuffer& buffer)
+{
+    headIndex_ = buffer.headIndex_;
+    dataIndex_ = buffer.dataIndex_;
+    tailIndex_ = buffer.tailIndex_;
+    buffer_ = buffer.buffer_;
+}
+
+SKBuffer::SKBuffer(SKBuffer&& buffer)
+{
+    swap(buffer);
+}
+    
+void SKBuffer::swap(SKBuffer& buffer)
+{
+    headIndex_ = buffer.headIndex_;
+    dataIndex_ = buffer.dataIndex_;
+    tailIndex_ = buffer.tailIndex_;
+    buffer_.swap(buffer.buffer_);
+    buffer.headIndex_ = 0;
+    buffer.dataIndex_ = 0;
+    buffer.tailIndex_ = 0;
+}
+
+SKBuffer& SKBuffer::operator=(const SKBuffer& buffer)
+{
+    headIndex_ = buffer.headIndex_;
+    dataIndex_ = buffer.dataIndex_;
+    tailIndex_ = buffer.tailIndex_;
+    buffer_ = buffer.buffer_;
+    return *this;
+}
+
+SKBuffer& SKBuffer::operator=(SKBuffer&& buffer)
+{
+    swap(buffer);
+    return *this;
+}
+    
 size_t SKBuffer::headRoom() const
 {
     return dataIndex_;

@@ -25,7 +25,7 @@ class Canvas: public Object
 {
 public:
     typedef TypeName<Canvas> TypeName;
-    Canvas(): width_(0), height_(0), background_color_(0x00000000), surface_(nullptr) {}
+    Canvas(): width_(0), height_(0), backgroundColor_(0x00000000), surface_(nullptr) {}
     virtual ~Canvas();
     
     void init(int width, int height);
@@ -37,7 +37,7 @@ public:
 private:
     int width_;
     int height_;
-    unsigned background_color_;
+    unsigned backgroundColor_;
     SDL_Surface* surface_;
     
 };

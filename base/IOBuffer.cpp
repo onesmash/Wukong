@@ -13,36 +13,47 @@ namespace WukongEngine {
     
 namespace Base {
     
-IOBuffer::IOBuffer(int size): size_(size)
+IOBuffer::IOBuffer(size_t size): data_(std::vector<char>(size))
 {
-    data_ = new char[size];
 }
 
-IOBuffer::IOBuffer(char* data, int size)
+IOBuffer::IOBuffer(const char* data, size_t size): data_(std::vector<char>(data, data + size))
 {
-    data_ = data;
-    size_ = size;
 }
     
-IOBuffer::IOBuffer(IOBuffer&& other): size_(other.size()), data_(other.data())
+IOBuffer::IOBuffer(const std::vector<char>& buffer): data_(buffer)
 {
-    other.size_ = 0;
-    other.data_ = nullptr;
+}
+
+IOBuffer::IOBuffer(std::vector<char>&& buffer): data_(std::move(buffer))
+{
+}
     
+IOBuffer::IOBuffer(IOBuffer&& other): data_(std::move(other.data_))
+{
 }
 
 IOBuffer::IOBuffer(const IOBuffer& other)
 {
-    size_ = other.size_;
-    data_ = new char[size_];
-    ::memcpy(data_, other.data_, size_);
+    data_ = other.data_;
 }
 
 IOBuffer::~IOBuffer()
 {
-    delete [] data_;
-    size_ = 0;
 }
+    
+IOBuffer& IOBuffer::operator=(const IOBuffer& other)
+{
+    data_ = other.data_;
+    return *this;
+}
+
+IOBuffer& IOBuffer::operator=(IOBuffer&& other)
+{
+    data_ = std::move(other.data_);
+    return *this;
+}
+    
 }
     
 }

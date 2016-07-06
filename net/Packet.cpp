@@ -19,9 +19,39 @@ Packet::Packet(size_t headRoom, size_t dataRoom): buffer_(headRoom + dataRoom)
     
 }
     
+Packet::Packet(const Packet& packet): buffer_(packet.buffer_)
+{
+}
+    
+Packet::Packet(Packet&& packet): buffer_(std::move(packet.buffer_))
+{
+}
+    
 Packet::~Packet()
 {
     
+}
+    
+void Packet::swap(Packet& packet)
+{
+    buffer_.swap(packet.buffer_);
+}
+    
+Packet& Packet::operator=(const Packet& packet)
+{
+    buffer_ = packet.buffer_;
+    return *this;
+}
+
+Packet& Packet::operator=(Packet&& packet)
+{
+    swap(packet);
+    return *this;
+}
+    
+void Packet::prepend(void* data, size_t size)
+{
+    buffer_.prepend((const char*)data, size);
 }
     
 void Packet::prependInt8(int8_t x)
@@ -65,6 +95,11 @@ void Packet::prependUInt32(uint32_t x)
 void Packet::prependUInt64(uint64_t x)
 {
     prependInt64(x);
+}
+    
+void Packet::append(void* data, size_t size)
+{
+    buffer_.append((const char*)data, size);
 }
 
 void Packet::appendInt8(int8_t x)

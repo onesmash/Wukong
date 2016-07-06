@@ -18,8 +18,8 @@ class Packet;
     
 class Packer {
 public:
-    virtual bool pack(std::shared_ptr<Packet>& packet) = 0;
-    virtual bool unpack(std::shared_ptr<Packet>& packet) = 0;
+    virtual bool pack(Packet& packet) = 0;
+    virtual bool unpack(Packet& packet) = 0;
     
 };
 }

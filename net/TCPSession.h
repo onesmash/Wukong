@@ -9,25 +9,63 @@
 #ifndef __Net__TCPSession__
 #define __Net__TCPSession__
 
-#include "Packer.h"
 #include "TCPSocket.h"
+#include "IPAddress.h"
 
 namespace WukongEngine {
 namespace Net {
     
-class TCPSession: public Packer  {
+class TCPSession {
     
 public:
+    TCPSession(const std::shared_ptr<TCPSocket>& socket, const IPAddress& localAddress, const IPAddress& peerAddress);
     
     virtual ~TCPSession() {}
     
-    virtual bool pack(std::shared_ptr<Packet>& packet);
-    virtual bool unpack(std::shared_ptr<Packet>& packet);
+    void send(const Packet& packet);
+    void send(Packet&& packet);
+    
+    void startRead();
+    void stopRead();
+    
+    void shutdown();
+    void close();
+    
+    void setReadCompleteCallback(const ReadCompleteCallback& cb)
+    {
+        readCompleteCallback_ = cb;
+    }
+    
+    void setWriteCompleteCallback(const WriteCompleteCallback& cb)
+    {
+        writeCompleteCallback_ = cb;
+    }
+    
+    void setCloseCallback(const CloseCallback& cb)
+    {
+        closeCallback_ = cb;
+    }
     
 private:
     
-    std::shared_ptr<TCPSocket> localSocket_;
-    std::shared_ptr<TCPSocket> peerSocket_;
+    enum State { kDisconnected, kConnecting, kConnected, kDisconnecting };
+    
+    void didReadComplete(std::shared_ptr<Base::IOBuffer>& buffer);
+    void didWriteComplete(bool success);
+    void didCloseComplete();
+    
+    void setState(State state) { state_ = state; }
+    
+    std::shared_ptr<TCPSocket> socket_;
+    
+    IPAddress localAddress_;
+    IPAddress peerAddress_;
+    
+    State state_;
+    
+    ReadCompleteCallback readCompleteCallback_;
+    WriteCompleteCallback writeCompleteCallback_;
+    CloseCallback closeCallback_;
     
 };
     

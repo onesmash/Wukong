@@ -9,25 +9,31 @@
 #ifndef __Base__IOBuffer__
 #define __Base__IOBuffer__
 
+#include <vector>
+
 namespace WukongEngine {
 
 namespace Base {
     
 class IOBuffer {
 public:
-    IOBuffer(int size);
-    IOBuffer(char* data, int size);
+    IOBuffer(size_t size = 0);
+    IOBuffer(const char* data, size_t size);
+    IOBuffer(const std::vector<char>& buffer);
+    IOBuffer(std::vector<char>&& buffer);
     IOBuffer(IOBuffer&& other);
     IOBuffer(const IOBuffer& other);
     virtual ~IOBuffer();
     
-    char* data() { return data_; }
-    int size() { return size_; }
+    IOBuffer& operator=(const IOBuffer& other);
+    IOBuffer& operator=(IOBuffer&& other);
+    
+    const char* data() const { return &*data_.begin(); }
+    size_t size() const { return data_.size(); }
     
 protected:
     
-    int size_;
-    char* data_;
+    std::vector<char> data_;
 };
     
 }

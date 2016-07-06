@@ -32,14 +32,14 @@ void Canvas::init(int width, int height)
 void Canvas::drawText(const std::string& text, const TTFont& font, uint8_t r, uint8_t g, uint8_t b, uint8_t a)
 {
     SDL_Rect rect = {0, 0, width_, height_};
-    SDL_FillRect(surface_, &rect, background_color_);
-    SDL_Surface* text_surface = TTF_RenderUTF8_Blended_Wrapped((TTF_Font*)font.font(), text.c_str(), {r, g, b, a}, width_);
-    int dst_x = (width_ - text_surface->w) / 2;
-    int dst_y = (height_ - text_surface->h) / 2;
-    int dst_w = SDL_min(width_, text_surface->w);
-    int dst_h = SDL_min(height_, text_surface->h);
-    SDL_Rect dst_rect = {dst_x, dst_y, dst_w, dst_h};
-    SDL_BlitSurface(text_surface, NULL, surface_, &dst_rect);
-    SDL_FreeSurface(text_surface);
+    SDL_FillRect(surface_, &rect, backgroundColor_);
+    SDL_Surface* textSurface = TTF_RenderUTF8_Blended_Wrapped((TTF_Font*)font.font(), text.c_str(), {r, g, b, a}, width_);
+    int dstX = (width_ - textSurface->w) / 2;
+    int dstY = (height_ - textSurface->h) / 2;
+    int dstW = SDL_min(width_, textSurface->w);
+    int dstH = SDL_min(height_, textSurface->h);
+    SDL_Rect dstRect = {dstX, dstY, dstW, dstH};
+    SDL_BlitSurface(textSurface, NULL, surface_, &dstRect);
+    SDL_FreeSurface(textSurface);
 }
 }

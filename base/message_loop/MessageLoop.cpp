@@ -216,17 +216,6 @@ void MessageLoop::breakMessageLoop()
     uv_stop(&eventLoop_);
 }
     
-//void MessageLoop::addObserver(MessageLoopObserver& observer)
-//{
-//    observer.sequenceNumber_ = observerSequenceNumber_++;
-//    
-//}
-//    
-//void MessageLoop::removeObserver(const MessageLoopObserver& observer)
-//{
-//    
-//}
-    
 }
 
 }

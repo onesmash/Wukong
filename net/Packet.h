@@ -18,10 +18,16 @@ extern const int kTCPSessionHeadSize;
 class Packet {
     
 public:
-
-    Packet(size_t headRoom, size_t dataRoom);
+    
+    Packet(size_t headRoom = 0, size_t dataRoom = 0);
+    Packet(const Packet& packet);
+    Packet(Packet&& packet);
+    
+    Packet& operator=(const Packet& packet);
+    Packet& operator=(Packet&& packet);
     virtual ~Packet();
     
+    void prepend(void* data, size_t size);
     void prependInt8(int8_t x);
     void prependInt16(int16_t x);
     void prependInt32(int32_t x);
@@ -31,6 +37,7 @@ public:
     void prependUInt32(uint32_t x);
     void prependUInt64(uint64_t x);
     
+    void append(void* data, size_t size);
     void appendInt8(int8_t x);
     void appendInt16(int16_t x);
     void appendInt32(int32_t x);
@@ -49,8 +56,10 @@ public:
     uint32_t popUInt32();
     uint64_t popUInt64();
     
-    const char* data() { return buffer_.data(); }
-    size_t size() { return buffer_.size(); }
+    const char* data() const { return buffer_.data(); }
+    size_t size() const { return buffer_.size(); }
+    
+    void swap(Packet& packet);
     
 private:
     

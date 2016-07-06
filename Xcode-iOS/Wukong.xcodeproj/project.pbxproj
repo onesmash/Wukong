@@ -40,6 +40,7 @@
 		030CBD821CDF2C1B003155E2 /* profiler.def in Resources */ = {isa = PBXBuildFile; fileRef = 030CBD6B1CDF2C1B003155E2 /* profiler.def */; };
 		030CBD831CDF2C1B003155E2 /* stack.c in Sources */ = {isa = PBXBuildFile; fileRef = 030CBD6C1CDF2C1B003155E2 /* stack.c */; };
 		030E49941C91B80A007360B7 /* Camera.lua in Resources */ = {isa = PBXBuildFile; fileRef = 030E49931C91B80A007360B7 /* Camera.lua */; };
+		031CF8741D2BD4640020ABBE /* http_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 031CF8661D2BD4640020ABBE /* http_parser.c */; };
 		03210B5A1C7F492800AC515D /* WukongEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0321064B1C7F492700AC515D /* WukongEngine.cpp */; };
 		03210B5B1C7F492800AC515D /* Module.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0321064F1C7F492700AC515D /* Module.cpp */; };
 		03210B5C1C7F492800AC515D /* Object.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032106511C7F492700AC515D /* Object.cpp */; };
@@ -131,6 +132,8 @@
 		03CB95F81CA2E5A000166ACA /* bgLayer2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F41CA2E5A000166ACA /* bgLayer2.png */; };
 		03CB95F91CA2E5A000166ACA /* mainbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F51CA2E5A000166ACA /* mainbackground.png */; };
 		03CB95FA1CA2E5A000166ACA /* shipAnimation.png in Resources */ = {isa = PBXBuildFile; fileRef = 03CB95F61CA2E5A000166ACA /* shipAnimation.png */; };
+		03D784D81D2A7CEE006C777F /* TCPClient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03D784D61D2A7CEE006C777F /* TCPClient.cpp */; };
+		03D784DC1D2A9B5A006C777F /* TCPConnector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03D784DA1D2A9B5A006C777F /* TCPConnector.cpp */; };
 		03DD7A771CB5479E00BAB24A /* BoxCollider.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DD7A751CB5479E00BAB24A /* BoxCollider.lua */; };
 		03DD7A781CB5479E00BAB24A /* Collider.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DD7A761CB5479E00BAB24A /* Collider.lua */; };
 		03DE56961C8DB35B00B2FF61 /* main.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE56941C8DB35B00B2FF61 /* main.lua */; };
@@ -318,6 +321,8 @@
 		030CBD6C1CDF2C1B003155E2 /* stack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stack.c; sourceTree = "<group>"; };
 		030CBD6D1CDF2C1B003155E2 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
 		030E49931C91B80A007360B7 /* Camera.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Camera.lua; sourceTree = "<group>"; };
+		031CF8661D2BD4640020ABBE /* http_parser.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = http_parser.c; sourceTree = "<group>"; };
+		031CF8681D2BD4640020ABBE /* http_parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_parser.h; sourceTree = "<group>"; };
 		0321064B1C7F492700AC515D /* WukongEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WukongEngine.cpp; sourceTree = "<group>"; };
 		0321064C1C7F492700AC515D /* WukongEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WukongEngine.h; sourceTree = "<group>"; };
 		0321064E1C7F492700AC515D /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
@@ -444,6 +449,10 @@
 		03CB95F61CA2E5A000166ACA /* shipAnimation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shipAnimation.png; sourceTree = "<group>"; };
 		03D02FB71D0DA91600DC3A26 /* UIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKit.h; sourceTree = "<group>"; };
 		03D02FBA1D0DB56400DC3A26 /* nuklear_sdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nuklear_sdl.h; path = ../../../gui/nuklear_sdl.h; sourceTree = "<group>"; };
+		03D784D61D2A7CEE006C777F /* TCPClient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TCPClient.cpp; sourceTree = "<group>"; };
+		03D784D71D2A7CEE006C777F /* TCPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPClient.h; sourceTree = "<group>"; };
+		03D784DA1D2A9B5A006C777F /* TCPConnector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TCPConnector.cpp; sourceTree = "<group>"; };
+		03D784DB1D2A9B5A006C777F /* TCPConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPConnector.h; sourceTree = "<group>"; };
 		03DD7A751CB5479E00BAB24A /* BoxCollider.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BoxCollider.lua; sourceTree = "<group>"; };
 		03DD7A761CB5479E00BAB24A /* Collider.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Collider.lua; sourceTree = "<group>"; };
 		03DE56941C8DB35B00B2FF61 /* main.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.lua; sourceTree = "<group>"; };
@@ -622,6 +631,16 @@
 				030CBD621CDF2C1B003155E2 /* summary.lua */,
 			);
 			path = analyzer;
+			sourceTree = "<group>";
+		};
+		031CF85D1D2BD4640020ABBE /* http_parser */ = {
+			isa = PBXGroup;
+			children = (
+				031CF8661D2BD4640020ABBE /* http_parser.c */,
+				031CF8681D2BD4640020ABBE /* http_parser.h */,
+			);
+			name = http_parser;
+			path = ../../third_party/http_parser;
 			sourceTree = "<group>";
 		};
 		0321064A1C7F492700AC515D /* engine */ = {
@@ -855,6 +874,10 @@
 				0321069F1C7F492700AC515D /* TCPSession.h */,
 				032106A01C7F492700AC515D /* TCPSocket.cpp */,
 				032106A11C7F492700AC515D /* TCPSocket.h */,
+				03D784D61D2A7CEE006C777F /* TCPClient.cpp */,
+				03D784D71D2A7CEE006C777F /* TCPClient.h */,
+				03D784DA1D2A9B5A006C777F /* TCPConnector.cpp */,
+				03D784DB1D2A9B5A006C777F /* TCPConnector.h */,
 			);
 			name = net;
 			path = ../../net;
@@ -946,6 +969,7 @@
 		03868D9B1CCF364C00978B51 /* third_party */ = {
 			isa = PBXGroup;
 			children = (
+				031CF85D1D2BD4640020ABBE /* http_parser */,
 				030CBD4D1CDF2C1B003155E2 /* luaprofiler */,
 				030404061CDCEC4C00564EE1 /* nuklear */,
 			);
@@ -1337,9 +1361,11 @@
 				032F26721CD5D1AE0012E3B0 /* LAudioSource.cpp in Sources */,
 				030404D41CDCEC4C00564EE1 /* Readme.md in Sources */,
 				03210B7D1C7F492800AC515D /* Endian.cpp in Sources */,
+				03D784DC1D2A9B5A006C777F /* TCPConnector.cpp in Sources */,
 				03210B601C7F492800AC515D /* MessageLoopMoudle.cpp in Sources */,
 				03210B801C7F492800AC515D /* Packet.cpp in Sources */,
 				0321FEA91C7F479D00AC515D /* main.mm in Sources */,
+				03D784D81D2A7CEE006C777F /* TCPClient.cpp in Sources */,
 				03ED9D0F1CD63E7300162A7A /* AudioModule_LuaBinding.cpp in Sources */,
 				030CBD7F1CDF2C1B003155E2 /* core_profiler.c in Sources */,
 				03E5F7F21CF7304D009DF07F /* TTFont.cpp in Sources */,
@@ -1356,6 +1382,7 @@
 				03210B611C7F492800AC515D /* Runtime.cpp in Sources */,
 				03210B7A1C7F492800AC515D /* Task.cpp in Sources */,
 				03ED9D0C1CD5E64C00162A7A /* AudioModule.cpp in Sources */,
+				031CF8741D2BD4640020ABBE /* http_parser.c in Sources */,
 				03210B771C7F492800AC515D /* ConcurrentTaskQueue.cpp in Sources */,
 				03210B811C7F492800AC515D /* SKBuffer.cpp in Sources */,
 				03210B671C7F492800AC515D /* TimeModule_LuaBinding.cpp in Sources */,

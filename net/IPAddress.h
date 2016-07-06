@@ -11,25 +11,37 @@
 
 #include <string>
 #include <netinet/in.h>
+#include <arpa/inet.h>
+
 
 namespace WukongEngine {
     
 namespace Net {
+    
+class TCPSocket;
     
 class IPAddress {
     
 public:
     IPAddress();
     virtual ~IPAddress();
-    IPAddress(uint16_t port, bool loopback = false);
-    IPAddress(const std::string& ip, uint16_t port);
+    IPAddress(uint16_t port, bool loopback = false, bool isIPv6 = false);
+    IPAddress(const std::string& ip, uint16_t port, bool isIPv6 = false);
+    IPAddress(const sockaddr* address);
     IPAddress(const IPAddress& address);
     
-    const sockaddr_in* sockAddress() const;
+    const sockaddr* sockAddress() const;
+    
+    static IPAddress getLocalAddress(const TCPSocket& socket);
+    static IPAddress getPeerAddress(const TCPSocket& socket);
     
 private:
     
-    sockaddr_in address_;
+    union {
+        sockaddr_in address_;
+        sockaddr_in6 address6_;
+    };
+    
     
 };
     

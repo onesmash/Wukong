@@ -12,79 +12,122 @@
 #include "IPAddress.h"
 #include "IOBuffer.h"
 #include "uv.h"
+#include "Packet.h"
+#include "MessageLoop.h"
 #include <functional>
 #include <memory>
 #include <unordered_set>
 
 namespace WukongEngine {
+    
+class MessageLoop;
 
 namespace Net {
+    
+#define kReadBufSize 4096
    
 class TCPSocket;
-class Packet;
     
-typedef std::function<void(const std::shared_ptr<Base::IOBuffer>&)> ReadCompleteCallBack;
-typedef std::function<void(bool)> WriteCompleteCallBack;
-typedef std::function<void(const std::shared_ptr<TCPSocket>&)> ConnectionAcceptCallBack;
-typedef std::function<void(bool)> ConnectCallBack;
-typedef std::function<void(bool)> CloseCallBack;
+typedef std::function<void(std::shared_ptr<Base::IOBuffer>&)> ReadCompleteCallback;
+typedef std::function<void(bool)> WriteCompleteCallback;
+typedef std::function<void(const std::shared_ptr<TCPSocket>&)> ConnectionAcceptCallback;
+typedef std::function<void(bool)> ConnectCallback;
+typedef std::function<void(bool)> CloseCallback;
 
 class TCPSocket {
 public:
     typedef uv_tcp_t TCPSocketHandle;
-    typedef uv_write_t TCPSocketWriteRequest;
-    typedef uv_connect_t TCPSocketConnectRequest;
+    
     TCPSocket();
     virtual ~TCPSocket();
     
-    int open();
+    int open(Base::MessageLoop* messageLoop);
     
     int bind(const IPAddress& address);
     
-    int listen(int backlog, const ConnectionAcceptCallBack& connectionAcceptCallBack);
+    int listen(int backlog);
     
-    int connect(const IPAddress& address, const ConnectCallBack& connectCallBack);
+    int connect(const IPAddress& address);
     
-    int read(const ReadCompleteCallBack& readCompleteCallBack);
+    int startRead();
+    int stopRead();
     
-    int write(std::shared_ptr<Packet>& packet, WriteCompleteCallBack& writeCompleteCallBack);
+    int write(const Packet& packet);
+    int write(Packet&& packet);
     
-    int close(const CloseCallBack& closeCallBack);
+    int shutdown();
     
+    int close();
+    
+    void setReadBufSize(int size);
+    
+    char* readBuf() const { return (char*)&readBuffer; }
+    size_t readBufSize() const { return kReadBufSize; }
+    
+    const TCPSocketHandle* tcpSocketHandle() const { return &tcpSocket_; }
+    
+    void setConnectionAcceptCallback(const ConnectionAcceptCallback& cb)
+    {
+        connectionAcceptCallback_ = cb;
+    }
+    
+    void setReadCompleteCallback(const ReadCompleteCallback& cb)
+    {
+        readCompleteCallback_ = cb;
+    }
+    
+    void setWriteCompleteCallback(const WriteCompleteCallback& cb)
+    {
+        writeCompleteCallback_ = cb;
+    }
+    
+    void setConnectCallback(const ConnectCallback& cb)
+    {
+        connectCallback_ = cb;
+    }
+    
+    void setCloseCallback(const CloseCallback& cb)
+    {
+        closeCallback_ = cb;
+    }
+    
+private:
+    
+    typedef uv_shutdown_t TCPSocketShutdownRequest;
+    typedef uv_write_t TCPSocketWriteRequest;
+    typedef uv_connect_t TCPSocketConnectRequest;
+    
+    struct WriteRequest {
+        TCPSocketWriteRequest writeRequest;
+        Packet packet;
+    };
+    
+public:
     void didAcceptComplete();
     
     void didConnectComplete(bool sucess);
     
-    void didReadComplete(const std::shared_ptr<Base::IOBuffer>& buffer);
+    void didReadComplete(std::shared_ptr<Base::IOBuffer>& buffer);
     
-    void didWriteComplete(TCPSocketWriteRequest* request, bool sucess);
+    void didWriteComplete(TCPSocketWriteRequest* request, bool success);
     
     void didCloseComplete();
     
-    void setReadBufSize(int size);
-    
-    char* readBuf() { return readBuffer->data(); }
-    int readBufSize() { return readBuffer->size(); }
-    
-    TCPSocketHandle* tcpSocketHandle() { return &tcpSocket_; }
-    
 private:
     
-    struct WriteRequest {
-        uv_write_t writeRequest;
-        std::shared_ptr<Packet> packet;
-        WriteCompleteCallBack writeCompleteCallBack;
-    };
+    Base::MessageLoop* messageLoop_;
     
-    std::shared_ptr<Base::IOBuffer> readBuffer;
+    char readBuffer[kReadBufSize];
     TCPSocketHandle tcpSocket_;
     TCPSocketConnectRequest tcpConnectReq_;
+    TCPSocketShutdownRequest tcpShutdownReq_;
     std::unordered_set<std::shared_ptr<WriteRequest>> writeRequestSet_;
     
-    ConnectionAcceptCallBack connectionAcceptCallBack_;
-    ReadCompleteCallBack readCompleteCallBack_;
-    ConnectCallBack connectCallBack_;
-    CloseCallBack closeCallBack_;
+    ConnectionAcceptCallback connectionAcceptCallback_;
+    ReadCompleteCallback readCompleteCallback_;
+    WriteCompleteCallback writeCompleteCallback_;
+    ConnectCallback connectCallback_;
+    CloseCallback closeCallback_;
     
 };
     
