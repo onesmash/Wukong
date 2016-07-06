@@ -9,9 +9,9 @@
 #ifndef RenderModule_h
 #define RenderModule_h
 
-#include "Closure.h"
+#include "base/message_loop/Closure.h"
+#include "base/thread/Thread.h"
 #include "Module.h"
-#include "Thread.h"
 #include "Renderer.h"
 #include "Texture.h"
 
@@ -35,7 +35,7 @@ class RenderModule: public Module
     
 public:
     
-    typedef std::vector<Base::Closure> CommandBuffer;
+    typedef std::vector<WukongBase::Base::Closure> CommandBuffer;
     
     RenderModule();
     virtual ~RenderModule();
@@ -63,11 +63,11 @@ public:
     
 private:
     
-    void excute(const std::vector<Base::Closure>& commandBuffer);
+    void excute(const std::vector<WukongBase::Base::Closure>& commandBuffer);
     
-    void postTask(const Base::Closure& closure);
+    void postTask(const WukongBase::Base::Closure& closure);
     
-    std::shared_ptr<Base::Thread> thread_;
+    std::shared_ptr<WukongBase::Base::Thread> thread_;
     std::shared_ptr<Renderer> renderer_;
     
     CommandBuffer commandBuffer_;

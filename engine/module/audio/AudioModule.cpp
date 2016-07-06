@@ -7,7 +7,7 @@
 //
 
 #include "AudioModule.h"
-#include "MessageLoop.h"
+#include "base/message_loop/MessageLoop.h"
 
 namespace WukongEngine {
 namespace Runtime {
@@ -23,7 +23,7 @@ static void audioPlayCallback(int channel)
     
 AudioModule::AudioModule(): playingAudioSources_()
 {
-    thread_ = std::shared_ptr<Base::Thread>(new Base::Thread("Audio"));
+    thread_ = std::shared_ptr<WukongBase::Base::Thread>(new WukongBase::Base::Thread("Audio"));
 }
 
 AudioModule::~AudioModule()

@@ -8,7 +8,7 @@
 
 #include "WukongEngine.h"
 #include "Runtime_LuaBinding.h"
-#include "MessageLoop.h"
+#include "base/message_loop/MessageLoop.h"
 #include "lfs.h"
 #include "SDL.h"
 #include "Renderer.h"
@@ -22,7 +22,7 @@ extern "C" int luaopen_luatrace_c_hook(lua_State*);
 namespace WukongEngine {
 WukongEngine::WukongEngine(const std::string& name)
 {
-    thread_ = std::shared_ptr<Base::Thread>(new Base::Thread(name));
+    thread_ = std::shared_ptr<WukongBase::Base::Thread>(new WukongBase::Base::Thread(name));
 }
     
 WukongEngine::~WukongEngine()

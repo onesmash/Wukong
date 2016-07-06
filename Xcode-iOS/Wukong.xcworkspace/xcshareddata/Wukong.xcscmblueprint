@@ -13,6 +13,7 @@
     "53EB73BF8D8F93D990B4D2C839928547BA3D1E1A" : 0,
     "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : 0,
     "447AD3CCC28208570155B0DD879E8294185E28ED" : 0,
+    "DA9C55140B6FB29E68073E7B73D6F0032ABB6E74" : 0,
     "41A96FFEE5326FF71F2E6D6E9152F6107D98E57E" : 0,
     "A13D8C27565A57028B5564BFC04F06AC33216E5B" : 0,
     "7A9428317F5BEFFBDAE2F9C8327C5CA0BD2BE2D8" : 0
@@ -26,6 +27,7 @@
     "53EB73BF8D8F93D990B4D2C839928547BA3D1E1A" : "Wukong\/third_party\/ogg\/",
     "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : "Wukong\/third_party\/smpeg\/",
     "447AD3CCC28208570155B0DD879E8294185E28ED" : "Wukong\/",
+    "DA9C55140B6FB29E68073E7B73D6F0032ABB6E74" : "Wukong\/WukongBase\/",
     "41A96FFEE5326FF71F2E6D6E9152F6107D98E57E" : "Wukong\/third_party\/luatrace\/",
     "A13D8C27565A57028B5564BFC04F06AC33216E5B" : "Wukong\/engine\/module\/lua_matrix\/",
     "7A9428317F5BEFFBDAE2F9C8327C5CA0BD2BE2D8" : "Wukong\/third_party\/luasdl2\/"
@@ -73,6 +75,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/onesmash\/libuv.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BC09C09DC2853BA9B3A84860F78F2E9FD790D8C3"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/onesmash\/WukongBase.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DA9C55140B6FB29E68073E7B73D6F0032ABB6E74"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/onesmash\/luaprofiler.git",

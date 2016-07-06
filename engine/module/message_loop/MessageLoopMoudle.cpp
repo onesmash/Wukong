@@ -7,19 +7,19 @@
 //
 
 #include "MessageLoopModule.h"
-#include "MessageLoop.h"
+#include "base/message_loop/MessageLoop.h"
 
 namespace WukongEngine {
 namespace Runtime {
     
-void MessageLoopModule::postTask(const Base::Closure& closure)
+void MessageLoopModule::postTask(const WukongBase::Base::Closure& closure)
 {
-    Base::MessageLoop::current()->postTask(closure);
+    WukongBase::Base::MessageLoop::current()->postTask(closure);
 }
     
-void MessageLoopModule::postDelayTask(const Base::Closure& closure, double seconds)
+void MessageLoopModule::postDelayTask(const WukongBase::Base::Closure& closure, double seconds)
 {
-    Base::MessageLoop::current()->postDelayTask(closure, timeDeltaFromSeconds(seconds));
+    WukongBase::Base::MessageLoop::current()->postDelayTask(closure, timeDeltaFromSeconds(seconds));
 }
     
 }

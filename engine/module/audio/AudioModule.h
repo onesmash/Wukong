@@ -10,7 +10,7 @@
 #define AudioModule_h
 
 #include "Module.h"
-#include "Thread.h"
+#include "base/thread/Thread.h"
 #include "AudioSource.h"
 
 #include <unordered_map>
@@ -46,7 +46,7 @@ private:
     
     void stopInternal(const std::shared_ptr<AudioSource>& source);
     
-    std::shared_ptr<Base::Thread> thread_;
+    std::shared_ptr<WukongBase::Base::Thread> thread_;
     
     std::unordered_map<int, std::shared_ptr<AudioSource>> playingAudioSources_;
     

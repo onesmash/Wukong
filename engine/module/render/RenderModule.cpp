@@ -8,7 +8,7 @@
 
 #include "RenderModule.h"
 #include "Runtime.h"
-#include "MessageLoop.h"
+#include "base/message_loop/MessageLoop.h"
 #include "SDL.h"
 #include "SDL_ttf.h"
 #include "SDL_image.h"
@@ -18,7 +18,7 @@ namespace Runtime {
     
 RenderModule::RenderModule():commandBuffer_()
 {
-    thread_ = std::shared_ptr<Base::Thread>(new Base::Thread("Render"));
+    thread_ = std::shared_ptr<WukongBase::Base::Thread>(new WukongBase::Base::Thread("Render"));
 }
     
 RenderModule::~RenderModule()
@@ -79,7 +79,7 @@ void RenderModule::excute(const CommandBuffer& commandBuffer)
     }
 }
     
-void RenderModule::postTask(const Base::Closure& closure)
+void RenderModule::postTask(const WukongBase::Base::Closure& closure)
 {
     thread_->messageLoop()->postTask(closure);
 }

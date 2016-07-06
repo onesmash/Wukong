@@ -8,8 +8,7 @@
 
 #ifndef __AppCore__AppCore__
 #define __AppCore__AppCore__
-#include "Thread.h"
-#include "MessageLoop.h"
+#include "base/thread/Thread.h"
 #include <memory>
 #include <string>
 #include <list>
@@ -44,7 +43,7 @@ private:
     void startInternal();
     void stopInternal();
     
-    std::shared_ptr<Base::Thread> thread_;
+    std::shared_ptr<WukongBase::Base::Thread> thread_;
     lua_State *L_;
     EngineEnv env_;
     //std::list<Base::MessageLoop::MessageLoopObserver> observers_;

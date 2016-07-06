@@ -7,8 +7,8 @@
 //
 
 #include "SDL.h"
-#include "Thread.h"
-#include "MessageLoop.h"
+#include "base/thread/Thread.h"
+#include "base/message_loop/MessageLoop.h"
 #include "WukongEngine.h"
 #include <memory>
 #import <UIKit/UIKit.h>

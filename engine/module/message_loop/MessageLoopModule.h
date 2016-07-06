@@ -9,7 +9,7 @@
 #ifndef __AppCore_Module__MessageLoop_h
 #define __AppCore_Module__MessageLoop_h
 
-#include "Closure.h"
+#include "base/message_loop/Closure.h"
 #include "Time.h"
 #include "Module.h"
 
@@ -26,9 +26,9 @@ public:
     
     virtual std::string moduleName() const { return "runtime.messageloop"; }
     
-    void postTask(const Base::Closure& closure);
+    void postTask(const WukongBase::Base::Closure& closure);
     
-    void postDelayTask(const Base::Closure& closure, double seconds);
+    void postDelayTask(const WukongBase::Base::Closure& closure, double seconds);
     
 };
         
