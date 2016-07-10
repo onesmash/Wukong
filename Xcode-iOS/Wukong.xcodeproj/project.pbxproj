@@ -76,7 +76,6 @@
 		032F266C1CD5C4A70012E3B0 /* LAudioClip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F266A1CD5C4A70012E3B0 /* LAudioClip.cpp */; };
 		032F266F1CD5CB050012E3B0 /* AudioSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F266D1CD5CB050012E3B0 /* AudioSource.cpp */; };
 		032F26721CD5D1AE0012E3B0 /* LAudioSource.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 032F26701CD5D1AE0012E3B0 /* LAudioSource.cpp */; };
-		03380C5D1D2D4F3500CB6B4E /* libWukongBase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03380C5C1D2D4EE200CB6B4E /* libWukongBase.a */; };
 		034AED0C1CC7CB5500FE65AB /* Renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 034AED0A1CC7CB5500FE65AB /* Renderer.cpp */; };
 		035DE3601C9AF0E60032BE07 /* Matrix3.lua in Resources */ = {isa = PBXBuildFile; fileRef = 035DE35E1C9AF0E60032BE07 /* Matrix3.lua */; };
 		035DE3611C9AF0E60032BE07 /* Vector3.lua in Resources */ = {isa = PBXBuildFile; fileRef = 035DE35F1C9AF0E60032BE07 /* Vector3.lua */; };
@@ -173,18 +172,11 @@
 			remoteGlobalIDString = FD6526630DE8FCCB002AD96B;
 			remoteInfo = libSDL;
 		};
-		03380C5B1D2D4EE200CB6B4E /* PBXContainerItemProxy */ = {
+		0356BB081D325677005C95CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 03380C571D2D4EE100CB6B4E /* WukongBase.xcodeproj */;
+			containerPortal = 0356BB041D325677005C95CD /* WukongBase.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 031CF8A11D2D4ABC0020ABBE;
-			remoteInfo = WukongBase;
-		};
-		03380C5E1D2D4F4F00CB6B4E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03380C571D2D4EE100CB6B4E /* WukongBase.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 031CF8A01D2D4ABC0020ABBE;
 			remoteInfo = WukongBase;
 		};
 		03AB8E5C1C83311E0054C593 /* PBXContainerItemProxy */ = {
@@ -359,10 +351,10 @@
 		032F266E1CD5CB050012E3B0 /* AudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioSource.h; sourceTree = "<group>"; };
 		032F26701CD5D1AE0012E3B0 /* LAudioSource.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LAudioSource.cpp; sourceTree = "<group>"; };
 		032F26711CD5D1AE0012E3B0 /* LAudioSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LAudioSource.h; sourceTree = "<group>"; };
-		03380C571D2D4EE100CB6B4E /* WukongBase.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WukongBase.xcodeproj; path = "../WukongBase/Xcode-iOS/WukongBase.xcodeproj"; sourceTree = "<group>"; };
 		034AED031CC7BE0600FE65AB /* LTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTexture.h; sourceTree = "<group>"; };
 		034AED0A1CC7CB5500FE65AB /* Renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Renderer.cpp; sourceTree = "<group>"; };
 		034AED0B1CC7CB5500FE65AB /* Renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		0356BB041D325677005C95CD /* WukongBase.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = WukongBase.xcodeproj; path = "../WukongBase/Xcode-iOS/WukongBase.xcodeproj"; sourceTree = "<group>"; };
 		035DE35E1C9AF0E60032BE07 /* Matrix3.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Matrix3.lua; sourceTree = "<group>"; };
 		035DE35F1C9AF0E60032BE07 /* Vector3.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Vector3.lua; sourceTree = "<group>"; };
 		03868E371CCFA79100978B51 /* AudioClip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioClip.cpp; sourceTree = "<group>"; };
@@ -454,7 +446,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03380C5D1D2D4F3500CB6B4E /* libWukongBase.a in Frameworks */,
 				03E5F7EC1CF72F56009DF07F /* libSDL2_ttf.a in Frameworks */,
 				030404031CDCEB4E00564EE1 /* libSDL_gfx.a in Frameworks */,
 				03F5A8D31CC3D255009ED94F /* libSDL_mixer.a in Frameworks */,
@@ -777,6 +768,7 @@
 		0321FE5D1C7F434D00AC515D = {
 			isa = PBXGroup;
 			children = (
+				0356BB041D325677005C95CD /* WukongBase.xcodeproj */,
 				03AB8E6E1C83372F0054C593 /* MobileCoreServices.framework */,
 				03AB8E6B1C8336E60054C593 /* ImageIO.framework */,
 				03C0DD2E1C818E840009D98F /* Foundation.framework */,
@@ -794,7 +786,6 @@
 				03AB8E571C83311E0054C593 /* SDL_image.xcodeproj */,
 				03F5A8951CC3C3A9009ED94F /* SDL_mixer.xcodeproj */,
 				0321FEAA1C7F47BD00AC515D /* SDL.xcodeproj */,
-				03380C571D2D4EE100CB6B4E /* WukongBase.xcodeproj */,
 				0321FE681C7F434D00AC515D /* Wukong */,
 				0321FE671C7F434D00AC515D /* Products */,
 			);
@@ -848,19 +839,19 @@
 			path = audio;
 			sourceTree = "<group>";
 		};
-		03380C581D2D4EE100CB6B4E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				03380C5C1D2D4EE200CB6B4E /* libWukongBase.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		0346869A1CC5210800476E1B /* renderer */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = renderer;
+			sourceTree = "<group>";
+		};
+		0356BB051D325677005C95CD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0356BB091D325677005C95CD /* libWukongBase.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		03868D9B1CCF364C00978B51 /* third_party */ = {
@@ -987,7 +978,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				03380C5F1D2D4F4F00CB6B4E /* PBXTargetDependency */,
 				03E5F7EB1CF72F4C009DF07F /* PBXTargetDependency */,
 				030404051CDCEB5C00564EE1 /* PBXTargetDependency */,
 				03F5A8CF1CC3D1D5009ED94F /* PBXTargetDependency */,
@@ -1056,8 +1046,8 @@
 					ProjectRef = 03E5F7E31CF72F2E009DF07F /* SDL_ttf.xcodeproj */;
 				},
 				{
-					ProductGroup = 03380C581D2D4EE100CB6B4E /* Products */;
-					ProjectRef = 03380C571D2D4EE100CB6B4E /* WukongBase.xcodeproj */;
+					ProductGroup = 0356BB051D325677005C95CD /* Products */;
+					ProjectRef = 0356BB041D325677005C95CD /* WukongBase.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1082,11 +1072,11 @@
 			remoteRef = 0321FEAF1C7F47BD00AC515D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		03380C5C1D2D4EE200CB6B4E /* libWukongBase.a */ = {
+		0356BB091D325677005C95CD /* libWukongBase.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libWukongBase.a;
-			remoteRef = 03380C5B1D2D4EE200CB6B4E /* PBXContainerItemProxy */;
+			remoteRef = 0356BB081D325677005C95CD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		03AB8E5D1C83311E0054C593 /* libSDL2_image.a */ = {
@@ -1276,11 +1266,6 @@
 			name = SDL_gfx;
 			targetProxy = 030404041CDCEB5C00564EE1 /* PBXContainerItemProxy */;
 		};
-		03380C5F1D2D4F4F00CB6B4E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = WukongBase;
-			targetProxy = 03380C5E1D2D4F4F00CB6B4E /* PBXContainerItemProxy */;
-		};
 		03AB8E601C83315A0054C593 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = libSDL_image;
@@ -1359,7 +1344,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../WukongBase ../WukongBase/third_party/libuv/include/";
+				USER_HEADER_SEARCH_PATHS = "../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../WukongBase ../WukongBase/third_party/libuv";
 			};
 			name = Debug;
 		};
@@ -1401,7 +1386,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				USER_HEADER_SEARCH_PATHS = "../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../WukongBase ../WukongBase/third_party/libuv/include/";
+				USER_HEADER_SEARCH_PATHS = "../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../WukongBase ../WukongBase/third_party/libuv";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1420,7 +1405,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.netease.Wukong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../WukongBase/ ../WukongBase/third_party/libuv/include/";
+				USER_HEADER_SEARCH_PATHS = "../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../WukongBase/ ../WukongBase/third_party/libuv";
 			};
 			name = Debug;
 		};
@@ -1438,7 +1423,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.netease.Wukong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = "../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../WukongBase/ ../WukongBase/third_party/libuv/include/";
+				USER_HEADER_SEARCH_PATHS = "../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../WukongBase/ ../WukongBase/third_party/libuv";
 			};
 			name = Release;
 		};
