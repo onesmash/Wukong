@@ -23,7 +23,7 @@
     "90C3FD88F8002F902A5FDF9D64063244571F233C" : "Wukong\/third_party\/http_parser\/",
     "AD8EDAAE54E7490CA5E4BBD2E51D2579F59292FB" : "Wukong\/third_party\/nuklear\/",
     "EB5942DB83CC418D1AB4E62E189E06433BDFAB51" : "Wukong\/third_party\/luaprofiler\/",
-    "BC09C09DC2853BA9B3A84860F78F2E9FD790D8C3" : "Wukong\/third_party\/libuv\/",
+    "BC09C09DC2853BA9B3A84860F78F2E9FD790D8C3" : "Wukong\/WukongBase\/third_party\/libuv\/libuv\/",
     "53EB73BF8D8F93D990B4D2C839928547BA3D1E1A" : "Wukong\/third_party\/ogg\/",
     "d67a7ff0-0d32-0410-8e92-b5b47b70abfd++505" : "Wukong\/third_party\/smpeg\/",
     "447AD3CCC28208570155B0DD879E8294185E28ED" : "Wukong\/",

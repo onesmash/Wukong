@@ -129,7 +129,6 @@
 		03DE56A01C8DB38A00B2FF61 /* Transform.lua in Resources */ = {isa = PBXBuildFile; fileRef = 03DE569C1C8DB38A00B2FF61 /* Transform.lua */; };
 		03E042921CC672EC009ADA73 /* ResourceModule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E042901CC672EC009ADA73 /* ResourceModule.cpp */; };
 		03E042961CC676DD009ADA73 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E042941CC676DD009ADA73 /* Texture.cpp */; };
-		03E1234A1CFC787B002F9BF1 /* Hiragino Sans GB W3.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 03E123491CFC787B002F9BF1 /* Hiragino Sans GB W3.ttf */; };
 		03E1234D1CFC8237002F9BF1 /* Canvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E1234B1CFC8237002F9BF1 /* Canvas.cpp */; };
 		03E123501CFC8588002F9BF1 /* LCanvas.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 03E1234E1CFC8588002F9BF1 /* LCanvas.cpp */; };
 		03E5F7EC1CF72F56009DF07F /* libSDL2_ttf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E5F7E91CF72F2E009DF07F /* libSDL2_ttf.a */; };
@@ -419,7 +418,6 @@
 		03E042911CC672EC009ADA73 /* ResourceModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceModule.h; sourceTree = "<group>"; };
 		03E042941CC676DD009ADA73 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
 		03E042951CC676DD009ADA73 /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
-		03E123491CFC787B002F9BF1 /* Hiragino Sans GB W3.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Hiragino Sans GB W3.ttf"; path = "../../../Downloads/Hiragino Sans GB W3.ttf"; sourceTree = "<group>"; };
 		03E1234B1CFC8237002F9BF1 /* Canvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Canvas.cpp; sourceTree = "<group>"; };
 		03E1234C1CFC8237002F9BF1 /* Canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
 		03E1234E1CFC8588002F9BF1 /* LCanvas.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LCanvas.cpp; sourceTree = "<group>"; };
@@ -909,7 +907,6 @@
 		03DE56931C8DB35B00B2FF61 /* top_gun */ = {
 			isa = PBXGroup;
 			children = (
-				03E123491CFC787B002F9BF1 /* Hiragino Sans GB W3.ttf */,
 				03ED9D161CD64F9E00162A7A /* explosion.wav */,
 				03ED9D171CD64F9E00162A7A /* gameMusic.mp3 */,
 				03ED9D181CD64F9E00162A7A /* laserFire.wav */,
@@ -1012,6 +1009,7 @@
 				TargetAttributes = {
 					0321FE651C7F434D00AC515D = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = W49R76DKP3;
 					};
 				};
 			};
@@ -1147,7 +1145,6 @@
 				03CB95FA1CA2E5A000166ACA /* shipAnimation.png in Resources */,
 				030404C91CDCEC4C00564EE1 /* Cousine-Regular.ttf in Resources */,
 				03C250EF1CFB3BF3009ACDC3 /* UIFont.lua in Resources */,
-				03E1234A1CFC787B002F9BF1 /* Hiragino Sans GB W3.ttf in Resources */,
 				030404D11CDCEC4C00564EE1 /* Roboto-Bold.ttf in Resources */,
 				039D141B1CB6A5410076AD10 /* explosion.png in Resources */,
 				03210B721C7F492800AC515D /* Service.lua in Resources */,
@@ -1410,6 +1407,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W49R76DKP3;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					../third_party/lua/src,
@@ -1418,7 +1416,7 @@
 				);
 				INFOPLIST_FILE = Wukong/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.Wukong;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.onesmash.Wukong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../WukongBase ../WukongBase/third_party/libuv";
 			};
@@ -1428,6 +1426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W49R76DKP3;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					../third_party/lua/src,
@@ -1436,7 +1435,7 @@
 				);
 				INFOPLIST_FILE = Wukong/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netease.Wukong;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.onesmash.Wukong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "../third_party/luasdl2/src/ ../third_party/SDL/include ../third_party/SDL_mixer-1.2.12 ../third_party/SDL2_image-2.0.1 ../third_party/SDL2_gfx-1.0.1 ../third_party/SDL2_ttf-2.0.14 ../WukongBase ../WukongBase/third_party/libuv";
 			};

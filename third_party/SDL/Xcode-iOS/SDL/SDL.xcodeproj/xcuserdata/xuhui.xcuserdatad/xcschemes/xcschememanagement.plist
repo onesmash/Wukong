@@ -4,14 +4,14 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>PrepareXcodeProjectTemplate.xcscheme</key>
+		<key>PrepareXcodeProjectTemplate.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<true/>
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
-		<key>libSDL.xcscheme</key>
+		<key>libSDL.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>isShown</key>
 			<true/>

@@ -25,14 +25,14 @@ local ship = Ship()
 
 scene:addEntity(ship)
 
-local font = UIFont('Hiragino Sans GB W3.ttf', 13)
-local  label = UILabel(150, 150, 0, 0)
-label:setWorldSpace(false)
-label:setFont(font)
-label:setTextColor(100, 0, 0, 255)
-label:setText('Hello World!\n你好世界!')
-label:getTransform():setPosition(150, 0, 0)
-scene:getUIRoot():addSubview(label)
+--local font = UIFont('Hiragino Sans GB W3.ttf', 13)
+--local  label = UILabel(150, 150, 0, 0)
+--label:setWorldSpace(false)
+--label:setFont(font)
+--label:setTextColor(100, 0, 0, 255)
+--label:setText('Hello World!\n你好世界!')
+--label:getTransform():setPosition(150, 0, 0)
+--scene:getUIRoot():addSubview(label)
 
 WukongEngine:loadScene(scene, false)
 
